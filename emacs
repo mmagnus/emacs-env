@@ -16,6 +16,9 @@
 (add-to-list 'load-path "~/.emacs.d/USED/")
 
 
+(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
+
+
 ;;(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
 ;;----------------------------------------
