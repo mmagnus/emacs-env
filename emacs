@@ -9,7 +9,7 @@
 ;;
 ;; load from ~/.emacs.d
 ;;
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/USED/")
 
 ;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
 (setq bookmark-save-flag 1)
@@ -47,11 +47,14 @@
 (autoload 'javascript-mode "javascript" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 
+;; MOINMOIN off
+;;(require 'moinmoin-mode)
+;;(autoload 'moinmoin-mode "moinmoin" nil t)
+;;(setq auto-mode-alist (cons '("localhost\\." . moinmoin-mode) auto-mode-alist))
+;; ***
 
-(require 'moinmoin-mode)
-(autoload 'moinmoin-mode "moinmoin" nil t)
+
 ;;(add-to-list 'auto-mode-alist '("\\.mm\\'" . moinmoin-mode))
-(setq auto-mode-alist (cons '("localhost\\." . moinmoin-mode) auto-mode-alist))
 
 
 (require 'auto-complete)
@@ -59,13 +62,14 @@
 
 (require 'doc-view)
 
-(load "scroll-all.el")
+;; SCROLL-ALL OFF
+;;(load "scroll-all.el")
 
 
-;;django-mode
-(load "django-mode.el")
+;;django-mode OFF
+;;; (load "django-mode.el")
 ;;django-mode-html
-(load "django-html-mode.el")
+;;;(load "django-html-mode.el")
 
 
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
