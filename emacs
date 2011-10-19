@@ -11,13 +11,19 @@
 ;;
 (add-to-list 'load-path "~/.emacs.d/USED/")
 
-;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
-(setq bookmark-save-flag 1)
+
 ;;(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
-(add-to-list 'load-path "/home/magnus/.emacs.d/magit-1.0.0")  
+;;----------------------------------------
 
-(add-to-list 'load-path "~/.emacs.d/org-mode/lisp")
+
+(add-to-list 'load-path "/home/magnus/.emacs.d/USED/magit-1.0.0")  
+;;git
+(autoload 'magit-status "magit" nil t)
+
+;;----------------------------------------
+
+(add-to-list 'load-path "~/.emacs.d/org-mode/USED/lisp")
 (setq org-todo-keywords
        '((sequence "TODO" "IN_PROGRESS" "|" "DONE"  "MAYBE" "INFO")))
 
@@ -27,21 +33,18 @@
 (setq load-path (cons "~/.emacs.d/org-mode/contrib/lisp" load-path))
 (require 'org-install)
 
+
 ;;bookmark+
 ;;http://www.emacswiki.org/emacs/bookmark%2B-doc.el
+;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
+(setq bookmark-save-flag 1)
 (load "bookmark+.el")
 (require 'bookmark+)
 
 
-
 ;; ralee mode is good for RNA alignment editing
-(autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
-(setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
-
-;;git
-(autoload 'magit-status "magit" nil t)
-
-
+;(autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
+;(setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
 
 
 (autoload 'javascript-mode "javascript" nil t)
@@ -60,17 +63,23 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-(require 'doc-view)
+;----------------------------------------
+; OFF
+;(require 'doc-view)
+;----------------------------------------
+
 
 ;; SCROLL-ALL OFF
 ;;(load "scroll-all.el")
 
+;----------------------------------------
 
 ;;django-mode OFF
 ;;; (load "django-mode.el")
 ;;django-mode-html
 ;;;(load "django-html-mode.el")
 
+;----------------------------------------
 
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
@@ -78,77 +87,6 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
-;;
-;;   start macros
-;;
-(fset 'rr
-   [?\C-x ?h ?\M-x ?r ?e ?p ?l tab ?s ?t ?r tab return ?” return ?" return ?\C-x ?h ?\M-x ?r ?e ?p ?l tab ?s ?t ?r tab return ?“ return ?" return ?\C-x ?h ?\M-x ?r ?e ?p ?l tab ?s ?t ?r tab return ?‘ return ?' return ?\C-x ?h ?\M-x ?r ?e ?p ?l tab ?s ?t ?r tab return ?’ return ?' return])
-
-(fset 'mmtime
-   [?# ?# ?  ?m backspace ?  ?  ?m ?i ?n ?  ?\[ ?_ ?_ ?\] ?  ?s backspace ?S ?\[ ?  ?\] ?M ?\[ ?  ?\] ?A ?\[ ?  ?\] ?R ?\[ ?  ?\] ?T ?\[ ?  ?\] ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?# ?# ?  ?\C-e ?  ?# ?# ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-b ?\C-f ?\C-f ?\C-d ?\C-d])
-;;?\M-x ?e ?n ?d ?- ?k ?d tab backspace ?b tab]) 
-;;min [__] ## S[ ]M[ ]A[ ]R[ ]T[ ] ##])
-
-
-(fset 'apt
-   [<<aptX()>>\C-b\C-b\C-b])
-
-(fset 'mmpython
-         [?{ ?{ ?{ return ?# ?! ?c ?o ?d ?e ?  ?p ?y ?t ?h ?o ?n return return ?} ?} ?} ?\C-p])
-
-(fset 'cc
-   [?# return tab ?# return tab ?# up ?  ?  ?  ? ])
-
-(fset 'mmimginsert
-   [return ?{ ?{ ?  S-insert ?  ?} ?} return return])
-
-;; code  
-(fset 'mmcode
-   [?{ ?{ ?{ return return ?} ?} ?} return  up up])
-  
-(fset 'mmcodeinsert
-   [?{ ?{ ?{ return S-insert return ?} ?} ?} return])
-  
-(fset 'mmimg
-   [?{ ?{ ?  ?  ?} ?} return up right right right left])
-
-(fset 'mmattachmentimginsert
-   [?{ ?{ ?a ?t ?t ?a ?c ?h ?m ?e ?n ?t ?: S-insert ? ?} ?} return])
- 
-(fset 'mmattachmentinsert
-   [?[ ?[ ?a ?t ?t ?a ?c ?h ?m ?e ?n ?t ?: S-insert ? ?] ?] return])
-  
-(fset 'mmbold
-   [?\\ backspace ?' ?' ?' ?' ?' ?' left left left])
-
-(fset 'mmh2
-   [?\\ backspace ?= ?= ?  ?  ?  ?= ?= left left left])
-(fset 'mmh1
-   [?\\ backspace ?= ?  ?  ?= left left])
-
-(fset 'mmstar
-   [?\\ backspace ?{ ?* ?} return])
-
-(fset 'mmstar
-   [?\\ backspace ?{ ?* ?} ])
-
-(fset 'mmul
-   [?\\ backspace ? ?* ? ])
-
-(fset 'mmlinks
-   [?= ?  ?L ?i ?n ?k ?s ?  ?= return ?  ?* ? ])
-
-(fset 'mmhand
-   [? ?{ ?O ?K ?} ? ])
-(fset 'mmdone
-   [? ?( ?. ?/ ?) ? ])  
-  
-(fset 'mmscreenshotsinsert
-   [?= ?  ?S ?c ?r ?e ?e ?n ?s ?h ?o ?t ?s ?  ?= return ?{ ?{ ?  S-insert ?  S-return backspace ?} ?} return return])
-
-;;
-;;   end macros
-;;
 
 
 
