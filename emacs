@@ -51,6 +51,11 @@
 ;; (global-srecode-minor-mode 1)
 
 
+
+(add-to-list 'load-path
+                     "/home/magnus/Dropbox/sync/emacs.d/ecb-2.40")
+(require 'ecb)
+
 ;;
 ;; load from ~/.emacs.d
 ;;
