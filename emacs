@@ -1,11 +1,11 @@
+;;(setq org-todo-keywords '((sequence "TODO" "|" "DONE" "MAYBE" "REF")))
+
 
 ;;time
 (display-time)
 
 ;; save desktop http://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html # siagle sie pyta kur***
 ;;(desktop-save-mode 1)
-
-
 
 
 ;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
@@ -16,6 +16,17 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
+(add-to-list 'load-path "/home/magnus/.emacs.d/magit-1.0.0")  
+
+(add-to-list 'load-path "~/.emacs.d/org-mode/lisp")
+(setq org-todo-keywords
+       '((sequence "TODO" "IN_PROGRESS" "|" "DONE"  "MAYBE" "INFO")))
+
+;; instalacja moja own
+(add-to-list 'load-path "~/.emacs.d/org-mode/lisp")
+(setq load-path (cons "~/.emacs.d/org-mode/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/org-mode/contrib/lisp" load-path))
+(require 'org-install)
 
 ;;bookmark+
 ;;http://www.emacswiki.org/emacs/bookmark%2B-doc.el
@@ -310,10 +321,11 @@
   ;; If there is more than one, they won't work right.
  '(current-language-environment "UTF-8")
  '(default-input-method "rfc-1345")
- '(display-time-mode t))
+ '(display-time-mode t)
+ '(org-agenda-files (quote ("~/Documents/GTD/gtd.org"))))
 
 ;; http://interglacial.com/~sburke/pub/emacs/sburke_dot_emacs.config
-;---------------------------------------------------------------------------
+;--------------------------------------------------------------------------
 ; Un-fillers:
 
 (defun unfill-paragraph ()
@@ -341,4 +353,4 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "bitstream" :family "Courier 10 Pitch")))))
+ '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 83 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
