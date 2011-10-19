@@ -8,6 +8,32 @@
 #
 alias fortXtoEonFLV='for.sh tXtoEON.sh flv'
 alias fortXtoEonFLVCROP='for.sh tXtoEON.sh flvcrop'
+
+# **PATH**
+PATH=$PATH:/home/magnus/django/metaserver/MetaPredictor/tools/TMHMM2.0c/bin
+PATH=$PATH:/home/magnus/bin
+PATH=$PATH:/home/magnus/workspace
+PATH=$PATH:/home/magnus/workspace/myutil
+PATH=$PATH:/home/magnus/bin/pythoniczki
+PATH=$PATH:/home/magnus/workspace/pythonlib
+PATH=$PATH:/home/magnus/workspace/lingX/
+PATH=$PATH:/home/magnus/rna/simRNA/SimRNA-current/
+PATH=$PATH:/home/magnus/rna/RASP/rasp-fd-1.0/bin/
+PATH=$PATH:/home/magnus/Dropbox/workspace/ma
+PATH=$PATH:/home/magnus/Dropbox/bin/
+PATH=$PATH:/home/magnus/Dropbox/workspace/bin
+PATH=$PATH:/home/magnus/Dropbox/workspace/myutil/
+PATH=$PATH:/home/magnus/gitmagnus/myutils/
+PATH=$PATH:/home/magnus/Dropbox/workspace/myutil/pdf
+PATH=$PATH:/home/magnus/Dropbox/workspace/mmfinder/
+PATH=$PATH:/home/magnus/Dropbox/workspace/faktydownloader/
+PATH=$PATH:/home/magnus/gitmagnus/pubmexproject/pubmexapp/libs/pdfnet/pdf2text
+PATH=$PATH:/home/magnus/apps/FRD_0.85u1-final
+PATH=$PATH:/home/magnus/gitmagnus/pubmexproject/pubmexapp/libs/pubmex/
+PATH=$PATH:/home/magnus/Dropbox/workspace/hamsterapps/
+PATH=$PATH:/home/magnus/rna/apps/rosetta3.3_pack/rosetta_source
+
+
 alias fortXtoEonWMV='for.sh tXtoEON.sh wmv'
 alias fortXtoEonAVI='for.sh tXtoEON.sh avi '
 #
@@ -44,9 +70,18 @@ alias mm_lingXonline='screen -S lingX -md python /home/magnus/django/lingXprojec
 #PYTHONPATH=$PYTHONPATH:/home/magnus/django/testproject/
 #PYTHONPATH=$PYTHONPATH:/home/magnus/django/testproject/testapp/scripts/
 PYTHONPATH=$PYTHONPATH:/home/magnus/workspace
-PYTHONPATH=$PYTHONPATH:/home/magnus/workspace/myutilspy/
+PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/myutilspy/
+PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/myutil/
+PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/mmscikit/
+PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/
 PYTHONPATH=$PYTHONPATH:/home/magnus/django/metaserver/MetaPredictor/libs
 PYTHONPATH=$PYTHONPATH:/home/magnus/workspace/lingX
+PYTHONPATH=$PYTHONPATH:/home/magnus/gitmagnus/pubmexproject/pubmexapp/libs/pubmex
+
+PYTHONPATH=$PYTHONPATH:/home/magnus/rna/
+PYTHONPATH=$PYTHONPATH:/home/magnus/rna/rna_metaserver/
+
+
 PYTHONPATH=$PYTHONPATH:/home/magnus/django/metaserver/MetaPredictor/scripts/
 PYTHONPATH=$PYTHONPATH:/home/magnus/django/metaserver/MetaPredictor/scripts/mp_modules/
 
@@ -54,6 +89,16 @@ PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.6/dist-packages/
 PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.6/dist-packages/simtk
 PYTHONPATH=$PYTHONPATH:/home/magnus/rna/NAST/PyOpenMM-3.0.0/
 PYTHONPATH=$PYTHONPATH:/usr/lib/python2.4/site-packages/
+
+OPENMM_INCLUDE_PATH="/home/magnus/rna/OpenMM3.0-Linux32/include"
+OPENMM_LIB_PATH="/home/magnus/rna/OpenMM3.0-Linux32/"
+export OPENMM_INCLUDE_PATH
+export OPENMM_LIB_PATH
+
+export LD_LIBRARY_PATH=/usr/local/openmm/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/magnus/rna/__RNABuilder.2_2.OSX-Ubuntu_installer:$LD_LIBRARY_PATH
+
+export OPENMM_PLUGIN_DIR=/usr/local/openmm/lib/plugins
 #
 #  to tez jest chyba nie potrzebne
 #
@@ -66,11 +111,9 @@ PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/hamsterplan/
 #  to jest potrzebne :)
 #
 #DJANGO_SETTINGS_MODULE='lingXproject.settings'
-DJANGO_SETTINGS_MODULE='hamsterprj.settings'
-export DJANGO_SETTINGS_MODULE
+#DJANGO_SETTINGS_MODULE='hamsterprj.settings'
+#export DJANGO_SETTINGS_MODULE
 #
-EDITOR="/usr/bin/emacs23"
-export EDITOR
 
 export set CDPATH=.:~:/home/magnus/stuff/:/home/magnus/stuff/downloads/completed/:~/stuff/video:/home/magnus/stuff/downloads/tmps 
 #
@@ -118,7 +161,7 @@ alias gogetwav='cd /home/magnus/workspace/lingX/old-ones/getWav/'
 alias gors='cd /home/magnus/stuff/downloads/completed/rs/'
 alias gothat='cd /home/magnus/stuff/downloads/completed/rs/That70s06'
 alias goX='cd /home/magnus/stuff/downloads/completed/X/'
-alias dc='cd /home/magnus/stuff/downloads/completed/'
+alias dc='cd /home/maisognus/stuff/downloads/completed/'
 alias gofunnybox='cd /home/magnus/workspace/funnybox'
 alias gomt='cd /home/magnus/stuff/workspace/masterthesis/master2010/'
 #
@@ -126,8 +169,7 @@ alias dff='df -x tmpfs'
 #
 #    p2p
 #
-alias rapidshare="xclip -o > temp.ff ; echo '-----';cat temp.ff; cp -v temp.ff rapidshare.filelist.txt;echo;echo '-----';  rsdownloader temp.ff ; echo '#
- delete temprary file: temp.ff ?'; rm temp.ff"
+
 #
 #w
 #
@@ -147,6 +189,10 @@ alias mount_force='sudo mount -t ntfs-3g /dev/sdb1 /media/hp -o force'
 alias mount_force_sdd='sudo mount -t ntfs-3g /dev/sdd1 /media/hp -o force'
 alias mount_force2='sudo mkdir /media/hp || sudo mount -t ntfs-3g /dev/sdb2 /media/hp -o force'
 alias mount_collins='sudo mount /home/magnus/apps/collins/dictionary.collins.iso /media/collins -t iso9660 -o loop'
+alias mount_maximus="sshfs 192.168.2.44:/home/magnus /home/magnus/maximus/"
+alias mount_malibu="sshfs malibu:/home/magnus /home/magnus/malibu"
+alias mount_malibu="sshfs peyote:/home/magnus /home/magnus/peyote"
+
 #
 alias connect='ssh -X -v 192.168.0.10'
 alias mm_tomeksStation='ssh -X -v 150.254.122.228'
@@ -305,17 +351,6 @@ export BLASTDIR='/usr/bin/'
 
 #
 
-#
-
-PATH=$PATH:/home/magnus/django/metaserver/MetaPredictor/tools/TMHMM2.0c/bin
-PATH=$PATH:/home/magnus/bin
-PATH=$PATH:/home/magnus/workspace
-PATH=$PATH:/home/magnus/workspace/myutil
-PATH=$PATH:/home/magnus/bin/pythoniczki
-PATH=$PATH:/home/magnus/workspace/pythonlib
-PATH=$PATH:/home/magnus/workspace/lingX/
-PATH=$PATH:/home/magnus/rna/simRNA/SimRNA-current/
-PATH=$PATH:/home/magnus/Dropbox/workspace/
 #R
 export RHOME='/usr/local/lib/R'
 
@@ -481,11 +516,14 @@ alias mm_sshmagnus="ssh -X vpn-magnus.genesilico.pl"
 alias gomp_modules="cd /home/magnus/django/metaserver/MetaPredictor/scripts/mp_modules/"
 alias mm_sernikfullscreen="rdesktop -a 16 -k pl -f sernik"
 alias mm_sernik="rdesktop -a 16 -k pl -g 1200x800 sernik &"
+alias mm_sernik="echo 'password: Pit**';rdesktop -a 16 -k pl -g 1280x990 sernik" ## bo ramka okna dochodzi do tego
 alias mm_freerapid="/home/magnus/apps/FreeRapid-0.83u1/frd.sh"
 alias goga="cd /home/magnus/workspace/python-ga/python-genetics/"
 alias mm_rename_ulicznikzadyma="rename 's/ULICZNIK.net-ZADYMA.//' *"
 alias goscripts=" cd /home/magnus/django/metaserver/MetaPredictor/scripts"
 alias godscripts="cd /home/magnus/django/metaserver-dataset/scripts"
+alias golabbook="cd /home/magnus/Dropbox/labbook/labbook/"
+alias golabbookfiles="cd /home/magnus/Dropbox/labbook/labbook/files"
 
 alias killstreamripper="pkill streamripper"
 alias mm_start_bioinfodict="python /home/magnus/workspace/bioinfo-dict/moin-1.9.3/wikiserver.py"
@@ -499,7 +537,7 @@ alias mpdo_sth_for_all_jobs="python do_sth_for_all_jobs.py 1 1 1 1 1 1 1 1"
 
 alias mm_lingXonlinestart="python manage.py runserver 0.0.0.0:8989"
 alias mm_magnus="ssh -X vpn-magnus.genesilico.pl"
-alias gohamsterapp="cd /home/magnus/Dropbox/workspace/hamsterplan/"
+alias gohamsterapp="cd /home/magnus/Dropbox/workspace/hamsterapps"
 alias mm_akademik="ssh 85092616739@www.sds.uw.edu.pl"
 alias hmlist='hamster-cli list'
 
@@ -530,6 +568,8 @@ alias mm_iconv="echo 'iconv -f latin2 -t utf-8 That.txt  -o output'"
 alias mm_eon="echo 'mencoder -oac mp3lame/copy -ovc xvid -vf scale=400:240 -xvidencopts bitrate=300 -sub $subtitles -o out.avi in.avi'"
 alias mm_redirection="find / -name commands.py 2>/dev/null"
 alias mm_make_iso="dd if=/dev/cdrom of=~/x
+alias mmprawo_jazdy='sudo mount Prawo.jazdy.Gazeta.Wyborcza.and.Eurotest.2011.iso /media/iso -t iso9660 -o loop'
+
 .iso"
 #
 #     pwsafe
@@ -554,6 +594,8 @@ PYTHONPATH=$PYTHONPATH:/home/magnus/workspace/myutilspy/
 PYTHONPATH=$PYTHONPATH:/home/magnus/Dropbox/workspace/myutilspy/
 PYTHONPATH=$PYTHONPATH:/home/magnus/workspace/lingX
 PYTHONPATH=$PYTHONPATH:/home/magnus/django/rexproject/rexapp/utils/ 
+PYTHONPATH=$PYTHONPATH:/srv/www/django/
+
 #
 #  to tez jest chyba nie potrzebne
 #
@@ -564,9 +606,9 @@ PYTHONPATH=$PYTHONPATH:/home/magnus/django/lingXproject/lingXapp/
 #  to jest potrzebne :)
 #
 #DJANGO_SETTINGS_MODULE='lingXproject.settings'
-#export DJANGO_SETTINGS_MODULE
+DJANGO_SETTINGS_MODULE='rexprj.settings'
+export DJANGO_SETTINGS_MODULE
 #
-EDITOR="/usr/bin/emacs22-gtk"
 export set CDPATH=.:~:/home/magnus/stuff/:/home/magnus/stuff/downloads/completed/:~/stuff/video:/home/magnus/stuff/downloads/tmps 
 #
 #    powersaved energy
@@ -697,7 +739,9 @@ alias moin='screen -S moin -md moinfindandrun.sh'
 #     emacs 
 #
 SVN_EDITOR='emacs -rv -nw --color=never'
-EDITOR='emacs -rv -nw --color=never'
+#EDITOR='emacs -rv -nw --color=never'
+EDITOR='gedit'
+export EDITOR
 export SVN_EDITOR
 export PYTHONPATH
 #
@@ -744,6 +788,7 @@ alias mm_trojkatotem='totem http://stream.polskieradio.pl/program3'
 alias mm_ugandaradio='mplayer http://www.connectuganda.com/lib/nowplaying/playlists/connectuganda-low.m3u'
 alias mm_bbc='totem http://www.bbc.co.uk//worldservice/meta/tx/nb/live_news_au_nb.asx'
 #alias mm_bbc="smplayer -add-to-playlist http://www.bbc.co.uk/worldservice/meta/tx/nb/live/eneuk.pls"
+alias mm_cal="ncal -bM"
 #
 ##########
 alias predict='./predict.py VW46S'
@@ -928,6 +973,8 @@ alias mm_mendeley_to_maximux="rsync -uvr '/home/magnus/MyMendeleyLibrary/' 'maxi
 alias mm_mendeley_from_maximus="rsync -uvr 'maximus:/home/magnus/MyMendeleyLibrary/' '/home/magnus/MyMendeleyLibrary/'"
 
 alias mm_netbook='ssh -X 192.168.2.95'
+alias mm_netbookvnc='vncviewer 192.168.2.95 &'
+
 
 alias gm="gmplayer "
 alias lingXonline="screen -mdS lingXonline /home/magnus/bin/start_lingXonline.sh"
@@ -987,7 +1034,9 @@ alias wwbuild="R CMD build weightless"
 alias wwinstall="sudo R CMD INSTALL weightless_0.1.tar.gz"
 
 alias gomaster="cd /home/magnus/workspace/masterthesis/master2010"
-alias gorex="cd /home/magnus/django/rex"
+alias gorexproject="cd /home/magnus/django/rex/rexproject"
+alias gorexapp="cd /home/magnus/django/rex/rexproject/rexapp"
+alias gogtd="cd /home/magnus/Dropbox/Documents/GTD"
 
 alias smplayeradd="smplayer -add-to-playlist "
 
@@ -1015,7 +1064,7 @@ alias mm_openvpn_deamon="sudo openvpn  --cd .openvpn/ --config openvpn-magnus-fi
 alias mm_switchoff30="sudo shutdown -h 30"
 alias mm_switchoff90="sudo shutdown -h 90"
 
-alias mm_maximus="ssh -X 192.168.2.94"
+alias mm_maximus="ssh -X maximus"
 alias mm_tuxguitar="timidity -iA -Os"
 alias mm_isomount="mount -o loop -t iso9660 file.iso /mnt/test"
 alias mm_mountiso="mount -o loop -t iso9660 file.iso /mnt/test"
@@ -1031,4 +1080,21 @@ export RASP="/home/magnus/rna/RASP/rasp-fd-1.0/"
 alias mm_pydoc=" cd ~/django/metaserver/MetaPredictor/scripts/; pydoc -p 9998"
 alias mm_restartdropbox="dropbox stop && dropbox start"
 alias mm_runrex="cd /home/magnus/django/rex/rexproject; python manage.py runserver"
+alias mmsearchinfiles="grep "
+alias mm_maximusvncviewer="vncviewer 192.168.2.66"
+alias mm_tee="ls -al | tee poop.out"
+alias mm_helptee="ls -al | tee poop.out"
+alias mm_gogtd="/home/magnus/Dropbox/Documents/GTD/"
+alias mmyt="youtubedownloader.py.xclip.sh"
+alias mmdownloader="plowdown `xclip -o`"
+#alias rapidshare="xclip -o > temp.ff ; echo '-----';cat temp.ff; cp -v temp.ff #rapidshare.filelist.txt;echo;echo '-----';  rsdownloader temp.ff ; echo '#
+# delete temprary file: temp.ff ?'; rm temp.ff"
+
+alias goworkspace="cd /home/magnus/Dropbox/workspace"
+alias gommfinder="cd /home/magnus/Dropbox/workspace/mmfinder"
+alias gommscikit="cd /home/magnus/Dropbox/workspace/mmscikit"
+alias gofaktydownloader="cd /home/magnus/Dropbox/workspace/faktydownloader/"
+alias gomyutils="cd /home/magnus/Dropbox/workspace/myutil"
+
+alias subloc="ssh -X subloc"
 
