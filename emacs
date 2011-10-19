@@ -326,6 +326,7 @@
  '(current-language-environment "UTF-8")
  '(default-input-method "rfc-1345")
  '(display-time-mode t)
+ '(ecb-options-version "2.40")
  '(org-agenda-files (quote ("~/Documents/GTD/gtd.org"))))
 
 ;; http://interglacial.com/~sburke/pub/emacs/sburke_dot_emacs.config
