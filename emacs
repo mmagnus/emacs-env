@@ -79,8 +79,6 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
 ;;
-;;
-;;
 ;;   start macros
 ;;
 (fset 'rr
