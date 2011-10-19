@@ -1,20 +1,19 @@
 ;;(setq org-todo-keywords '((sequence "TODO" "|" "DONE" "MAYBE" "REF")))
 
-
 ;;time
 (display-time)
 
 ;; save desktop http://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html # siagle sie pyta kur***
 ;;(desktop-save-mode 1)
 
-
-;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
-(setq bookmark-save-flag 1)
 ;;
 ;; load from ~/.emacs.d
 ;;
-(add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
+(add-to-list 'load-path "~/.emacs.d")
+
+;;http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
+(setq bookmark-save-flag 1)
+;;(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
 (add-to-list 'load-path "/home/magnus/.emacs.d/magit-1.0.0")  
 
