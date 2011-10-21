@@ -65,6 +65,8 @@
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
 
+(require 'sr-speedbar)
+;;  (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
 ;;(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
 ;;----------------------------------------
