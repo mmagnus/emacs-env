@@ -1,3 +1,8 @@
+;;
+;; load from ~/.emacs.d
+;;
+(add-to-list 'load-path "~/.emacs.d/USED/")
+
 ;;(setq org-todo-keywords '((sequence "TODO" "|" "DONE" "MAYBE" "REF")))
 
 ;;time
@@ -56,10 +61,6 @@
                      "/home/magnus/.emacs.d/ecb-2.40")
 (require 'ecb)
 
-;;
-;; load from ~/.emacs.d
-;;
-(add-to-list 'load-path "~/.emacs.d/USED/")
 
 
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
