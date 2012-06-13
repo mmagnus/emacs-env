@@ -40,6 +40,13 @@
 ;;----------------------------------------
 
 
+;; yasnippet https://github.com/capitaomorte/yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/USED/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+;;----------------------------------------
+
 ;; Load CEDET.
 ;; See cedet/common/cedet.info for configuration details.
 (load-file "~/.emacs.d/cedet-1.0/common/cedet.el")
@@ -181,9 +188,6 @@
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 ;; 
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets")
 
 
 
