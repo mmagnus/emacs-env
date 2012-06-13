@@ -89,8 +89,9 @@
 
 (add-to-list 'load-path
                      "/home/magnus/.emacs.d/ecb-2.40")
-(require 'ecb)
-
+;;(require 'ecb)
+;; not it is super fast !!!
+(require 'ecb-autoloads)
 
 
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-m" 'newline-and-indent)))
