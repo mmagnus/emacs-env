@@ -98,7 +98,6 @@
 
 (require 'sr-speedbar)
 ;;  (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
-;;(add-to-list 'load-path "~/.emacs.d/ralee-0.61/elisp")
 
 ;;----------------------------------------
 
@@ -146,9 +145,10 @@
 (require 'bookmark+)
 
 
-;; ralee mode is good for RNA alignment editing
-;(autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
-;(setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
+;; ralee mode is good for RNA alignment editing # http://personalpages.manchester.ac.uk/staff/sam.griffiths-jones/software/ralee/
+(add-to-list 'load-path "~/.emacs.d/USED/ralee-0.7/elisp")
+(autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
+(setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
 
 
 (autoload 'javascript-mode "javascript" nil t)
