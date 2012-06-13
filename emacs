@@ -8,6 +8,12 @@
 ;;time
 (display-time)
 
+
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+
 ;; save desktop http://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html # siagle sie pyta kur***
 ;;(desktop-save-mode 1)
 ;;----------------------------------------
