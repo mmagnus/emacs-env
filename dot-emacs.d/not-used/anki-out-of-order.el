@@ -26,7 +26,7 @@
 
 ;; User vars
 
-(defvar anki-path "/home/resolve/Lib/code/libanki"
+(defvar anki-path "'/home/magnus/Dropbox/@@@files@@@/anki-1.2.9/libanki'"
   "*The path to the anki library directory.")
 
 (defvar anki-server-cmd "from anki.emacs import Server; Server().mainLoop()"
