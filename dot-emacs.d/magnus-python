@@ -1,0 +1,66 @@
+;; # general
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+;; # popup
+(add-to-list 'load-path "/home/magnus/.emacs.d/plugins/popup-el")
+(require 'popup)
+
+;; # pymac
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+
+
+;; # Initialize Rope                                                                                             
+(setq ropemacs-global-prefix "C-c r") ;; fix https://groups.google.com/forum/?fromgroups#!topic/rope-dev/PgLNS02hcnM
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
+
+;; # auto-complete
+(add-to-list 'load-path "/home/magnus/.emacs.d/plugins/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/magnus/.emacs.d/plugins/ac-dict")
+(ac-config-default)
+
+
+;; # yasnippet https://github.com/capitaomorte/yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+
+
+;; # flymake
+(when (load "flymake" t) 
+     (defun flymake-pyflakes-init () 
+       (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                          'flymake-create-temp-inplace)) 
+      (local-file (file-relative-name 
+               temp-file 
+               (file-name-directory buffer-file-name)))) 
+         (list "pyflakes" (list local-file))))
+
+    (add-to-list 'flymake-allowed-file-name-masks 
+         '("\\.py\\'" flymake-pyflakes-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+
+;; # flymake-cursor
+;; enhancements for displaying flymake errors http://www.emacswiki.org/emacs/FlymakeCursor
+(require 'flymake-cursor)
+
+
+(require 'sr-speedbar)
+;;(global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+
+
+;; # magit
+(autoload 'magit-status "magit" nil t)
