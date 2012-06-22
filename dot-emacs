@@ -78,6 +78,9 @@
     (require 'helm-config)
 
 
+;; # markdown-mode: automatically load it # work
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; # lisp-mode: automatically load it # work
 (add-to-list 'auto-mode-alist '("\\dot-emacs\\'" . lisp-mode))
 (add-to-list 'auto-mode-alist '("\\magnus-python\\'" . lisp-mode))
