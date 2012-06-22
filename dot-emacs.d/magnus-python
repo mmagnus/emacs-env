@@ -4,6 +4,16 @@
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 
+;; # python-mode options
+(setq
+ py-python-command "ipython"
+ py-indent-offset 4
+ py-block-comment-prefix "##"
+ py-temp-directory "/tmp"
+ py-beep-if-tab-change t
+ )
+
+
 ;; # popup
 (add-to-list 'load-path "/home/magnus/.emacs.d/plugins/popup-el")
 (require 'popup)
