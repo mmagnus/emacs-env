@@ -74,6 +74,9 @@
 (autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
 (setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
 
+(add-to-list 'load-path "~/.emacs.d/plugins/helm")
+    (require 'helm-config)
+
 ;; doc-view
 (require 'doc-view)
 
