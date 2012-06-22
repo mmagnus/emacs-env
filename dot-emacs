@@ -73,3 +73,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/ralee-0.7/elisp")
 (autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
 (setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
+
+;; doc-view
+(require 'doc-view)
+

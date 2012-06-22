@@ -23,6 +23,8 @@
 
     Tassilo Horn recently developed doc-view.el: an Emacs utility for viewing PDF/PS/DVI files in Emacs. 
 
+http://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html
+
 ## auto-complete: manually
 
     Install by make install:
