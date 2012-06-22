@@ -10,6 +10,7 @@
     pyflakes - passive checker of Python programs
     pylint - python code static checker and UML diagram generator
     magit - An Emacs interface for Git
+    w3m-el - simple Emacs interface of w3m
 
 ## org-mode: out of order
 
@@ -24,6 +25,12 @@
     Tassilo Horn recently developed doc-view.el: an Emacs utility for viewing PDF/PS/DVI files in Emacs. 
 
 http://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html
+
+Footnotes
+
+[1] gs is a hard requirement. For DVI files, dvipdf or dvipdfm is needed. For OpenDocument and Microsoft Office documents, the unoconv tool is needed.
+
+[2] The needed external tools for the document type must be available, and Emacs must be running in a graphical frame and have PNG image support. If any of these requirements is not fulfilled, Emacs falls back to another major mode.
 
 ## auto-complete: manually
 
