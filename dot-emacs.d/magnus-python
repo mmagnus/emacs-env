@@ -89,9 +89,9 @@
   (highlight-lines-matching-regexp "^[ 	]*import ipdb; ipdb.set_trace()"))
 ;;(define-key py-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
 ;;(defvar py-mode-map python-mode-map)
-(setq py-mode-map python-mode-map)
-(define-key python-mode-map "\t" 'python-add-breakpoint)
-(global-define-key (kbd "C-c C-t") 'python-add-breakpoint)
+;;(setq py-mode-map python-mode-map)
+;;(define-key python-mode-map "\t" 'python-add-breakpoint)
+;;(global-define-key (kbd "C-c C-t") 'python-add-breakpoint)
 
 ;; autopair
 (require 'autopair)
