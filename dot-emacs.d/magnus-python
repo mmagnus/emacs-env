@@ -29,6 +29,7 @@
 (add-to-list 'ac-dictionary-directories "/home/magnus/.emacs.d/plugins/ac-dict")
 (ac-config-default)
 
+(setq ac-use-comphist nil)
 
 ;; # yasnippet https://github.com/capitaomorte/yasnippet
 (add-to-list 'load-path
