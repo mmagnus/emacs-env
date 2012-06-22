@@ -7,6 +7,10 @@
 (global-font-lock-mode t)
 
 
+;; # save desktop http://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html # siagle sie pyta kur***
+(desktop-save-mode 1)
+
+
 ;; # color (set-face-background 'highlight "#FFF498")  ;; orange
 (global-hl-line-mode t)
 
