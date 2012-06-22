@@ -77,6 +77,11 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/helm")
     (require 'helm-config)
 
+
+;; # lisp-mode: automatically load it # work
+(add-to-list 'auto-mode-alist '("\\dot-emacs\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\magnus-python\\'" . lisp-mode))
+
 ;; doc-view
 (require 'doc-view)
 
