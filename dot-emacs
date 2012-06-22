@@ -15,6 +15,7 @@
 (global-hl-line-mode t)
 
 
+(setq column-number-mode t)
 ;; # python el
 (load-library "magnus-python")
 
