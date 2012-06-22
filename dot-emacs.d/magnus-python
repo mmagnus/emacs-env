@@ -122,3 +122,8 @@
 
 ;; # ipython
 (require 'ipython)
+
+
+;;
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-nav/emacs-nav-49/")
+(require 'nav)
