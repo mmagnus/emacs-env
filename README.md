@@ -1,5 +1,5 @@
 # Magnus emacs env
-# version 0.2
+# version 0.3
 
 # Pkg installed from repo
 
