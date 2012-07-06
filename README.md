@@ -16,7 +16,7 @@
 
 Could be org-mode from pkg, however its very old!
 
-http://orgmode.org/manual/Installation.html#Installation
+[http://orgmode.org/manual/Installation.html#Installation](http://orgmode.org/manual/Installation.html#Installation)
 
     ;;org-mode
     (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
@@ -34,7 +34,7 @@ http://orgmode.org/manual/Installation.html#Installation
 
     Tassilo Horn recently developed doc-view.el: an Emacs utility for viewing PDF/PS/DVI files in Emacs. 
 
-http://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html
+[http://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html](http://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html)
 
 Footnotes
 
@@ -70,7 +70,7 @@ Add to your bash
 
     PYTHONPATH=$PYTHONPATH:~/.emacs.d/pymacs-plugins
     
-I have a demo script ``manglers.py`` from [http://pymacs.progiciels-bpi.ca/Winkler.html]http://pymacs.progiciels-bpi.ca/Winkler.html().
+I have a demo script ``manglers.py`` from [http://pymacs.progiciels-bpi.ca/Winkler.html](http://pymacs.progiciels-bpi.ca/Winkler.html).
 
 To use the function, type:
 
