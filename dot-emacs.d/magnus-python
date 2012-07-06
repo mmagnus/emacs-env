@@ -124,3 +124,9 @@
 
 ;; # ipython
 (require 'ipython)
+
+;; python-pylint
+(require 'python-pylint)
+
+;; python-pep8
+(require 'python-pep8)
