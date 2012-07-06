@@ -11,7 +11,8 @@
     pylint - python code static checker and UML diagram generator
     magit - An Emacs interface for Git
     w3m-el - simple Emacs interface of w3m
-
+    org-mode - keep notes, maintain ToDo lists, and do project planning in emacs
+    
 ## org-mode: out of order
 
     org-mode - keep notes, maintain ToDo lists, and do project planning in emac
