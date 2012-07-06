@@ -11,8 +11,21 @@
     pylint - python code static checker and UML diagram generator
     magit - An Emacs interface for Git
     w3m-el - simple Emacs interface of w3m
-    org-mode - keep notes, maintain ToDo lists, and do project planning in emacs
     
+## org-mode
+
+Could be org-mode from pkg, however its very old!
+
+http://orgmode.org/manual/Installation.html#Installation
+
+    ;;org-mode
+    (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
+    (require 'org-install)
+
+----
+    # make make in the org-7.8.11 folder
+    make
+
 ## ropemode: manually
 
     install manually from contrib/ropemode-0.2.tar.gz

@@ -104,6 +104,10 @@
 (prefer-coding-system 'utf-8)
 
 
+;;org-mode
+(setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
+(require 'org-install)
+
 ;; Set to the location of your Org files on your local system
 (setq org-directory "/home/magnus/Dropbox/Sandbox/Org")
 ;; Set to the name of the file where new notes will be stored
