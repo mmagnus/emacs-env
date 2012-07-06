@@ -108,6 +108,10 @@
 (require 'sql)
 
 
+;; pymacs
+(pymacs-load "manglers")
+
+
 ;;org-mode
 (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
 (require 'org-install)

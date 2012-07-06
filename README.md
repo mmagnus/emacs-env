@@ -61,4 +61,18 @@ Footnotes
     (require 'auto-complete-config)
     (add-to-list 'ac-dictionary-directories "/home/magnus/.emacs.d/USED//ac-dict")
     (ac-config-default)
+
+## pymacs python plugins
+
+### Configuration
+
+Add to your bash
+
+    PYTHONPATH=$PYTHONPATH:~/.emacs.d/pymacs-plugins
+    
+I have a demo script ``manglers.py`` from [http://pymacs.progiciels-bpi.ca/Winkler.html]http://pymacs.progiciels-bpi.ca/Winkler.html().
+
+To use the function, type:
+
+    M-x manglers-break-on-whitespace
     
