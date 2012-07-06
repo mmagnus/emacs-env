@@ -13,10 +13,6 @@
     w3m-el - simple Emacs interface of w3m
     org-mode - keep notes, maintain ToDo lists, and do project planning in emacs
     
-## org-mode: out of order
-
-    org-mode - keep notes, maintain ToDo lists, and do project planning in emac
-
 ## ropemode: manually
 
     install manually from contrib/ropemode-0.2.tar.gz
