@@ -139,3 +139,8 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-nav/emacs-nav-49/")
 (require 'nav)
 (global-set-key [f8] 'nav-toggle)
+
+
+;; javascript http://joost.zeekat.nl/wp-content/javascript.el
+(autoload 'javascript-mode "javascript" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
