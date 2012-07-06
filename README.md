@@ -1,17 +1,25 @@
 # Magnus emacs env
 # version 0.3
 
-# Pkg installed from repo
+# Emacs related pakages that can be installed from repos:
 
     python-mode - Python mode for GNU Emacs and XEmacs
     pymacs - interface between Emacs Lisp and Python # it is not el
-    python-rope - Python refactoring library
     python-ropemacs - Emacs mode for Python refactoring
-    pyflakes - passive checker of Python programs
-    pylint - python code static checker and UML diagram generator
     magit - An Emacs interface for Git
     w3m-el - simple Emacs interface of w3m
     
+# Dependences:
+
+    ipython
+    emacs-goodies (markdown)
+    python-rope - Python refactoring library
+    pyflakes - passive checker of Python programs    
+    pylint - python code static checker and UML diagram generator
+    w3m
+
+# Installation of modes.
+
 ## org-mode
 
 Could be org-mode from pkg, however its very old!
