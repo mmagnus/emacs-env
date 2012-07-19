@@ -8,6 +8,7 @@
     python-ropemacs - Emacs mode for Python refactoring
     magit - An Emacs interface for Git
     w3m-el - simple Emacs interface of w3m
+    ess  - Emacs mode for statistical programming and data analysis   
     
 # Dependences:
 
