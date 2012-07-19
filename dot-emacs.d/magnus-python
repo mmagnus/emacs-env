@@ -130,3 +130,12 @@
 
 ;; python-pep8
 (require 'python-pep8)
+
+
+;; python-outline
+(load-library "python-outline")
+(setq auto-mode-alist (append '(
+		("\\.texi" . texi-outline)
+		("\\.py" . python-outline))
+              auto-mode-alist))
+
