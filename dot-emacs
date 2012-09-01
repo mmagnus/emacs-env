@@ -32,8 +32,8 @@
 
 
 ;; # linum
-(require 'linum)
-(global-linum-mode t)
+;;(require 'linum)
+;;(global-linum-mode t)
 
 
 ;; # fullscreen http://www.emacswiki.org/emacs/FullScreen#toc22
