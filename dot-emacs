@@ -19,6 +19,18 @@
 ;; # python el
 (load-library "magnus-python")
 
+(setq mode-line-format
+          (list
+           ;; value of `mode-name'
+           "%m: "
+           ;; value of current buffer name
+           "buffer %b, "
+           ;; value of current line number
+           "line %l "
+           "-- user: "
+           ;; value of user
+           (getenv "USER")))
+
 
 (setq frame-title-format
   '("emacs%@" (:eval (system-name)) ": " (:eval (if (buffer-file-name)
