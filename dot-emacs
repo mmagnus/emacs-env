@@ -16,8 +16,8 @@
 
 
 (setq column-number-mode t)
-;; # python el
-(load-library "magnus-python")
+
+
 
 (setq mode-line-format
           (list
@@ -179,3 +179,29 @@
 ;; javascript http://joost.zeekat.nl/wp-content/javascript.el
 (autoload 'javascript-mode "javascript" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
+
+
+;;; thanks to http://www.emacswiki.org/emacs/AnsiColor
+;;(add-hook ‘shell-mode-hook ‘ansi-color-for-comint-mode-on)
+
+;;
+;;(setq term-default-bg-color "#211E1E")
+;;(setq term-default-fg-color "#AAAAAA")
+
+
+;; # python el
+(load-library "magnus-python")
+
+;; http://stackoverflow.com/questions/268088/how-to-remove-the-prompt-for-killing-emacsclient-buffers
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
+
+
+
+
+;; @todo
+;; (load "buff-menu+.el")
+;; (require 'buff-menu+)
+
+;; lista
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
