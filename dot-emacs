@@ -110,7 +110,8 @@
 
 ;; pymacs
 (pymacs-load "manglers")
-
+(pymacs-load "add-task")
+(pymacs-load "insert")
 
 ;;org-mode
 (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
