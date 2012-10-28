@@ -9,15 +9,17 @@
     magit - An Emacs interface for Git
     w3m-el - simple Emacs interface of w3m
     ess  - Emacs mode for statistical programming and data analysis   
-    
-# Dependences:
 
     ipython
     emacs-goodies (markdown)
+	emacs-goodies-extra-el
+	
     python-rope - Python refactoring library
     pyflakes - passive checker of Python programs    
     pylint - python code static checker and UML diagram generator
     w3m
+
+    install python-mode pymacs python-ropemacs magit w3m-el ess ipython emacs-goodies-el emacs-goodies-extra-el    python-rope pyflakes pylint w3m
 
 # Installation of modes.
 
