@@ -204,5 +204,27 @@
 ;; (load "buff-menu+.el")
 ;; (require 'buff-menu+)
 
+
+;;grepplus
+(load "grep+.el")
+(require 'grep+)
+
+
+
 ;; lista
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
+
+
+;; pdb.el
+(load-file "~/.emacs.d/plugins/pdb-mode.el")
+(setq pdb-rasmol-name "/usr/bin/pymol")
+(setq auto-mode-alist
+     (cons (cons "pdb$" 'pdb-mode) 
+            auto-mode-alist ) )
+(autoload 'pdb-mode "PDB")
+
+
+;;color-theme 
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-tty-dark)
