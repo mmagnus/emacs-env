@@ -96,8 +96,13 @@
 ;;(global-define-key (kbd "C-c C-t") 'python-add-breakpoint)
 
 ;; autopair
-(require 'autopair)
-(autopair-global-mode) 
+;(require 'autopair)
+;(autopair-global-mode) 
+
+;; # fix for problem w pair mode http://lukeshu.ath.cx/1/wordpress/2011/08/fixing-wrong-type-argument-characterp-return-in-emacs/
+;(add-hook 'term-mode-hook
+;  #'(lambda () (setq autopair-dont-activate t)))
+
 
 ;; # magit
 (autoload 'magit-status "magit" nil t)

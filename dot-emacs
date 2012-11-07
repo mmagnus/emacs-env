@@ -107,12 +107,6 @@
 ;; doc-view
 (require 'doc-view)
 
-
-;; # fix for problem w pair mode http://lukeshu.ath.cx/1/wordpress/2011/08/fixing-wrong-type-argument-characterp-return-in-emacs/
-(add-hook 'term-mode-hook
-  #'(lambda () (setq autopair-dont-activate t)))
-
-
 ;; unicode stuff
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
