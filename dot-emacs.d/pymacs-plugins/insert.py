@@ -39,7 +39,8 @@ def screenshotfromclipboard():
     #os.system('/usr/bin/emacsclient ' + path ) # nie dziala!
     os.system('gloobus-preview ' + path )
     #getoutput(' ' + path)   
-    lisp.insert('![](' + filename + ')')
+    lisp.insert('![](' + filename + ')\n')
+    lisp.insert('**Figure**.')
 
 def screenshot():
     id = ''
