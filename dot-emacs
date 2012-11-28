@@ -222,3 +222,6 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-tty-dark)
+;;keybinding
+(global-set-key (kbd "C-c i") 'insert-screenshotfromclipboard)
+
