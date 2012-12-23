@@ -219,9 +219,24 @@
 
 
 ;;color-theme 
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-tty-dark)
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(color-theme-tty-dark)
+
+;;ifind-mode
+(defvar workspace-dir "~/Dropbox/")
+(load "~/.emacs.d/plugins/ifind-mode.el")
+
+
+;;ifind-mode
+(load "~/.emacs.d/plugins/mmfinder-mode.el")
+
+
 ;;keybinding
 (global-set-key (kbd "C-c i") 'insert-screenshotfromclipboard)
 
+;; # set a font
+;;(when window-system
+(set-face-font 
+      'default '
+     "-misc-fixed-medium-r-normal--12-*-*-*-*-*-iso10646-1")
