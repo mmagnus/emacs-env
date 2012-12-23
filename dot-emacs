@@ -140,6 +140,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(display-time-mode t)
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars t)
  '(speedbar-default-position (quote left))
