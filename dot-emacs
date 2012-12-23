@@ -15,10 +15,6 @@
 (global-hl-line-mode t)
 
 
-(setq column-number-mode t)
-
-
-
 (setq mode-line-format
           (list
            ;; value of `mode-name'
