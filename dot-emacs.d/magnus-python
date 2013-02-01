@@ -144,6 +144,12 @@
 		("\\.py" . python-outline))
               auto-mode-alist))
 
+
+;; powerline
+(require 'cl)
+(require 'powerline)
+;;(powerline-default)
+
 (require 'package)
 ;; Add the original Emacs Lisp Package Archive
 (add-to-list 'package-archives
