@@ -133,22 +133,27 @@
 ;; Set to <your Dropbox root directory>/MobileOrg.
 (setq org-mobile-directory "/home/magnus/Dropbox/MobileOrg")
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
+ '(fringe-mode (quote (0)) nil (fringe))
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars t)
+ '(save-place t nil (saveplace))
+ '(show-paren-mode t)
  '(speedbar-default-position (quote left))
  '(speedbar-use-images t)
- '(sr-speedbar-right-side nil))
+ '(sr-speedbar-right-side nil)
+ '(tool-bar-mode nil)
+ '(tool-bar-position (quote right)))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 (setq org-todo-keywords (quote ((sequence "TODO" "IN_PROGRESS" "CANCELED" "DONE"))))
 (setq org-todo-keyword-faces
