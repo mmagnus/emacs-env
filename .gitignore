@@ -4,3 +4,6 @@ dot-emacs.d/plugins/emacs-nav/.hg
 *.pyc
 tramp
 session*
+# pkg
+nxhtml
+rinari-master
