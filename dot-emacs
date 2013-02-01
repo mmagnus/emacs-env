@@ -120,6 +120,7 @@
 (pymacs-load "manglers")
 (pymacs-load "add-task")
 (pymacs-load "insert")
+(pymacs-load "preview")
 
 ;;org-mode
 (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
@@ -232,6 +233,7 @@
 
 ;;keybinding
 (global-set-key (kbd "C-c i") 'insert-screenshotfromclipboard)
+(global-set-key (kbd "C-c p") 'preview-preview)
 
 ;; # set a font
 ;;(when window-system
