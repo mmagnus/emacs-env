@@ -240,3 +240,5 @@
 (set-face-font 
       'default '
      "-misc-fixed-medium-r-normal--12-*-*-*-*-*-iso10646-1")
+;;load images
+(autoload 'iimage-mode "iimage" "SUpport Inline image minor mode." t)
