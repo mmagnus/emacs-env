@@ -259,3 +259,14 @@
      "-misc-fixed-medium-r-normal--12-*-*-*-*-*-iso10646-1")
 ;;load images
 (autoload 'iimage-mode "iimage" "SUpport Inline image minor mode." t)
+
+;; google-translate
+(require 'google-translate)
+
+(global-set-key "\C-ct" 'google-translate-at-point)
+;;(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+;;(global-set-key "\C-c" 'google-translate-at-point-reverse)
+;;(global-set-key "\C-cT" 'google-translate-query-translate)
+;;(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
+(setq google-translate-default-source-language "pl")
+(setq google-translate-default-target-language "en")
