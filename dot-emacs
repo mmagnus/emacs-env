@@ -12,6 +12,8 @@
 ;; from Bogus
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
 (setq inhibit-startup-message t)
 (setq-default transient-mark-mode t)
 (global-font-lock-mode t)
