@@ -152,6 +152,7 @@
  '(column-number-mode t)
  '(display-time-mode t)
  '(fringe-mode (quote (0)) nil (fringe))
+ '(markdown-hr-string "--------------------------------------------------------------------------------")
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars t)
  '(save-place t nil (saveplace))
