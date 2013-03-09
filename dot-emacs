@@ -1,3 +1,4 @@
+
 ;; # load-path
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 (add-to-list 'load-path "~/.emacs.d/")
@@ -16,8 +17,6 @@
 
 (setq inhibit-startup-message t)
 (setq-default transient-mark-mode t)
-(global-font-lock-mode t)
-
 
 ;; # save desktop http://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html # siagle sie pyta kur***
 ;;(desktop-save-mode 1)
@@ -106,11 +105,11 @@
 
 
 ;; # markdown-mode: automatically load it # work
+(add-to-list 'load-path "~/.emacs.d/plugins/markdown/1.8.1")
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; # lisp-mode: automatically load it # work
 (add-to-list 'auto-mode-alist '("\\dot-emacs\\'" . lisp-mode))
-(add-to-list 'auto-mode-alist '("\\magnus-python\\'" . lisp-mode))
 
 ;; doc-view
 (require 'doc-view)
@@ -129,10 +128,29 @@
 
 
 ;; pymacs
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+;; different way to change pymacs paths
+;;(eval-after-load "pymacs"
+;;  '(add-to-list 'pymacs-load-path "/home/magnus/Dropbox/lb_v2/pymacs-plugins"))
+
+;;(setq pymacs-load-path '("/home/magnus/Dropbox/workspace/magnus-emacs-env/dot-emacs.d/pymacs-plugins"))
+
+;; pymacs
+;;(setenv "PYTHONPATH"
+;;	(concat
+;;	 "/home/magnus/Dropbox/workspace/magnus-emacs-env/dot-emacs.d/pymacs-plugins" ";"
+;;	 )
+;;	)
+;;
 (pymacs-load "manglers")
+(pymacs-load "preview")
 (pymacs-load "add-task")
 (pymacs-load "insert")
-(pymacs-load "preview")
 
 ;;org-mode
 (setq load-path (cons "/home/magnus/.emacs.d/plugins/org-7.8.11/lisp" load-path))
@@ -152,6 +170,7 @@
  '(column-number-mode t)
  '(display-time-mode t)
  '(fringe-mode (quote (0)) nil (fringe))
+ '(line-number-mode nil)
  '(markdown-hr-string "--------------------------------------------------------------------------------")
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars t)
@@ -159,9 +178,7 @@
  '(show-paren-mode t)
  '(speedbar-default-position (quote left))
  '(speedbar-use-images t)
- '(sr-speedbar-right-side nil)
- '(tool-bar-mode nil)
- '(tool-bar-position (quote right)))
+ '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -202,13 +219,9 @@
 
 
 ;; # python el
-(load-library "magnus-python")
 
 ;; http://stackoverflow.com/questions/268088/how-to-remove-the-prompt-for-killing-emacsclient-buffers
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-
-
-
 
 
 ;; @todo
@@ -219,7 +232,6 @@
 ;;grepplus
 (load "grep+.el")
 (require 'grep+)
-
 
 
 ;; lista
@@ -236,9 +248,9 @@
 
 
 ;;color-theme 
-;;(require 'color-theme)
-;;(color-theme-initialize)
-;;(color-theme-tty-dark)
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-tty-dark)
 
 ;;ifind-mode
 (defvar workspace-dir "~/Dropbox/")
@@ -271,3 +283,190 @@
 ;;(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 (setq google-translate-default-source-language "pl")
 (setq google-translate-default-target-language "en")
+
+;; ac-slime
+;;(require 'ac-slime)
+;;(add-hook 'slime-mode-hook 'set-up-slime-ac)
+;;(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+;;(eval-after-load "auto-complete"
+;;  '(add-to-list 'ac-modes 'slime-repl-mode))
+
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
+(require 'auto-complete)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(require 'auto-complete-config)
+(ac-config-default)
+(require 'ac-python)
+
+;; --** PYTHON **-- ;;
+(setq py-install-directory "~/.emacs.d/plugins/python-mode/6.1.1")
+(add-to-list 'load-path py-install-directory)
+(setq py-shell-name "python")
+(setq py-shell-name "/usr/bin/python")
+(setq py-force-py-shell-name-p t)
+(require 'python-mode)
+
+(setenv "PYTHONPATH" "/home/magnus/Dropbox/workspace/magnus-emacs-env/dot-emacs.d/pymacs-plugins/")
+
+;; # general
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+;; # python-mode options
+(setq
+ py-python-command "ipython"
+ py-indent-offset 4
+ py-block-comment-prefix "##"
+ py-temp-directory "/tmp"
+ py-beep-if-tab-change t
+ )
+
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+
+;; # popup
+(add-to-list 'load-path "/home/magnus/.emacs.d/plugins/popup-el")
+(require 'popup)
+
+
+;; # Initialize Rope                                                                                             
+(setq ropemacs-global-prefix "C-c r") ;; fix https://groups.google.com/forum/?fromgroups#!topic/rope-dev/PgLNS02hcnM
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
+
+;; # auto-complete
+(add-to-list 'load-path "/home/magnus/.emacs.d/plugins/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/magnus/.emacs.d/plugins/ac-dict")
+(ac-config-default)
+
+(setq ac-use-comphist nil)
+
+;; # yasnippet https://github.com/capitaomorte/yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+
+
+;; # flymake
+(when (load "flymake" t) 
+     (defun flymake-pyflakes-init () 
+       (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                          'flymake-create-temp-inplace)) 
+      (local-file (file-relative-name 
+               temp-file 
+               (file-name-directory buffer-file-name)))) 
+         (list "pyflakes" (list local-file))))
+
+    (add-to-list 'flymake-allowed-file-name-masks 
+         '("\\.py\\'" flymake-pyflakes-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+
+;; # flymake-cursor
+;; enhancements for displaying flymake errors http://www.emacswiki.org/emacs/FlymakeCursor
+(require 'flymake-cursor)
+
+
+(require 'sr-speedbar)
+;;(global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+;;(sr-speedbar-mode 1)
+;;(sr-set-global-key (kbd "<f1>") "F1" 'sr-speedbar-toggle "sr-speedbar-toggle")
+(global-set-key [f9] 'sr-speedbar-toggle)
+
+;; # highlight the import pdb text; anotate pdb http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
+(defun annotate-pdb ()
+  (interactive)
+  (highlight-lines-matching-regexp "import pdb")
+  (highlight-lines-matching-regexp "pdb.set_trace()"))
+(add-hook 'python-mode-hook 'annotate-pdb)
+
+
+;; # python-add-breakpoint http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
+(defun python-add-breakpoint ()
+  (interactive)
+  (py-newline-and-indent)
+  (insert "import ipdb; ipdb.set_trace()")
+  (highlight-lines-matching-regexp "^[ 	]*import ipdb; ipdb.set_trace()")
+  ;;(define-key py-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
+  )
+  
+;;  (defvar py-mode-map python-mode-map)
+;;(setq py-mode-map python-mode-map)
+;;(define-key python-mode-map "\t" 'python-add-breakpoint)
+;;(global-define-key (kbd "C-c C-t") 'python-add-breakpoint)
+
+;; autopair
+;(require 'autopair)
+;(autopair-global-mode) 
+
+;; # fix for problem w pair mode http://lukeshu.ath.cx/1/wordpress/2011/08/fixing-wrong-type-argument-characterp-return-in-emacs/
+;(add-hook 'term-mode-hook
+;  #'(lambda () (setq autopair-dont-activate t)))
+
+
+;; # magit
+(autoload 'magit-status "magit" nil t)
+
+
+;; # flymake-python https://github.com/akaihola/flymake-python
+(add-to-list 'load-path "~/.emacs.d/plugins/flymake-python")
+
+(when (load "flymake" t)
+  (defun flymake-pylint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "~/.emacs.d/plugins/flymake-python/pyflymake.py" (list local-file))))
+      ;;     check path
+
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pylint-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+
+;; # ipython is out of data # block it
+;;(require 'ipython)
+
+;; python-pylint
+(require 'python-pylint)
+
+;; python-pep8
+(require 'python-pep8)
+
+
+;; python-outline
+(load-library "python-outline")
+(setq auto-mode-alist (append '(
+		("\\.texi" . texi-outline)
+		("\\.py" . python-outline))
+              auto-mode-alist))
+
+;; django-html-mumamo-mode # works
+;;(autoload 'django-html-mumamo-mode "~/.emacs.d/plugins/nxhtml/autostart.el")
+;;(setq auto-mode-alist
+;;      (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
+;;(setq mumamo-background-colors nil) 
+;;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+
+
+(add-to-list 'load-path "/home/magnus/.emacs.d/plugins/django-mode")
+(require 'django-html-mode)
+(require 'django-mode)
+(yas/load-directory "~/.emacs.d/plugins/django-mode/snippets")
+(add-to-list 'auto-mode-alist '("\\.djhtml$" . django-html-mode))
+
+;; powerline
+(require 'cl)
+(require 'powerline)
+;;(powerline-default)
+
+
+(define-key global-map "\C-xg" 'goto-line)
