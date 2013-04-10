@@ -224,9 +224,9 @@
 
 
 ;;color-theme 
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-tty-dark)
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(color-theme-tty-dark)
 
 ;;ifind-mode
 (defvar workspace-dir "~/Dropbox/")
