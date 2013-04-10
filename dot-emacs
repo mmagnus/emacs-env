@@ -45,13 +45,6 @@
                   "%b")) " [%*]"))
 
 
-;; # set a font
-(when window-system
-(set-face-font 
-      'default '
-      "-misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1"))
-
-
 ;; # let make happy all emacs clients
 (server-start)
 
@@ -265,12 +258,12 @@
 (global-set-key (kbd "C-c i") 'insert-screenshotfromclipboard)
 (global-set-key (kbd "C-c p") 'preview-preview)
 
-;; # set a font
-;;(when window-system
-(set-face-font 
-      'default '
-     "-misc-fixed-medium-r-normal--12-*-*-*-*-*-iso10646-1")
-;;load images
+;; set a font
+(when window-system
+(set-default-font "Monospace-10"))
+;;(set-default-font "-misc-fixed-medium-r-normal--11-*-*-*-*-*-iso8859-1"))
+;;(set-default-font "-misc-fixed-medium-r-normal--12-*-*-*-*-*-iso10646-1"))
+
 (autoload 'iimage-mode "iimage" "SUpport Inline image minor mode." t)
 
 ;; google-translate
