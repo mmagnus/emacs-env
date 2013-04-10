@@ -1,6 +1,11 @@
 *~
 *#*
 dot-emacs.d/plugins/emacs-nav/.hg
+dot-emacs.d/plugins/auto-complete/
+dot-emacs.d/plugins/popup/
+dot-emacs.d/plugins/markdown/
+dot-emacs.d/plugins/pymacs/
+dot-emacs.d/plugins/python-mode/
 *.pyc
 tramp
 session*
