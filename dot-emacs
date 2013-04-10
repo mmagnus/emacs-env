@@ -446,3 +446,51 @@
 
 
 (define-key global-map "\C-xg" 'goto-line)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   EMACS DISTRACTED EDITOR  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun toggle-minimal-mode (fs)
+  (interactive "P")
+  (defun fullscreen-margins nil
+    (if (and (window-full-width-p) (not (minibufferp)))
+	(set-window-margins nil (/ (- (frame-width) 120) 2) (/ (- (frame-width) 120) 2))
+      (mapcar (lambda (window) (set-window-margins window nil nil)) (window-list))))
+
+  (cond (menu-bar-mode
+	 (menu-bar-mode -1) (tool-bar-mode -1) (scroll-bar-mode -1)
+	 (set-frame-height nil (+ (frame-height) 4))
+	 (if fs (progn (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+					      '(1 "_NET_WM_STATE_FULLSCREEN" 0))
+		       (add-hook 'window-configuration-change-hook 'fullscreen-margins))))
+	(t (menu-bar-mode 1) (tool-bar-mode 1) (scroll-bar-mode 1)
+	   (when (frame-parameter nil 'fullscreen)
+	     (remove-hook 'window-configuration-change-hook 'fullscreen-margins)
+	     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+				    '(0 "_NET_WM_STATE_FULLSCREEN" 0))
+	     (set-window-buffer (selected-window) (current-buffer)))
+	   (set-frame-width nil (assoc-default 'width default-frame-alist)))))
+
+(global-set-key [f12] 'toggle-minimal-mode)
+
+
+;; # fullscreen http://www.emacswiki.org/emacs/FullScreen#toc22
+(defun toggle-fullscreen (&optional f)
+      (interactive)
+      (let ((current-value (frame-parameter nil 'fullscreen)))
+           (set-frame-parameter nil 'fullscreen
+                                (if (equal 'fullboth current-value)
+                                    (if (boundp 'old-fullscreen) old-fullscreen nil)
+                                    (progn (setq old-fullscreen current-value)
+                                           'fullboth)))))
+
+    (global-set-key [f11] 'toggle-fullscreen)
+
+    ; Make new frames fullscreen by default. Note: this hook doesn't do
+    ; anything to the initial frame if it's in your .emacs, since that file is
+    ; read _after_ the initial frame is created.
+    (add-hook 'after-make-frame-functions 'toggle-fullscreen)
+
+;;;;;;;;; end ;;;;;;;;;;;;;;
