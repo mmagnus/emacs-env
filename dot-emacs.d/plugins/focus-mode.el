@@ -83,6 +83,9 @@
 
 
 (defun focus-leave ()
+  (tabbar-mode 1)
+  (menu-bar-mode 1)
+  (setq mode-line-format 1)
   ;; Show everything from show-faces
   (mapc 'focus-show focus-hide-faces)
   ;; Set fringes
@@ -97,6 +100,10 @@
 
 (defun focus-mode ()
   (interactive)
+  (tabbar-mode -1)
+  (menu-bar-mode -1)
+  ;;(setq mode-line-format nil) ;; nie wiem jak to włączyć na nowo!
+  ;;(narrow-to-region) ;; nie dziala
   (cond ((focus-recall 'focus-running)
          (focus-leave)
          (message "Focus mode disabled"))
