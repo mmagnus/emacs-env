@@ -494,3 +494,5 @@
     (add-hook 'after-make-frame-functions 'toggle-fullscreen)
 
 ;;;;;;;;; end ;;;;;;;;;;;;;;
+;; https://github.com/ioreshnikov/.emacs.d/blob/master/modes/focus-mode.el
+(require 'focus-mode)
