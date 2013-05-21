@@ -496,3 +496,7 @@
 ;;;;;;;;; end ;;;;;;;;;;;;;;
 ;; https://github.com/ioreshnikov/.emacs.d/blob/master/modes/focus-mode.el
 (require 'focus-mode)
+
+
+;; dark-room
+(load-library "dark-room-mode")
