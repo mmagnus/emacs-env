@@ -517,3 +517,8 @@ http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-ema
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                                         
 ;;; End Auto Completion                                                                                        
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;; http://www.emacswiki.org/emacs/SentenceHighlight
+(require 'sentence-highlight)
