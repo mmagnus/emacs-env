@@ -522,3 +522,44 @@ http://hide1713.wordpress.com/2009/01/30/setup-perfect-python-environment-in-ema
 
 ;; http://www.emacswiki.org/emacs/SentenceHighlight
 (require 'sentence-highlight)
+
+
+;;(when (load "flymake" t)
+;;  (defun flymake-pylint-init ()
+;;    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;                       'flymake-create-temp-inplace))
+;           (local-file (file-relative-name
+;                        temp-file
+;                        (file-name-directory buffer-file-name))))
+;      (list "~/.emacs.d/plugins/flymake-python/pyflymake.py" (list local-file))))
+;      ;;     check path
+;
+;  (add-to-list 'flymake-allowed-file-name-masks
+;               '("\\.py\\'" flymake-pylint-init)))
+;
+;(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+
+
+;;(add-to-list 'load-path "~/.emacs.d/plugins/flymake/emacs-flymake")
+;;(load "flymake")
+
+; # flymake
+(when (load "flymake" t) 
+     (defun flymake-pyflakes-init () 
+       (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                          'flymake-create-temp-inplace)) 
+     (local-file (file-relative-name 
+               temp-file 
+               (file-name-directory buffer-file-name)))) 
+         (list "pyflakes" (list local-file))))
+
+    (add-to-list 'flymake-allowed-file-name-masks 
+         '("\\.py\\'" flymake-pyflakes-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+
+;; this part is off
+;; # flymake-python https://github.com/akaihola/flymake-python
+;;(add-to-list 'load-path "~/.emacs.d/plugins/flymake-python")
