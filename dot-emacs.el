@@ -457,6 +457,13 @@
 ;; https://github.com/ioreshnikov/.emacs.d/blob/master/modes/focus-mode.el
 (require 'focus-mode)
 
+(set-face-attribute 'default nil :font "Monaco 10")
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+'(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
 
 ;; dark-room
 (load-library "dark-room-mode")
