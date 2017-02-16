@@ -1,5 +1,6 @@
 # Magnus emacs env
-# version 0.3
+
+THIS MIGHT BE OUTDATED!
 
 # Emacs related pakages that can be installed from repos:
 
