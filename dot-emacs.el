@@ -332,6 +332,12 @@
 ;;(sr-speedbar-mode 1)
 ;;(sr-set-global-key (kbd "<f1>") "F1" 'sr-speedbar-toggle "sr-speedbar-toggle")
 (global-set-key [f9] 'sr-speedbar-toggle)
+(org-mode)
+(org-mobile-pull)
+(add-hook 'after-init-hook 'org-mobile-pull)
+(add-hook 'after-init-hook 'org-mobile-push)
+(add-hook 'kill-emacs-hook 'org-mobile-push)
+(add-hook 'kill-emacs-hook 'org-mobile-pull)
 
 ;; # highlight the import pdb text; anotate pdb http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
 (defun annotate-pdb ()
