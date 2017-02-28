@@ -11,7 +11,7 @@ I'm using:
   - jedi <https://github.com/davidhalter/jedi>
   - yasnippet <https://github.com/joaotavora/yasnippet>
   - projectile <https://github.com/bbatsov/projectile>
-  - magit <ghttps://github.com/magit/magit>
+  - magit <https://github.com/magit/magit>
   
 - RNA:
   - sequence alignment with Ralee <http://sgjlab.org/ralee/>
