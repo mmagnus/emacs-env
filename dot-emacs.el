@@ -23,8 +23,8 @@
 
 ;; A GNU Emacs library to ensure environment variables inside Emacs look the same as in the user's shell.
 ;; https://github.com/purcell/exec-path-from-shell
-;(when (memq window-system '(mac ns))
-;  (exec-path-from-shell-initialize))
+(when (memq window-system '(mac ns))
+ (exec-path-from-shell-initialize))
 
 
 ;; # bookmark+ http://www.emacswiki.org/emacs/bookmark%2B-doc.el http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
