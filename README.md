@@ -28,6 +28,10 @@ Now this repo is after a huge clean up.
 
 - remove plugins/ (now I'm using the Emacs packaging system)
 
+# Install
+
+    pip install jedi epc pylint 
+
 # To test
 
     [mm] emacs-env git:(master) ✗ source test.sh
