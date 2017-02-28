@@ -1,5 +1,7 @@
 # Magnus' Emacs Env
 
+![](screenshot.png)
+
 I've been using Emacs for over 10 years now. This's my config file :-) it might be useful for someone.
 
 I'm using:
@@ -9,6 +11,8 @@ I'm using:
   - jedi <https://github.com/davidhalter/jedi>
   - yasnippet <https://github.com/joaotavora/yasnippet>
   - projectile <https://github.com/bbatsov/projectile>
+  - magit <ghttps://github.com/magit/magit>
+  
 - RNA:
   - sequence alignment with Ralee <http://sgjlab.org/ralee/>
 - PDB structure format:
