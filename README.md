@@ -31,3 +31,8 @@ Now this repo is after a huge clean up.
 # To test
 
     [mm] emacs-env git:(master) ✗ source test.sh
+
+# Read more
+
+- https://www.emacswiki.org/emacs/ProgrammingWithPythonDotElGallina
+- https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl watch http://www.youtube.com/watch?v=0cZ7szFuz18
