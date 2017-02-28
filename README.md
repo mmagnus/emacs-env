@@ -8,7 +8,7 @@ I'm using:
 
 - `OrgMode` <http://orgmode.org/>
 - Python:
-  - ``python.el`` (is now distributed with Emacs;) but switching between this and python-mode.el <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
+  - ``python.el`` (is now distributed with Emacs;) but switching between this and ``python-mode.el`` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
   - ``jedi`` <https://github.com/davidhalter/jedi>
   - ``yasnippet`` <https://github.com/joaotavora/yasnippet>
   - ``projectile`` <https://github.com/bbatsov/projectile>
