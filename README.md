@@ -37,4 +37,8 @@ Now this repo is after a huge clean up.
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonDotElGallina
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl watch http://www.youtube.com/watch?v=0cZ7szFuz18
 
-Inspired by http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/
+# Inspired
+by similar repos:
+
+- http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/# 
+- https://github.com/jhamrick/emacs
