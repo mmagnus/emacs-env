@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Dupa Biocentrum Ochota, Warsaw 2013/2014</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+
+    <link href="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap.css" rel="stylesheet">
+    <link href="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+
+    .bg {
+    background-color: #1B1B1B;
+    background-image: linear-gradient(to bottom, #222222, #111111);
+    background-repeat: repeat-x;
+
+    /*background-color:#51b749;*/
+
+    border-color: #252525;
+    color:white;
+    padding:50px;
+    }
+    
+    h1, h2{
+    margin: 0px;
+    padding:0px;
+    }
+
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+    body {
+      padding-bottom: 40px;
+      color: #5a5a5a;
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+    .navbar-wrapper .navbar {
+
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+
+
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: 80px;
+      margin-top: 0;
+      font-size: 120px;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      background-color: transparent;
+      border: 0;
+      z-index: 10;
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-top: 200px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+
+    /* Featurettes
+    ------------------------- */
+
+    .featurette-divider {
+      margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+    .featurette {
+      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://dl.dropboxusercontent.com/u/472680/web2/favicon.ico">
+    <style type="text/css" id="holderjs-style">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
+
+    <style type="text/css">
+	  #sponsors td {text-align:right};
+	  #sponsors table {width:100%};
+    </style>
+
+</head>
+
+ 
+  <body linkifymax="0" linkifycurrent="0" linkifying="true">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <span id="home" style="position:fixed; top:-10000px;"></span>
+
+<!-- <h1>menum</h1> -->
+<!-- this -->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner  text-center">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#home">Do Science!<!--<img src="doscience.jpg" />--></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#program">Program</a></li>
+              <li><a href="#register">Register</a></li>
+              <li><a href="#keynotespeakers">Keynote speakers</a></li>
+              <li><a href="#embo">EMBO supported</a></li>
+              <li><a href="#sponsors">Sponsors</a></li>
+              <li><a href="#organizers">Organizers</a></li>
+              <li><a href="#fb">Facebook</a></li>
+              <li><a href="#location">Location</a></li>
+              <li><a href="#poland">Come to Poland!</a></li>
+<!--              <li><a href="#contact">Contact</a></li>-->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;text-align:center; background-color:#a8dfff">
+      <!--<img src="rozpoczecie roku_cover_150dpi-01.jpg" alt="">-->
+      <img src="https://dl.dropboxusercontent.com/u/472680/web2/rozpoczecie roku_cover_bez kropek_150dpi-01.jpg">
+    </div>
+
+    <div class="bg">
+      <h1>Would you like to take part in an inspiring event?</h1>
+    <h2>Join our Opening of the Academic Year 2013/2014 at Biocentrum Ochota, Warsaw!</h2>
+    <h3>Friday 25.10.2013</h3>
+    </br>
+    <button class="btn btn-primary btn-large"
+      onclick="window.location.href='http://form.jotformeu.com/form/32513762330345'">
+      Register
+    </button>
+    <br />
+    <br />
+    <div class="fb-like" data-href="https://www.facebook.com/OpeningAcademicYearBiocentrumOchota" data-width="450" data-show-faces="true" data-send="true"></div>
+    </div>
+
+    <div id="program"></div>
+    </br>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="featurette_ text-center">
+        <img class="featurette-image text-center" src="https://dl.dropboxusercontent.com/u/472680/web2/program2.png">
+        <p class="lead"></p>
+      </div>
+
+      <hr class="featurette-divider" id="register">
+
+      <div class="featurette">
+        <h2 class="featurette-heading">Are you a PhD student? Register now!<span class="muted"></span></h2>
+  
+        <p class="lead">
+      Our <b>Scientific Committee</b> based on submitted abstracts will select 30 PhD students for a poster session with an award for the best poster.
+</br>
+</br>
+You are not a PhD student of Biocentrum Ochota. No problem! The competition is <b>open for all PhD students in Life sciences</b> from Poland, Europe and all around the world!
+</br>
+Do Science and join us!
+</br>
+</br>
+          Authors of three the best abstracts will give short talks and the best speaker will win <b><s>300€</s> 500€</b>!!!
+          
+        <p><span class="label label-important">registration deadline</span> <b><s>01/10/2013</s> extended: 04/10/2013</b></p>
+	<p><b>Poster: </b>A0, portrait orientation. <b>Notification of abstract acceptance/rejection</b>: Friday, 11/10/2013 (one week after the registration deadline). It very much depends on the number of submissions. It gives you <b>two weeks</b> to prepare your talk or poster in a case your abstract has been accepted.
+    </br>
+    </br>
+    <button class="btn btn-primary btn-large"
+      onclick="window.location.href='http://form.jotformeu.com/form/32513762330345'">
+      Register
+    </button>
+    </p>
+  </p>
+      </div>
+
+      <div class="featurette" id="keynotespeakers">
+
+  <img style="height:230px;margin-right:70px;"src="https://dl.dropboxusercontent.com/u/472680/web2/schatz.jpg" class="img-polaroid pull-left">
+        <h2 class="featurette-heading">Keynote speakers
+    <br />
+    <span class="muted">prof. Gottfried Schatz</span></h2>
+  <p><i>Professor emeritus, Biozentrum, University of Basel, Switzerland</i></p>
+        <p class="lead">Prof. Schatz has made pioneering and seminal discoveries in the field of mitochondrial DNA and protein biogenesis.
+    <br />
+    He has got interests in science policy and is an author of the books for general audience about the science and scientists,
+    for example <a target="_blank" href="http://www.febsletters.org/content/jviews">JEFF'S VIEW on Science and Scientists</a>.</p>
+      </div>
+
+      <div class="featurette" id="keynotespeakers">
+  <img src="https://dl.dropboxusercontent.com/u/472680/web2/braakman.jpg" style="height:240px" class="img-polaroid pull-right">
+        <h2 class="featurette-heading"><span class="muted">prof. Ineke Braakman</span></h2>
+  <p><i>Utrecht University, the Netherlands</i></p>
+        <p class="lead">Prof. Braakman is a leading scientist in the field of protein folding. Her major research interests are protein folding and modification processes in the endoplasmic reticulum of mammalian cells and their links to diseases.</p>
+      </div>
+
+
+      <hr class="featurette-divider" id="embo">
+
+
+
+      <div class="featurette">
+       <a target="_blank" href="http://www.embo.org/">
+   <img class="featurette-image pull-left_" src="https://sphotos-a-ord.xx.fbcdn.net/hphotos-ash2/p206x206/267561_227445783955115_5641629_n.jpg">
+       </a>
+       
+        <h2 class="featurette-heading">EMBO is supporting a lecture of prof. Schatz <span class="muted">Dear EMBO, thank you very much!</span></h2>
+       </p>
+        <p class="lead"></p>
+      </div>
+
+      <hr class="featurette-divider" id="sponsors">
+
+
+      <div class="featurette">
+
+	<table id="sponsors" style="width:100%">
+
+	  <tr>
+	    <td>
+              <a href="http://www.vitainsilica.pl/en/" target="_blank">
+		<img class="" src="https://dl.dropboxusercontent.com/u/472680/web2/vis.jpg">
+	      </a>
+	    </td>
+	    <td>
+	      <a href="http://www.lifetechnologies.com/pl/en/home.html" target="_blank">
+		<img class="" src="https://dl.dropboxusercontent.com/u/472680/web2/sponsors/lf.png">
+	      </a>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <a href="http://www.eppendorf.pl/int/?l=303" target="_blank">
+		<img class="" src="https://dl.dropboxusercontent.com/u/472680/web2/sponsors/epp2.png">
+	      </a>
+	    </td>
+	    <td>
+	      <a href="http://www.sigmaaldrich.com/poland.html" target="_blank">
+		<img class="" src="https://dl.dropboxusercontent.com/u/472680/web2/sponsors/sigma.png">	      
+	      </a>
+	    </td>
+	  </tr>
+	</table>
+
+        <h2 class="featurette-heading">Sponsors <span class="muted">
+	    of the awards are: VitaInSilica, Life Technologies, Eppendorf, Sigma-Aldrich.
+	    </br>
+	    <b>Thank you very much & welcome on board!</b>
+	  </span>
+	</h2>
+        <p class="lead"></p>
+      </div>
+
+      <hr class="featurette-divider" id="organizers">
+
+      <div class="featurette">
+        <table style="width:100%;text-align_: center">
+    <tr>
+      <td><a href="http://www.iimcb.gov.pl/" target="_blank"><img style="width:200px" class="pull-center" src="https://dl.dropboxusercontent.com/u/472680/opening/Logo_IIMCB3.png"></a></td>
+      <td>
+              <a href="http://biocentrumochota.gov.pl/" target="_blank"><img style="width:350px" class="pull-center" src="https://dl.dropboxusercontent.com/u/472680/web2/logoBioCentrumOchota_1.jpg"></a>
+      </td>
+    </tr>
+  </table>
+        <h2 class="featurette-heading">Organizers <span class="muted">The Organizing Staff are the PhD students of IIMCB and Biocentrum Ochota</span></h2>
+  <a href="mailto:magnus@genesilico.pl">Contact the PhD students' representative of IIMCB</a>
+        <p class="lead"></p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette"  id="fb">      
+        <h2 class="featurette-heading">Join us on Facebook <span class="muted">Follow our profile. Get the latest news!</span></h2>
+  <h3>Share it with your Friends!</h3>
+  <div class="pull-right">
+  <span class="fb-like-box" data-href="https://www.facebook.com/OpeningAcademicYearBiocentrumOchota" data-width="500" data-height="500" data-show-faces="true" data-header="false" data-stream="true" data-show-border="true"></span>
+  </div>
+      </div>
+
+      <div class="featurette"  id="location">
+
+	<iframe width="500" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Instytut+Biocybernetyki+i+In%C5%BCynierii+Biomedycznej+im.+Macieja+Na%C5%82%C4%99cza+PAN,+Ksi%C4%99cia+Trojdena,+Warszawa&amp;aq=0&amp;oq=instytut+biocy&amp;sll=52.206094,20.98305&amp;sspn=0.007482,0.01929&amp;gl=pl&amp;ie=UTF8&amp;hq=Instytut+Biocybernetyki+i+In%C5%BCynierii+Biomedycznej+im.+Macieja+Na%C5%82%C4%99cza+PAN,+Ksi%C4%99cia+Trojdena,+Warszawa&amp;ll=52.206144,20.978067&amp;spn=0.013676,0.032015&amp;t=m&amp;output=embed"></iframe><br />
+	<small><a href="https://maps.google.pl/maps?f=q&amp;source=embed&amp;hl=pl&amp;geocode=&amp;q=Instytut+Biocybernetyki+i+In%C5%BCynierii+Biomedycznej+im.+Macieja+Na%C5%82%C4%99cza+PAN,+Ksi%C4%99cia+Trojdena,+Warszawa&amp;aq=0&amp;oq=instytut+biocy&amp;sll=52.206094,20.98305&amp;sspn=0.007482,0.01929&amp;gl=pl&amp;ie=UTF8&amp;hq=Instytut+Biocybernetyki+i+In%C5%BCynierii+Biomedycznej+im.+Macieja+Na%C5%82%C4%99cza+PAN,+Ksi%C4%99cia+Trojdena,+Warszawa&amp;ll=52.206144,20.978067&amp;spn=0.013676,0.032015&amp;t=m" style="color:#0000FF;text-align:left">Get a full map</a></small>
+
+        <p class="lead"></p>
+        <h2 class="featurette-heading">Location <span class="muted"></span></h2>
+<h3>The event is going to take place at Auditorium & Exhibition hall of IBIB PAS</h3>
+      </div>	
+      
+      <hr class="featurette-divider" id="poland">
+
+      <div class="featurette">
+	<iframe class="featurette-image pull-right" width="480" height="360"
+		src="http://www.youtube.com/embed/jXPeofkW-Pw?html5=1" frameborder="0"></iframe>
+        <h2 class="featurette-heading">Come to Poland! <span class="muted">It'll blow your mind!</span></h2>
+	<h3>How many Poles does it take to convince YOU to come to Poland? Feel invited!</h3>
+	<a href="mailto:magnus@genesilico.pl">Contact us to get more information!</a>
+	<!--<a target="_blank" href="http://www.poland.travel/en/">Read more ...</a>-->
+        <p class="lead"></p>
+      </div>
+
+      <!-- /END THE FEATURETTES -->
+
+      <!-- FOOTER -->
+      <hr class="featurette-divider">
+
+      <footer>
+        <p>2013, <a href="mailto:magnus@genesilico.pl">Magnus</a> and <a href="http://getbootstrap.com/2.3.2/">bootstrap</a><!--<a href="#"></a><a href="#">Terms</a></p>-->
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/jquery.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-transition.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-alert.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-modal.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-dropdown.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-scrollspy.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-tab.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-tooltip.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-popover.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-button.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-collapse.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-carousel.js"></script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+    <script src="https://dl.dropboxusercontent.com/u/472680/web2/bs/holder.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(e){
+      $("* a[href^='#']").on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate(
+      { scrollTop: $(this.hash).offset().top }
+      , 500);
+      // edit: Opera and IE requires the "html" elm. animated
+      });})
+    </script>
+  
+</body></html>
