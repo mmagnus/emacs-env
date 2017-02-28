@@ -12,10 +12,13 @@ I'm using:
   - yasnippet <https://github.com/joaotavora/yasnippet>
   - projectile <https://github.com/bbatsov/projectile>
   - magit <https://github.com/magit/magit>
+- R
+  - Emacs Speaks Statistics (ESS) <https://ess.r-project.org/>
 - RNA:
   - sequence alignment with Ralee <http://sgjlab.org/ralee/>
 - PDB structure format:
   - pdb-mode <https://github.com/mmagnus/emacs-pdb-mode>
+
 - misc:
   - google-translate <https://github.com/atykhonov/google-translate>
   - powerline <https://github.com/milkypostman/powerline>
