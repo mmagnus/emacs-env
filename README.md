@@ -28,6 +28,10 @@ Now this repo is after a huge clean up.
 
 - remove plugins/ (now I'm using the Emacs packaging system)
 
+# Useful links
+
+https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
+
 # Install
 
     pip install jedi epc pylint 
