@@ -1,6 +1,7 @@
 [submodule "dot-emacs.d/plugins/pdb-mode"]
 	path = dot-emacs.d/plugins/pdb-mode
-	url = git@github.com:mmagnus/emacs-pdb-mode.git
+	url = https://github.com/mmagnus/emacs-pdb-mode.git
+
 [submodule "dot-emacs.d/plugins/ralee"]
 	path = dot-emacs.d/plugins/ralee
-	url = git@github.com:samgriffithsjones/ralee.git
+	url = https://github.com/samgriffithsjones/ralee.git
