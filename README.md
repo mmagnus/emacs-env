@@ -12,7 +12,6 @@ I'm using:
   - yasnippet <https://github.com/joaotavora/yasnippet>
   - projectile <https://github.com/bbatsov/projectile>
   - magit <https://github.com/magit/magit>
-  
 - RNA:
   - sequence alignment with Ralee <http://sgjlab.org/ralee/>
 - PDB structure format:
