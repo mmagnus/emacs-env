@@ -1,0 +1,3 @@
+[submodule "dot-emacs.d/plugins/pdb-mode"]
+	path = dot-emacs.d/plugins/pdb-mode
+	url = git@github.com:mmagnus/emacs-pdb-mode.git
