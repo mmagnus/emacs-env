@@ -71,17 +71,12 @@
   ;(global-hl-line-mode t)
 
 
-  ;; https://emacswiki.org/emacs/PythonProgrammingInEmacs#toc32
-  ;(setq python-shell-interpreter "ipython"
-  ;       python-shell-interpreter-args "-i")
+  (add-to-list 'load-path "~/.emacs.d/settings")
+  ;(require 'python-el-settings) ;; off this plugin
 
 
-  ;; jedi melpa @jedi
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:setup-keys t)                      ; optional
-  (setq jedi:complete-on-dot t)                 ; optional
-  (setq jedi:tooltip-method '(pos-tip popup))   ; popup window
-  (put 'set-goal-column 'disabled nil)
+  ;; # color (set-face-background 'highlight "#FFF498")  ;; orange
+  ;(global-hl-line-mode t)
 
 
   ;; https://mail.python.org/pipermail/python-list/2002-May/128695.html
@@ -94,10 +89,19 @@
   ;              auto-mode-alist))
 
 
-  ;;python-mode
-  ;(autoload 'python-mode "python-mode" "Python Mode." t)
-  ;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-  ;(add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
+  ;;python-mode.el
+  (autoload 'python-mode "python-mode" "Python Mode." t)
+  (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+  (add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
+
+
+  ;; jedi melpa @jedi
+  ;; this should be after python-model.el load
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:setup-keys t)                      ; optional
+  (setq jedi:complete-on-dot t)                 ; optional
+  (setq jedi:tooltip-method '(pos-tip popup))   ; popup window
+  (put 'set-goal-column 'disabled nil)
 
 
   ;; pylint
