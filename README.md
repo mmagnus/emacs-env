@@ -1,6 +1,6 @@
 # Magnus' Emacs Env
 
-I have been using Emacs for over 10 years now. This is my config file :-)
+I've been using Emacs for over 10 years now. This's my config file :-) it might be useful for someone.
 
 I'm using:
 
@@ -17,7 +17,7 @@ I'm using:
   - google-translate <https://github.com/atykhonov/google-translate>
   - powerline <https://github.com/milkypostman/powerline>
 
-After a huge clean up. 
+Now this repo is after a huge clean up. 
 
 - remove plugins/ (now I'm using the Emacs packaging system)
 
