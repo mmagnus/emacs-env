@@ -348,4 +348,15 @@
   (set-face-attribute 'mode-line nil
                       :foreground "Black"
                       :background "DarkOrange"
-                      :box nil)
+                      :box nil)  ;; (old) python-outline
+
+  ;; (old) python-outline
+  ;; it has to be at the end, then it works by default!
+  ;; https://mail.python.org/pipermail/python-list/2002-May/128695.html
+  ;;(add-to-list 'load-path "~/.emacs.d/plugins/python-outline/")
+  (load-file "~/.emacs.d/plugins/python-outline/python-outline.el")
+  ;(setq outline-start-hidden t)
+  (setq auto-mode-alist (append '(
+     ("\\.text" . texi-outline)
+    ("\\.py" . python-outline))
+             auto-mode-alist))

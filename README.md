@@ -54,3 +54,4 @@ by similar repos:
 # History
 
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
+- 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
