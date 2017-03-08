@@ -1,6 +1,10 @@
 # Magnus' Emacs Env
 
 ![](screenshot.png)
+Fig. Python Mode (python-outline - old)
+
+![](screenshot2.png)
+Fig. Geekbook (Markdown) + Jupyter (IPython notebook)
 
 I've been using Emacs for over 10 years now. This's my config file :-) it might be useful for someone.
 
