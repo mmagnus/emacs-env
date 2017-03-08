@@ -13,6 +13,8 @@ I'm using:
   - ``yasnippet`` <https://github.com/joaotavora/yasnippet>
   - ``projectile`` <https://github.com/bbatsov/projectile>
   - ``magit`` <https://github.com/magit/magit>
+- SoftDev
+	- sometimes I'm switch on ``speedbar`` (``sr-speedbar``) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
 - R
   - Emacs Speaks Statistics (``ess``) <https://ess.r-project.org/>
 - RNA:
@@ -28,10 +30,6 @@ Now this repo is after a huge clean up.
 
 - remove plugins/ (now I'm using the Emacs packaging system)
 
-# Useful links
-
-https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
-
 # Install
 
     pip install jedi epc pylint 
@@ -41,12 +39,12 @@ https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
     [mm] emacs-env git:(master) ✗ source test.sh
 
 # Read more
-
+- https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonDotElGallina
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl watch http://www.youtube.com/watch?v=0cZ7szFuz18
 
-# Inspired
-by similar repos:
+# Inspired by
+similar repos:
 
 - http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/# 
 - https://github.com/jhamrick/emacs
@@ -55,3 +53,4 @@ by similar repos:
 
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
+- 07XXXX I started using Emacs, in 3rd year of my studies, "forced" by Dr Murzyn (thanks you!) (http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
