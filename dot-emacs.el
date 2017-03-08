@@ -13,6 +13,17 @@
 ;(add-to-list 'load-path "~/.emacs.d/plugins/")
 
 
+; Emacs Notebook
+(require 'ein)
+(setq ein:use-auto-complete t)
+;(add-to-hook 'after-init-hook 'ein:notebooklist-load)
+(add-hook 'ein (lambda nil (load-theme-buffer-local 'tango (current-buffer))))
+(add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
+(setq ein:notebook-modes '(ein:notebook-python-mode))
+;;Or, to enable "superpack" (a little bit hacky improvements):
+(setq ein:use-auto-complete-superpack t)
+
+
 ;;
 (setq inhibit-startup-message t)
 
