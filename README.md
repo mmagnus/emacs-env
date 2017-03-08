@@ -50,3 +50,7 @@ by similar repos:
 
 - http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/# 
 - https://github.com/jhamrick/emacs
+
+# History
+
+- 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
