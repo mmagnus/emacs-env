@@ -141,6 +141,11 @@
   ;;(local-set-key (kbd "<f8>") 'python-add-breakpoint)
 
 
+
+(require 'flycheck)
+(global-flycheck-mode t)
+
+
 ;; RNA -----------------------------------------------------------------
   ;; ralee mode is good for RNA alignment editing # http://personalpages.manchester.ac.uk/staff/sam.griffiths-jones/software/ralee/
   (add-to-list 'load-path "~/.emacs.d/plugins/ralee/elisp")
