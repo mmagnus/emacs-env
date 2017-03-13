@@ -42,6 +42,10 @@ Now this repo is after a huge clean up.
 
     [mm] emacs-env git:(master) ✗ source test.sh
 
+# Learn EMACS for Python
+
+Andrea Crotti - Emacs and shell as your best friend /EuroPython 2013/ https://www.youtube.com/watch?v=0cZ7szFuz18 https://github.com/AndreaCrotti/minimal-emacs-configuration
+
 # Read more
 - https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonDotElGallina
