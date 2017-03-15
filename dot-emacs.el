@@ -137,14 +137,24 @@
     (highlight-lines-matching-regexp "^[  ]*import ipdb; ipdb.set_trace()")
     )
   ;;(define-key py-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
-  (global-set-key (kbd "<f8>") 'python-add-breakpoint)
+  ;;(global-set-key (kbd "<f8>") 'python-add-breakpoint)
   ;;(local-set-key (kbd "<f8>") 'python-add-breakpoint)
+(eval-after-load 'python-mode
+'(define-key python-mode-map (kbd "<f8>") 'python-add-breakpoint))
 
 
 ;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
 ;; magit
 (require 'magit)
 (global-set-key "\C-cg" 'magit-status)
+
+;; don't use this !!! (global-set-key (kbd "\C-co")  'python-outline)
+(eval-after-load 'python-mode
+'(define-key python-mode-map (kbd "\C-co") 'python-outline))
+
+;; C-u C-c # http://stackoverflow.com/questions/12381692/how-to-uncomment-code-block-in-emacs-python-mode
+;(global-set-key (kbd "\C-cu")  'uncomment-region)
+;  
 
 (require 'flycheck)
 (global-flycheck-mode t)

@@ -55,6 +55,11 @@ similar repos:
 
 # Tips
 
+Specific mode oriented keybindings:
+
+	(eval-after-load 'python-mode
+	'(define-key python-mode-map (kbd "<f8>") 'python-add-breakpoint))
+
 Python mode keep windows intact: 
 
     '(py-keep-windows-configuration t)
