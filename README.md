@@ -12,11 +12,15 @@ I'm using:
 
 - `OrgMode` <http://orgmode.org/>
 - Python:
-  - ``python.el`` (is now distributed with Emacs;) but switching between this and ``python-mode.el`` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
-  - ``jedi`` <https://github.com/davidhalter/jedi>
-  - ``yasnippet`` <https://github.com/joaotavora/yasnippet>
+  - ``python-mode.el`` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
+
+            
+        
+  - ``flycheck`` (including ``pylint``) On the fly syntax checking for GNU Emacs <https://github.com/flycheck/flycheck>
+  - ``jedi`` autocompletion and static analysis library for python <https://github.com/davidhalter/jedi>
+  - ``yasnippet`` snippets <https://github.com/joaotavora/yasnippet>
   - ``projectile`` <https://github.com/bbatsov/projectile>
-  - ``magit`` <https://github.com/magit/magit>
+  - ``magit`` git in Emacs <https://github.com/magit/magit>
 - SoftDev
 	- sometimes I'm switch on ``speedbar`` (``sr-speedbar``) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
 - R
@@ -69,3 +73,4 @@ Python mode keep windows intact:
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
 - 07XXXX I started using Emacs, in 3rd year of my studies, "forced" by Dr Murzyn (thanks you!) (http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
+
