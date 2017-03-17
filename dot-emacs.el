@@ -24,6 +24,16 @@
 (setq ein:use-auto-complete-superpack t)
 
 
+;; flyspell
+(add-hook 'org-mode-hook 'flyspell-mode)
+
+;; terminal
+(global-set-key "\C-cm" 'ansi-term)
+;; fix of missing tab completion http://stackoverflow.com/questions/18278310/emacs-ansi-term-not-tab-completing
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
+
+
 ;;
 (setq inhibit-startup-message t)
 
