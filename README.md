@@ -21,6 +21,10 @@ I'm using:
   - ``yasnippet`` snippets <https://github.com/joaotavora/yasnippet>
   - ``projectile`` <https://github.com/bbatsov/projectile>
   - ``magit`` git in Emacs <https://github.com/magit/magit>
+  - ``sphinx-doc`` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
+  - ``sphinx-frontend`` provides a simple way to find closest Sphinx configuration file (conf.py) and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
+  - ido-vertical-mode <https://github.com/creichert/ido-vertical-mode.el>
+  
 - SoftDev
 	- sometimes I'm switch on ``speedbar`` (``sr-speedbar``) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
 - R
@@ -37,6 +41,13 @@ I'm using:
 Now this repo is after a huge clean up. 
 
 - remove plugins/ (now I'm using the Emacs packaging system)
+
+# Screens
+sphinx-doc <https://github.com/naiquevin/sphinx-doc.el>
+
+	C-c M-d # generate docstring for a given function
+	
+![](docs/pngs/EoN45lmSXj.gif)
 
 # Install
 
@@ -74,6 +85,7 @@ Python mode keep windows intact:
 
 # History
 
+- 170318 sphinx-doc, sphinx-frontend
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
 - 07XXXX I started using Emacs, in 3rd year of my studies, "forced" by Dr Murzyn (thanks you!) (http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
