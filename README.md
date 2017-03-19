@@ -61,6 +61,8 @@ sphinx-doc <https://github.com/naiquevin/sphinx-doc.el>
 
 Andrea Crotti - Emacs and shell as your best friend /EuroPython 2013/ https://www.youtube.com/watch?v=0cZ7szFuz18 https://github.com/AndreaCrotti/minimal-emacs-configuration
 
+Emacs as a Python IDE (package.el, jedi, auto-complete, projectile, sandbox as a vm) - https://www.youtube.com/watch?v=6BlTGPsjGJk and the repo for the talk <https://github.com/wernerandrew/jedi-starter>. Some lisp on the screen for configuration of jedi.
+
 # Read more
 - https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
 - https://www.emacswiki.org/emacs/ProgrammingWithPythonDotElGallina
@@ -83,9 +85,13 @@ Python mode keep windows intact:
 
     '(py-keep-windows-configuration t)
 
+# If you want to use VI in your Emacs ;-)
+
+Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from Wayfair is back to talk to us about his recent experience using Emacs (what?!?!). That's right, Emacs. Aaron decided it was time to see how things looked on the other side and will share what he found, what he missed from Vim, and maybe even a few things we can bring back to Vim from Emacs. <https://www.youtube.com/watch?v=JWD1Fpdd4Pc>
+
 # History
 
-- 170318 sphinx-doc, sphinx-frontend
+- 170318 sphinx-doc, sphinx-frontend, sphinx-mode
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
 - 07XXXX I started using Emacs, in 3rd year of my studies, "forced" by Dr Murzyn (thanks you!) (http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
