@@ -13,6 +13,25 @@
 ;(add-to-list 'load-path "~/.emacs.d/plugins/")
 
 
+;; source https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el
+;; https://www.youtube.com/watch?v=6BlTGPsjGJk
+(defvar local-packages '(projectile auto-complete epc jedi ido-vertical-mode))
+
+(defun uninstalled-packages (packages)
+  (delq nil
+        (mapcar (lambda (p) (if (package-installed-p p nil) nil p)) packages)))
+;; This delightful bit adapted from:
+;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
+
+(let ((need-to-install (uninstalled-packages local-packages)))
+  (when need-to-install
+    (progn
+      (package-refresh-contents)
+      (dolist (p need-to-install)
+	(package-install p)))))
+;;
+
+
 ; Emacs Notebook
 (require 'ein)
 (setq ein:use-auto-complete t)
