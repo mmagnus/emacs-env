@@ -38,10 +38,6 @@ I'm using:
 - theme
   - `powerline` <https://github.com/milkypostman/powerline>
 
-Now this repo is after a huge clean up. 
-
-- remove plugins/ (now I'm using the Emacs packaging system)
-
 # Screens
 sphinx-doc <https://github.com/naiquevin/sphinx-doc.el>
 
@@ -94,5 +90,6 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
 - 170318 sphinx-doc, sphinx-frontend, sphinx-mode
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.
+- 170228  Now this repo is after a huge clean up. Remove plugins/ (now I'm using the Emacs packaging system).
 - 07XXXX I started using Emacs, in 3rd year of my studies, "forced" by Dr Murzyn (thanks you!) (http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
 
