@@ -197,9 +197,6 @@
 (require 'magit)
 (global-set-key "\C-cg" 'magit-status)
 
-;; don't use this !!! (global-set-key (kbd "\C-co")  'python-outline)
-(eval-after-load 'python-mode
-'(define-key python-mode-map (kbd "\C-co") 'python-outline))
 
 ;; C-u C-c # http://stackoverflow.com/questions/12381692/how-to-uncomment-code-block-in-emacs-python-mode
 ;(global-set-key (kbd "\C-cu")  'uncomment-region)
@@ -417,16 +414,17 @@
   (set-face-attribute 'mode-line nil
                       :foreground "Black"
                       :background "DarkOrange"
-                      :box nil)  ;; (old) python-outline
+                      :box nil)  
 
-  ;; (old) python-outline
-  ;; it has to be at the end, then it works by default!
-  ;; https://mail.python.org/pipermail/python-list/2002-May/128695.html
-  ;;(add-to-list 'load-path "~/.emacs.d/plugins/python-outline/")
-  (load-file "~/.emacs.d/plugins/python-outline/python-outline.el")
-  ;(setq outline-start-hidden t)
-  (setq auto-mode-alist (append '(
-     ("\\.text" . texi-outline)
+;;  (old) python-outline
+;; -------------------------------------------------------------
+;; it has to be at the end, then it works by default!
+;; https://mail.python.org/pipermail/python-list/2002-May/128695.html
+;;(add-to-list 'load-path "~/.emacs.d/plugins/python-outline/")
+(load-file "~/.emacs.d/plugins/python-outline/python-outline.el")
+;(setq outline-start-hidden t)
+(setq auto-mode-alist (append '(
+    ("\\.text" . texi-outline)
     ("\\.py" . python-outline))
              auto-mode-alist))
 
