@@ -429,3 +429,8 @@
      ("\\.text" . texi-outline)
     ("\\.py" . python-outline))
              auto-mode-alist))
+
+;; Emacs lips mode <http://ergoemacs.org/emacs/reclaim_keybindings.html>
+(define-key emacs-lisp-mode-map (kbd "C-c b") 'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
+
