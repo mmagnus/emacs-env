@@ -258,7 +258,6 @@
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/magnus/.emacs.d/bookmarks")
  '(column-number-mode t)
- '(custom-enabled-themes (quote (tsdh-light)))
  '(display-time-mode t)
  '(fringe-mode (quote (0)) nil (fringe))
  '(markdown-hr-string
@@ -404,7 +403,7 @@
   ;; duplicate line C-c C-d
   (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
 ;; THEME --------------------------------------------------------------------
-  (require 'hipster-theme) ;; should be before powerline, otherwise it seems that it overwrites powerline
+(require 'hipster-theme) ;; should be before powerline, otherwise it seems that it overwrites powerline
 
 
   ;; powerline
