@@ -84,7 +84,9 @@ Python mode keep windows intact:
 # Keybindings
 
     emacs-lisp-mode: add C-c b and C-c r for eval-buffer and eval-region
-	python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a
+    python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a
+    python-mode: C-c u - uncomment
+    sphinx-doc: C-c M-d
 	
 # If you want to use VI in your Emacs ;-)
 
