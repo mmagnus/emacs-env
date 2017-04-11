@@ -33,7 +33,7 @@ I'm using:
   - sequence alignment with ``Ralee`` <http://sgjlab.org/ralee/>
 - PDB structure format:
   - `pdb-mode` <https://github.com/mmagnus/emacs-pdb-mode>
-- misc:
+- writing: papers, reports, notes:
   - `google-translate` <https://github.com/atykhonov/google-translate>
 - theme
   - `powerline` <https://github.com/milkypostman/powerline>
