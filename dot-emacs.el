@@ -431,3 +431,10 @@
 (define-key emacs-lisp-mode-map (kbd "C-c b") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
+;; tramp
+(require 'tramp)
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
+(custom-set-variables
+ '(magit-git-executable "git")
+ )
