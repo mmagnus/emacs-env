@@ -33,7 +33,7 @@ I'm using:
   - sequence alignment with ``Ralee`` <http://sgjlab.org/ralee/>
 - PDB structure format:
   - `pdb-mode` <https://github.com/mmagnus/emacs-pdb-mode>
-- misc:
+- writing: papers, reports, notes:
   - `google-translate` <https://github.com/atykhonov/google-translate>
 - theme
   - `powerline` <https://github.com/milkypostman/powerline>
@@ -84,8 +84,16 @@ Python mode keep windows intact:
 # Keybindings
 
     emacs-lisp-mode: add C-c b and C-c r for eval-buffer and eval-region
-	python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a
-	
+    python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a, Show classes and defs only C-c o 
+    python-mode: C-c u - uncomment
+    sphinx-doc: C-c M-d
+    sphinx-frontend:				
+	C-c h	sphinx-build-html	Compile rst files to html via sphinx
+	C-c l	sphinx-build-latex	Compile rst files to latex
+	C-c p	sphinx-run-pdflatex	Ad-hoc call pdflatex for LaTeX-builded documentation
+    magit: C-c g
+    shell (ansi-terminal): C-c m
+    
 # If you want to use VI in your Emacs ;-)
 
 Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from Wayfair is back to talk to us about his recent experience using Emacs (what?!?!). That's right, Emacs. Aaron decided it was time to see how things looked on the other side and will share what he found, what he missed from Vim, and maybe even a few things we can bring back to Vim from Emacs. <https://www.youtube.com/watch?v=JWD1Fpdd4Pc>
