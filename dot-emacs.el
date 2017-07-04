@@ -413,15 +413,40 @@
   (put 'narrow-to-region 'disabled nil)
   ;; duplicate line C-c C-d
   (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
-;; THEME --------------------------------------------------------------------
+
+
+;; https://github.com/jamcha-aa/auto-org-md
+;  (require 'auto-org-md)
+
+;; @THEME --------------------------------------------------------------------
 (require 'hipster-theme) ;; should be before powerline, otherwise it seems that it overwrites powerline
+;; http://stackoverflow.com/questions/4821984/emacs-osx-default-font-setting-does-not-persist
 
 
-  ;; powerline
-  (require 'cl)
-  (require 'powerline)
-  (powerline-default-theme)
-  (set-face-attribute 'mode-line nil
+;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
+(defun w () 
+       (interactive)
+         (let ((color-theme-is-global nil))
+	   (iimage-mode)
+	   (set-cursor-color "#000") 
+	;   (load-theme-buffer-local 'whiteboard (current-buffer))
+	   (load-theme-buffer-local 'github (current-buffer))
+	   )
+	 )
+
+(defun b () 
+       (interactive)
+         (let ((color-theme-is-global nil))
+          ;;(load-theme 'wombat t)
+          (load-theme-buffer-local 'wombat (current-buffer))
+          )
+         )
+
+;; powerline
+(require 'cl)
+(require 'powerline)
+(powerline-default-theme)
+(set-face-attribute 'mode-line nil
                       :foreground "Black"
                       :background "DarkOrange"
                       :box nil)  
@@ -459,20 +484,3 @@
 ;; tramp
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-
-;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
-(defun w () 
-       (interactive)
-         (let ((color-theme-is-global nil))
-           ;;(load-theme 'whiteboard t)
-          (load-theme-buffer-local 'whiteboard (current-buffer))
-          )
-         )
-
-(defun b () 
-       (interactive)
-         (let ((color-theme-is-global nil))
-          ;;(load-theme 'wombat t)
-          (load-theme-buffer-local 'wombat (current-buffer))
-          )
-         )
