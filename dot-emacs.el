@@ -45,6 +45,9 @@
 (setq ein:notebook-modes '(ein:notebook-python-mode))
 ;;Or, to enable "superpack" (a little bit hacky improvements):
 (setq ein:use-auto-complete-superpack t)
+;(global-set-key "\C-cn" 'ein:notebooklist-open)
+
+
 
 
 ;; flyspell
