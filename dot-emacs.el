@@ -435,6 +435,19 @@
 (require 'tramp)
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
-(custom-set-variables
- '(magit-git-executable "git")
- )
+;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
+(defun w () 
+       (interactive)
+         (let ((color-theme-is-global nil))
+           ;;(load-theme 'whiteboard t)
+          (load-theme-buffer-local 'whiteboard (current-buffer))
+          )
+         )
+
+(defun b () 
+       (interactive)
+         (let ((color-theme-is-global nil))
+          ;;(load-theme 'wombat t)
+          (load-theme-buffer-local 'wombat (current-buffer))
+          )
+         )
