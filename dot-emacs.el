@@ -13,6 +13,10 @@
 ;(add-to-list 'load-path "~/.emacs.d/plugins/")
 
 
+;; https://github.com/iqbalansari/emacs-emojify
+;(add-hook 'after-init-hook #'global-emojify-mode)
+
+
 ;; source https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el
 ;; https://www.youtube.com/watch?v=6BlTGPsjGJk
 (defvar local-packages '(projectile auto-complete epc jedi ido-vertical-mode))
