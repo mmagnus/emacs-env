@@ -110,6 +110,10 @@
   (yas/global-mode 1)
 
 
+;; https://www.emacswiki.org/emacs/ShowWhiteSpace
+(require 'blank-mode)
+
+
 ;; projectile
 (require 'projectile)
 (projectile-global-mode)
