@@ -435,6 +435,14 @@
 (define-key emacs-lisp-mode-map (kbd "C-c b") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
+
+;;
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+(autoload 'csv-mode "csv-mode"
+  "Major mode for editing comma-separated value files." t)
+(put 'downcase-region 'disabled nil)
+
+
 (scroll-bar-mode -1)
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
