@@ -457,6 +457,11 @@
 ;; https://mail.python.org/pipermail/python-list/2002-May/128695.html
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/python-outline/")
 (load-file "~/.emacs.d/plugins/python-outline/python-outline.el")
+
+;; (global-set-key (kbd "\C-co")  'python-outline)
+(eval-after-load 'python-mode
+   '(define-key python-mode-map (kbd "\C-c o") 'python-outline))
+
 ;(setq outline-start-hidden t)
 (setq auto-mode-alist (append '(
     ("\\.text" . texi-outline)
