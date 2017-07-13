@@ -225,8 +225,9 @@
 
 
 ;; C-u C-c # http://stackoverflow.com/questions/12381692/how-to-uncomment-code-block-in-emacs-python-mode
-;(global-set-key (kbd "\C-cu")  'uncomment-region)
-;  
+(eval-after-load 'python-mode
+'(define-key python-mode-map (kbd "\C-cu") 'uncomment-region))
+
 
 (require 'flycheck)
 (global-flycheck-mode t)
