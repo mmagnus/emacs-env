@@ -67,6 +67,12 @@
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-mode)
+
+;; ispell
+(global-set-key "\C-ci" 'ispell)
+
 
 ;; terminal
 (global-set-key "\C-cm" 'ansi-term)
