@@ -61,6 +61,9 @@
 (global-set-key "\C-cq" 'grep)
 
 
+;; visual mode ;; works! https://www.emacswiki.org/emacs/VisualLineMode
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'org-mode 'turn-on-visual-line-mode)
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
