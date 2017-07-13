@@ -49,6 +49,10 @@
 
 
 
+;; rename buffer
+(global-set-key "\C-cR" 'rename-buffer)
+
+
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
