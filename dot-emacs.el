@@ -370,15 +370,13 @@
   (global-set-key (kbd "C-c .") 'insert-current-date)
 ;; OrgMode ----------------------------------------------------------
  ;; hide @toolbar
-  (setq org-todo-keywords (quote ((sequence "TODO" "PROG" ">>>>" "WAIT" "DROP" "DONE"))))
+  (setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" ">>>>" "WAITING" "DONE"))))
   (setq org-todo-keyword-faces
              '(("TODO" . org-warning)
-  	     ("PROG" . (:foreground "blue"))
+  	     ("INPROGRESS" . (:foreground "orange"))
   	     (">>>>" .  "dark orange")
-  	     ("WAIT" . "violet")
-  	     ("DROP" . "grey")
+  	     ("WAITING" . "violet")
   	     ))
-
 
   ;(setq org-agenda-custom-commands 
   ;      '(("w" "work" ;; (1) (2) (3) (4)
@@ -401,7 +399,7 @@
 
   (setq org-directory "~/Dropbox/geekbook/notes/")
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-  (setq org-mobile-files '("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/life-context.org" "~/Dropbox/geekbook/notes/skills-curr.org"))
+  (setq org-mobile-files '("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org"  "~/Dropbox/geekbook/notes/skills-curr.org"))
   (setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/mobile-org-inbox.org")
   ;;(setq org-mobile-inbox-for-pull "~/Dropbox/inbox.org")
   (put 'upcase-region 'disabled nil)
