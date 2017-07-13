@@ -85,7 +85,9 @@ Python mode keep windows intact:
 
     emacs-lisp-mode: add C-c b and C-c r for eval-buffer and eval-region
     python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a, Show classes and defs only C-c o 
-    python-mode: C-c u - uncomment
+    python-mode: 
+		C-c u uncomment 
+		C-c # comment
     sphinx-doc: C-c M-d
     sphinx-frontend:				
 	C-c h	sphinx-build-html	Compile rst files to html via sphinx
