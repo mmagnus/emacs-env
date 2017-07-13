@@ -6,6 +6,7 @@ dot-emacs.d/plugins/popup/
 dot-emacs.d/plugins/markdown/
 dot-emacs.d/plugins/pymacs/
 dot-emacs.d/plugins/python-mode/
+.python-environments
 *.pyc
 tramp
 session*
