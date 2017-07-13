@@ -437,6 +437,31 @@
   ;;(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
   (setq google-translate-default-source-language "en")
   (setq google-translate-default-target-language "pl")
+
+
+(require 'langtool)
+(setq langtool-java-bin "/usr/bin/java")
+(setq langtool-language-tool-jar "/Users/magnus/opt/languagetool/LanguageTool-3.7/languagetool-commandline.jar")
+(setq langtool-default-language "en-US")
+
+(global-set-key "\C-c4w" 'langtool-check)
+(global-set-key "\C-c4W" 'langtool-check-done)
+(global-set-key "\C-c4l" 'langtool-switch-default-language)
+(global-set-key "\C-c44" 'langtool-show-message-at-point)
+(global-set-key "\C-c4c" 'langtool-correct-buffer)
+
+(defun langtool-autoshow-detail-popup (overlays)
+  (when (require 'popup nil t)
+    ;; Do not interrupt current popup
+    (unless (or popup-instances
+                ;; suppress popup after type `C-g` .
+                (memq last-command '(keyboard-quit)))
+      (let ((msg (langtool-details-error-message overlays)))
+        (popup-tip msg)))))
+
+(setq langtool-autoshow-message-function
+      'langtool-autoshow-detail-popup)
+
 ;; MARKDOWN --------------------------------------------------------------------
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
   (put 'narrow-to-region 'disabled nil)

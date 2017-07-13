@@ -95,7 +95,14 @@ Python mode keep windows intact:
 	C-c p	sphinx-run-pdflatex	Ad-hoc call pdflatex for LaTeX-builded documentation
     magit: C-c g
     shell (ansi-terminal): C-c m
-    
+
+	# langtool
+    (global-set-key "\C-c4w" 'langtool-check)
+    (global-set-key "\C-c4W" 'langtool-check-done)
+    (global-set-key "\C-c4l" 'langtool-switch-default-language)
+    (global-set-key "\C-c44" 'langtool-show-message-at-point)
+    (global-set-key "\C-c4c" 'langtool-correct-buffer)
+
 # If you want to use VI in your Emacs ;-)
 
 Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from Wayfair is back to talk to us about his recent experience using Emacs (what?!?!). That's right, Emacs. Aaron decided it was time to see how things looked on the other side and will share what he found, what he missed from Vim, and maybe even a few things we can bring back to Vim from Emacs. <https://www.youtube.com/watch?v=JWD1Fpdd4Pc>
