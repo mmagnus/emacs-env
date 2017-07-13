@@ -293,6 +293,7 @@
  '(column-number-mode t)
  '(display-time-mode t)
  '(fringe-mode (quote (0)) nil (fringe))
+ '(magit-git-executable "git")
  '(markdown-hr-string
    "--------------------------------------------------------------------------------")
  '(org-agenda-category-icon-alist
