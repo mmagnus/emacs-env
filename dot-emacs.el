@@ -53,6 +53,14 @@
 (global-set-key "\C-cR" 'rename-buffer)
 
 
+;; locate
+(global-set-key "\C-cl" 'locate)
+
+
+;; grep
+(global-set-key "\C-cq" 'grep)
+
+
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
