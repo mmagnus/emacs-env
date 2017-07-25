@@ -419,6 +419,10 @@
   (add-hook 'kill-emacs-hook 'org-mobile-push)
   (add-hook 'kill-emacs-hook 'org-mobile-pull)
 ;; ENGLISH/SPELLING/WRITING -----------------------------------------------
+;; https://github.com/xuchunyang/flyspell-popup
+(define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
+(add-hook 'flyspell-mode-hook #'flyspell-popup-auto-correct-mode)
+
 ;; @google-this-mode 
 ;(google-this-mode 1)
 ;(global-set-key (kbd "C-x g") 'google-this-mode-submap)
