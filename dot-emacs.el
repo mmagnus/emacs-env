@@ -236,8 +236,19 @@
 '(define-key python-mode-map (kbd "\C-cu") 'uncomment-region))
 
 
+;; flycheck
 (require 'flycheck)
 (global-flycheck-mode t)
+
+;; flycheck-pos-tip
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
+;;
+(require 'flycheck-color-mode-line)
+(eval-after-load "flycheck"
+  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+
 
 
 ;; RNA -----------------------------------------------------------------
