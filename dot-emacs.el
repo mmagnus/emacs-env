@@ -68,7 +68,8 @@
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
-(add-hook 'python-mode-hook 'flyspell-mode)
+;(add-hook 'python-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode) ;; https://stackoverflow.com/questions/2455062/how-to-spell-check-python-docstring-with-emacs
 
 ;; ispell
 (global-set-key "\C-ci" 'ispell)
