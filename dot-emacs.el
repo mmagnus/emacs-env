@@ -419,7 +419,7 @@
   (setq org-directory "~/Dropbox/geekbook/notes/")
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   (setq org-mobile-files '("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org"  "~/Dropbox/geekbook/notes/skills-curr.org"))
-  (setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/mobile-org-inbox.org")
+  (setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/inbox.org")
   ;;(setq org-mobile-inbox-for-pull "~/Dropbox/inbox.org")
   (put 'upcase-region 'disabled nil)
 
