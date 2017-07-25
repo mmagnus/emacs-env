@@ -649,3 +649,6 @@
   (global-set-key (kbd "C-c .") 'insert-current-date)
 
 
+(add-hook 'html-mode-hook 'web-mode)
+
+
