@@ -17,23 +17,37 @@
 ;(add-hook 'after-init-hook #'global-emojify-mode)
 
 
+;; https://github.com/dimitri/el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/"))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+  (require 'el-get))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+
+
 ;; source https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el
 ;; https://www.youtube.com/watch?v=6BlTGPsjGJk
-(defvar local-packages '(projectile auto-complete epc jedi ido-vertical-mode))
-
-(defun uninstalled-packages (packages)
-  (delq nil
-        (mapcar (lambda (p) (if (package-installed-p p nil) nil p)) packages)))
+;(defvar local-packages '(projectile auto-complete epc jedi ido-vertical-mode))
+;(defun uninstalled-packages (packages)
+;  (delq nil
+;        (mapcar (lambda (p) (if (package-installed-p p nil) nil p)) packages)))
 ;; This delightful bit adapted from:
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
-
-(let ((need-to-install (uninstalled-packages local-packages)))
-  (when need-to-install
-    (progn
-      (package-refresh-contents)
-      (dolist (p need-to-install)
-	(package-install p)))))
-;;
+;(let ((need-to-install (uninstalled-packages local-packages)))
+;  (when need-to-install
+;    (progn
+;      (package-refresh-contents)
+;      (dolist (p need-to-install)
+;	(package-install p)))))
+;;;;;;
 
 
 ; Emacs Notebook
@@ -47,6 +61,10 @@
 (setq ein:use-auto-complete-superpack t)
 ;(global-set-key "\C-cn" 'ein:notebooklist-open)
 
+
+;; @pocket
+(require 'el-pocket)
+(el-pocket-load-auth)
 
 
 ;; rename buffer
@@ -110,8 +128,7 @@
 (setq mac-right-option-modifier nil)
 (setq ns-right-alternate-modifier nil)
 
-
-;; Used mostly for my geekbook, reload a file if modified
+;; used mostly for my geekbook, reload a file if modified
 ;; auto revert http://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
 (global-auto-revert-mode t)
 
@@ -124,12 +141,15 @@
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 
-;; PYTHON -------------------------------------------------------------
+;; @PYTHON -------------------------------------------------------------
 ;; # yasnippet https://github.com/capitaomorte/yasnippet
   ;(add-to-list 'load-path
   ;              "~/.emacs.d/elpa/yasnippet-20130218.2229")
   (require 'yasnippet)
   (yas/global-mode 1)
+
+
+(setenv "PYTHONPATH" "/home/magnus/work/src/rna-pdb-tools")
 
 
 ;; https://www.emacswiki.org/emacs/ShowWhiteSpace
@@ -140,12 +160,19 @@
 (require 'projectile)
 (projectile-global-mode)
 
-;; https://github.com/creichert/ido-vertical-mode.el
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
+;; https://www.youtube.com/watch?v=6BlTGPsjGJk
+(require 'auto-complete-config)
+(ac-config-default)
+
+
+;; https://github.com/creichert/ido-vertical-mode.el
+;(require 'ido-vertical-mode)
+;(ido-mode 1)
+;(ido-vertical-mode 1)
+;(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+;; ^ i don't like this in geekbook so I don't see the whole list of files
+;; and I can't sort etc.
 
   ;; # color (set-face-background 'highlight "#FFF498")  ;; orange
   ;(global-hl-line-mode t)
@@ -172,15 +199,11 @@
   (require 'sphinx-frontend)
 
 
-  ;; sphinx--X
-;  (eval-after-load "rst" '(auto-complete-rst-init))
-
-
   ;; sphinx-doc
   (add-hook 'python-mode-hook (lambda ()
                                   (require 'sphinx-doc)
                                   (sphinx-doc-mode t)))
-
+                                   
 
   ;;python-mode.el
   (autoload 'python-mode "python-mode" "Python Mode." t)
@@ -231,6 +254,10 @@
 (global-set-key "\C-cg" 'magit-status)
 
 
+;; pythonpath add auto
+(setenv "PYTHONPATH" (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'"))
+(getenv "PYTHONPATH")
+
 ;; C-u C-c # http://stackoverflow.com/questions/12381692/how-to-uncomment-code-block-in-emacs-python-mode
 (eval-after-load 'python-mode
 '(define-key python-mode-map (kbd "\C-cu") 'uncomment-region))
@@ -250,8 +277,11 @@
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 
+;; flymake
+(require 'flymake-cursor)
 
-;; RNA -----------------------------------------------------------------
+
+;; @RNA -----------------------------------------------------------------
   ;; ralee mode is good for RNA alignment editing # http://personalpages.manchester.ac.uk/staff/sam.griffiths-jones/software/ralee/
   (add-to-list 'load-path "~/.emacs.d/plugins/ralee/elisp")
   (autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
@@ -301,6 +331,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-ispell-fuzzy-limit 2)
+ '(ac-ispell-requires 4)
  '(bmkp-last-as-first-bookmark-file "/home/magnus/.emacs.d/bookmarks")
  '(column-number-mode t)
  '(display-time-mode t)
@@ -371,8 +403,13 @@
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm pylint python jedi-core ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jedi jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr find-file-in-repository exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary darkroom color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flycheck-pos-tip flymd flycheck-pyflakes django-mode web-narrow-mode web-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal darkroom google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(py-keep-windows-configuration t)
+ '(show-paren-mode t)
+ '(synonyms-cache-file
+   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
+ '(synonyms-file
+   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt")
  '(tool-bar-mode nil))
   
 (custom-set-faces
@@ -380,13 +417,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
-;; My plugins ----------------------------------------------------------
-  ;; Insert curr date use with Geekbook
-  ;; http://www.emacswiki.org/emacs/InsertingTodaysDate
-  (defun insert-current-date () (interactive)
-     (insert (shell-command-to-string "echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d)
-  (global-set-key (kbd "C-c .") 'insert-current-date)
+ )
+
+; '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
+
 ;; OrgMode ----------------------------------------------------------
  ;; hide @toolbar
   (setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" ">>>>" "WAITING" "DONE"))))
@@ -429,10 +463,55 @@
   (add-hook 'after-init-hook 'org-mobile-push)
   (add-hook 'kill-emacs-hook 'org-mobile-push)
   (add-hook 'kill-emacs-hook 'org-mobile-pull)
-;; ENGLISH/SPELLING/WRITING -----------------------------------------------
+
+
+(setq org-random-todo-how-often 1500)
+(org-random-todo-mode 1)
+(global-set-key "\C-c0" 'org-random-todo)
+
+;; @ENGLISH/SPELLING/@WRITING -----------------------------------------------
+;(:name textlint
+;    :type git
+;    :url "git://github.com/DamienCassou/textlint.git"
+;    :website "http://scg.unibe.ch/research/textlint"
+;    :description "Allows the integration of TextLint within Emacs"
+;    :load "textlint.el")
+
+;(global-set-key (kbd "<f7>") 'dic-lookup-w3m--collocation-weblio-word)
+;(global-set-key (kbd "<f8>") 'synonyms-match-more)
+;(global-set-key (kbd "<f6>") 'lookup-word-definition)
+
 ;; https://github.com/xuchunyang/flyspell-popup
 (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
 (add-hook 'flyspell-mode-hook #'flyspell-popup-auto-correct-mode)
+
+;; https://github.com/syohex/emacs-ac-ispell
+;; Completion words longer than 4 characters
+(eval-after-load "auto-complete"
+  '(progn
+     (ac-ispell-setup)))
+
+(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'org-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)          
+;;
+
+;; @darkroom
+(defun darkroom-mode ()
+	"Make things simple-looking by removing decoration 
+	 and choosing a simple theme."
+        (interactive)
+        ;(switch-full-screen 1)     ;; requires above function 
+	;(color-theme-retro-green)  ;; requires color-theme
+        (setq left-margin 10)
+        (menu-bar-mode -1)
+        (tool-bar-mode -1)
+        (scroll-bar-mode -1)
+        (set-face-foreground 'mode-line "gray15")
+        (set-face-background 'mode-line "black")
+        (auto-fill-mode 1))
+
 
 ;; @google-this-mode 
 ;(google-this-mode 1)
@@ -498,7 +577,7 @@
        (interactive)
          (let ((color-theme-is-global nil))
 	   (iimage-mode)
-	   (set-cursor-color "#000") 
+	   ;(set-cursor-color "#000") 
 	;   (load-theme-buffer-local 'whiteboard (current-buffer))
 	   (load-theme-buffer-local 'github (current-buffer))
 	   )
@@ -508,6 +587,7 @@
        (interactive)
          (let ((color-theme-is-global nil))
           ;;(load-theme 'wombat t)
+	  ;(set-cursor-color "#fff") 
           (load-theme-buffer-local 'wombat (current-buffer))
           )
          )
