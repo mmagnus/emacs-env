@@ -271,6 +271,8 @@
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
 
+(setq-default flycheck-flake8-maximum-line-length 100)
+
 ;;
 (require 'flycheck-color-mode-line)
 (eval-after-load "flycheck"
