@@ -155,6 +155,9 @@
   (yas/global-mode 1)
 
 
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=100"))
+
 ;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
 (add-hook 'python-mode-hook
 	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
