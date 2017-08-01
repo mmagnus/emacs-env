@@ -114,6 +114,12 @@
  (exec-path-from-shell-initialize))
 
 
+;; https://stackoverflow.com/questions/25433260/pylint-does-not-work-in-emacs
+;; yep, indeed it fixed a problem with pylint!
+(require 'exec-path-from-shell) ;; if not using the ELPA package
+(exec-path-from-shell-initialize)
+
+
 ;; # bookmark+ http://www.emacswiki.org/emacs/bookmark%2B-doc.el http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
 ;'(load "bookmark+.el")
 ;(require 'bookmark+)
