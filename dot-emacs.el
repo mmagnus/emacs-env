@@ -149,6 +149,10 @@
   (yas/global-mode 1)
 
 
+;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
+(add-hook 'python-mode-hook
+	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
 (setenv "PYTHONPATH" "/home/magnus/work/src/rna-pdb-tools")
 
 
