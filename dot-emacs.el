@@ -160,6 +160,17 @@
 
 (elpy-enable)
 
+(require 'linum)
+(require 'pycoverage)
+
+(defun my-coverage ()
+  (interactive)
+  (when (derived-mode-p 'python-mode)
+    (progn
+      (linum-mode)
+      (pycoverage-mode))))
+
+
 ;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
 (add-hook 'python-mode-hook
 	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
