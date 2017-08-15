@@ -184,11 +184,15 @@
  '(ac-ispell-requires 4)
  '(bmkp-last-as-first-bookmark-file "/home/magnus/.emacs.d/bookmarks")
  '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
+ '(display-battery-mode t)
  '(display-time-mode t)
- '(fringe-mode (quote (0)) nil (fringe))
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(indicate-empty-lines t)
  '(magit-git-executable "git")
  '(markdown-hr-string
    "--------------------------------------------------------------------------------")
+ '(menu-bar-mode nil)
  '(org-agenda-category-icon-alist
    (quote
     (("work-curr" "~/Dropbox/curr_dropbox/org_mode_icon/icon.png" nil nil))))
@@ -252,7 +256,7 @@
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flycheck-pos-tip flymd flycheck-pyflakes django-mode web-narrow-mode web-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal darkroom google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flycheck-pos-tip flymd flycheck-pyflakes django-mode web-narrow-mode web-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal darkroom google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(py-keep-windows-configuration t)
  '(show-paren-mode t)
  '(synonyms-cache-file
