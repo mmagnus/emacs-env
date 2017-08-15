@@ -23,6 +23,7 @@ I'm using:
   - ``magit`` git in Emacs <https://github.com/magit/magit>
   - ``sphinx-doc`` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
   - ``sphinx-frontend`` provides a simple way to find closest Sphinx configuration file (conf.py) and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
+  - `pytest` https://github.com/ionrock/pytest-el
   - ido-vertical-mode <https://github.com/creichert/ido-vertical-mode.el>
 
 - SoftDev
@@ -105,6 +106,16 @@ Python mode keep windows intact:
 
 	# pycoverge
     \C-cc pycoverage-refresh
+
+	# pytest
+    \C-ca pytest-all
+    \C-cm pytest-module
+    \C-c. pytest-one
+    \C-cd pytest-directory
+    \C-cpa pytest-pdb-all
+    \C-cpm pytest-pdb-module
+    \C-cp. pytest-pdb-one
+
 
 # If you want to use VI in your Emacs ;-)
 
