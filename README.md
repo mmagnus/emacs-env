@@ -12,26 +12,23 @@ I'm using:
 
 - `OrgMode` <http://orgmode.org/>
 - Python:
-  - ``python-mode.el`` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
-
-
-
-  - ``flycheck`` (including ``pylint``) On the fly syntax checking for GNU Emacs <https://github.com/flycheck/flycheck>
-  - ``jedi`` autocompletion and static analysis library for python <https://github.com/davidhalter/jedi>
-  - ``yasnippet`` snippets <https://github.com/joaotavora/yasnippet>
-  - ``projectile`` <https://github.com/bbatsov/projectile>
-  - ``magit`` git in Emacs <https://github.com/magit/magit>
-  - ``sphinx-doc`` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
-  - ``sphinx-frontend`` provides a simple way to find closest Sphinx configuration file (conf.py) and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
+  - `python-mode.el` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
   - `pytest` https://github.com/ionrock/pytest-el
+  - `flycheck` (including `pylint`) On the fly syntax checking for GNU Emacs <https://github.com/flycheck/flycheck>
+  - `jedi` autocompletion and static analysis library for python <https://github.com/davidhalter/jedi>
+  - `yasnippet` snippets <https://github.com/joaotavora/yasnippet>
+  - `projectile` <https://github.com/bbatsov/projectile>
+  - `magit` git in Emacs <https://github.com/magit/magit>
+  - `sphinx-doc` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
+  - `sphinx-frontend` provides a simple way to find closest Sphinx configuration file (conf.py) and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
   - ido-vertical-mode <https://github.com/creichert/ido-vertical-mode.el>
 
 - SoftDev
-	- sometimes I'm switch on ``speedbar`` (``sr-speedbar``) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
+	- sometimes I'm switch on `speedbar` (`sr-speedbar`) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
 - R
-  - Emacs Speaks Statistics (``ess``) <https://ess.r-project.org/>
+  - Emacs Speaks Statistics (`ess`) <https://ess.r-project.org/>
 - RNA:
-  - sequence alignment with ``Ralee`` <http://sgjlab.org/ralee/>
+  - sequence alignment with `Ralee` <http://sgjlab.org/ralee/>
 - PDB structure format:
   - `pdb-mode` <https://github.com/mmagnus/emacs-pdb-mode>
 - writing: papers, reports, notes:
