@@ -163,6 +163,8 @@
     (progn
       (linum-mode)
       (pycoverage-mode))))
+(eval-after-load 'python-mode
+'(define-key python-mode-map (kbd "\C-cc") 'pycoverage-refresh))
 
 
 ;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
