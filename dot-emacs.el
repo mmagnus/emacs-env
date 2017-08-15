@@ -262,11 +262,6 @@
 
 
   ;; # highlight the import pdb text; anotate pdb http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
-  (defun annotate-pdb ()
-    (interactive)
-    (highlight-lines-matching-regexp "import pdb")
-    (highlight-lines-matching-regexp "pdb.set_trace()"))
-  (add-hook 'python-mode-hook 'annotate-pdb)
 
 
   ;; # python-add-breakpoint http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
