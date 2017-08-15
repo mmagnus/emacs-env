@@ -1,3 +1,10 @@
+;; my binding
+(global-set-key "\C-cR" 'rename-buffer)
+(global-set-key "\C-cl" 'locate)
+(global-set-key "\C-cq" 'grep)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+
+
 (require 'package)
 ;; Add the original Emacs Lisp Package Archive
 (add-to-list 'package-archives
@@ -67,27 +74,17 @@
 (el-pocket-load-auth)
 
 
-;; rename buffer
-(global-set-key "\C-cR" 'rename-buffer)
-
-
-;; locate
-(global-set-key "\C-cl" 'locate)
-
-
-;; grep
-(global-set-key "\C-cq" 'grep)
-
-
 ;; visual mode ;; works! https://www.emacswiki.org/emacs/VisualLineMode
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'org-mode 'turn-on-visual-line-mode)
+
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 ;(add-hook 'python-mode-hook 'flyspell-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode) ;; https://stackoverflow.com/questions/2455062/how-to-spell-check-python-docstring-with-emacs
+
 
 ;; ispell
 (global-set-key "\C-ci" 'ispell)
@@ -104,7 +101,7 @@
 (setq inhibit-startup-message t)
 
 
-;; # let make happy all emacs clients
+;; let make happy all emacs clients
 (server-start)
 
 
@@ -134,6 +131,7 @@
 (setq mac-right-option-modifier nil)
 (setq ns-right-alternate-modifier nil)
 
+
 ;; used mostly for my geekbook, reload a file if modified
 ;; auto revert http://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
 (global-auto-revert-mode t)
@@ -141,10 +139,6 @@
 
 ;; https://www.emacswiki.org/emacs/AlarmBell
 (setq ring-bell-function 'ignore)
-
-
-;; lista
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 
 ;; @PYTHON -------------------------------------------------------------
