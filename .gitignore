@@ -34,3 +34,13 @@ dot-emacs_2014-02-02_just-in-case.el
 *.bak
 emojis
 emacs-inbox
+/dot-emacs.d/.org-id-locations
+/dot-emacs.d/.session
+el-get
+eshell
+games
+/dot-emacs.d/ido.last
+/dot-emacs.d/radiance-theme.el
+request
+semanticdb
+synonimous
