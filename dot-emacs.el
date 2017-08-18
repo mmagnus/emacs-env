@@ -4,7 +4,7 @@
 (global-set-key "\C-cq" 'grep)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 ;; Emacs lips mode <http://ergoemacs.org/emacs/reclaim_keybindings.html>
-(define-key emacs-lisp-mode-map (kbd "C-c b") 'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
 

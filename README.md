@@ -83,7 +83,7 @@ Python mode keep windows intact:
 
 # Keybindings
 
-    emacs-lisp-mode: add C-c b and C-c r for eval-buffer and eval-region
+    emacs-lisp-mode: add C-c C-c (like with Python) and C-c r for eval-buffer and eval-region
     python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a, Show classes and defs only C-c o
     python-mode:
 		C-c u uncomment
