@@ -9,6 +9,8 @@
 
 (global-set-key "\C-xt" 'term)
 
+;; https://github.com/realgud/realgud/wiki/ANSI-Terminal-Escape-appearing-in-Buffers
+(setenv "TERM" "dumb")
 
 ;; let make happy all emacs clients
 (server-start)
