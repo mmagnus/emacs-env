@@ -144,3 +144,7 @@
  ;    ("\\.texi" . texi-outline)
  ;    ("\\.py" . python-outline))
  ;              auto-mode-alist))
+
+
+(require 'realgud)
+

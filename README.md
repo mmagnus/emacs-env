@@ -22,8 +22,10 @@ I'm using:
   - `projectile` <https://github.com/bbatsov/projectile>
   - `magit` git in Emacs <https://github.com/magit/magit>
   - `sphinx-doc` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
-  - `sphinx-frontend` provides a simple way to find closest Sphinx configuration file (conf.py) and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
-  - ido-vertical-mode <https://github.com/creichert/ido-vertical-mode.el>
+  - `sphinx-frontend` provides a simple way to find closest Sphinx configuration file (conf.py) 
+and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
+  - `ido-vertical-mode` <https://github.com/creichert/ido-vertical-mode.el>
+  - debugging with `realgud` <https://github.com/realgud/realgud>
 
 - SoftDev
     - sometimes I'm switch on `speedbar` (`sr-speedbar`) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.    SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
