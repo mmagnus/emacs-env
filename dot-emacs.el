@@ -249,3 +249,6 @@
 
 ;; @writing
 (load "~/.emacs.d/my-python.el")
+
+;; https://www.emacswiki.org/emacs/NoTabs
+(setq-default indent-tabs-mode nil)
