@@ -7,6 +7,8 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
+(global-set-key "\C-xt" 'term)
+
 
 ;; let make happy all emacs clients
 (server-start)
