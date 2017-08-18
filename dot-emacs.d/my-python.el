@@ -3,12 +3,6 @@
 (setenv "PYTHONPATH" (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'"))
 (getenv "PYTHONPATH")
 
-;;python-mode.el
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
-
-
 (require 'yasnippet)
 (yas/global-mode 1)
 
@@ -48,6 +42,15 @@
 ;; autopep8
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 (setq py-autopep8-options '("--max-line-length=100"))
+
+;https://github.com/jorgenschaefer/elpy/issues/870
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "--simple-prompt -i")
+;;python-mode.el
+;(autoload 'python-mode "python-mode" "Python Mode." t)
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;(add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
+;^^^ does not work --170818 ^^^
 
 
 ;; https://github.com/kostafey/sphinx-frontend
