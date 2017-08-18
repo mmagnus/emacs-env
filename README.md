@@ -1,6 +1,6 @@
 # Magnus' Emacs Env
 
-<center><p><b>Emacs is my rifle. There are many editors like it, but this one is mine. It is my life. I must master it as I must master my life. Without me my rifle is useless. Without my rifle, I'm useless.</b></p></center>
+<p align="center"><b>Emacs is my rifle. There are many editors like it, but this one is mine. Without me my, my rifle is useless. Without my rifle, I am useless.</b></p>
 
 ![](screenshot.png)
 Fig. Python Mode (python-outline - old)
