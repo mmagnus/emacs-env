@@ -1,6 +1,6 @@
 <h1 align="center">Magnus' Emacs Env</h1>
 
-<p align="center"><b>Emacs is my rifle. There are many editors like it, but this one is mine. Without me my, my rifle is useless. Without my rifle, I am useless.</b></p>
+<p align="center"><b>Emacs is my rifle. There are many editors like it, but this one is mine. </br>Without me, my rifle is useless. Without my rifle, I am useless.</b></p>
 
 ![](screenshot.png)
 Fig. Python Mode (python-outline - old)
