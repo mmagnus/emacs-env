@@ -36,7 +36,7 @@
       (linum-mode)
       (pycoverage-mode))))
 (eval-after-load 'python-mode
-'(define-key python-mode-map (kbd "\C-cc") 'pycoverage-refresh))
+'(define-key python-mode-map (kbd "\C-cR") 'pycoverage-refresh))
 
 
 ;; autopep8
