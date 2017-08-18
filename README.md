@@ -26,7 +26,7 @@ I'm using:
   - ido-vertical-mode <https://github.com/creichert/ido-vertical-mode.el>
 
 - SoftDev
-	- sometimes I'm switch on `speedbar` (`sr-speedbar`) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.	SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
+    - sometimes I'm switch on `speedbar` (`sr-speedbar`) <https://www.emacswiki.org/emacs/SrSpeedbar> but I think I prefere usually to keep it off because it cluters the frame.    SrSpeedbar is a mode that makes SpeedBar show in the Current Frame, by SebastianRose.
 - R
   - Emacs Speaks Statistics (`ess`) <https://ess.r-project.org/>
 - RNA:
@@ -41,7 +41,7 @@ I'm using:
 # Screens
 sphinx-doc <https://github.com/naiquevin/sphinx-doc.el>
 
-	C-c M-d # generate docstring for a given function
+    C-c M-d # generate docstring for a given function
 
 ![](docs/pngs/EoN45lmSXj.gif)
 
@@ -74,8 +74,8 @@ similar repos:
 
 Specific mode oriented keybindings:
 
-	(eval-after-load 'python-mode
-	'(define-key python-mode-map (kbd "<f8>") 'python-add-breakpoint))
+    (eval-after-load 'python-mode
+    '(define-key python-mode-map (kbd "<f8>") 'python-add-breakpoint))
 
 Python mode keep windows intact:
 
@@ -88,27 +88,27 @@ Python mode keep windows intact:
     emacs-lisp-mode: add C-c C-c (like with Python) and C-c r for eval-buffer and eval-region
     python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a, Show classes and defs only C-c o
     python-mode:
-		C-c u uncomment
-		C-c # comment
+      C-c u uncomment
+      C-c # comment
     sphinx-doc: C-c M-d
     sphinx-frontend:
-	C-c h	sphinx-build-html	Compile rst files to html via sphinx
-	C-c l	sphinx-build-latex	Compile rst files to latex
-	C-c p	sphinx-run-pdflatex	Ad-hoc call pdflatex for LaTeX-builded documentation
+    C-c h   sphinx-build-html   Compile rst files to html via sphinx
+    C-c l   sphinx-build-latex  Compile rst files to latex
+    C-c p   sphinx-run-pdflatex     Ad-hoc call pdflatex for LaTeX-builded documentation
     magit: C-c g
     shell (ansi-terminal): C-c m
 
-	# langtool
+    # langtool
     \C-c4w langtool-check
     \C-c4W langtool-check-done
     \C-c4l langtool-switch-default-language
     \C-c44 langtool-show-message-at-point
     \C-c4c langtool-correct-buffer
 
-	# pycoverge
+    # pycoverge
     \C-cc pycoverage-refresh
 
-	# pytest
+    # pytest
     \C-ca pytest-all
     \C-cm pytest-module
     \C-c. pytest-one
