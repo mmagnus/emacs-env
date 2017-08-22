@@ -13,6 +13,7 @@ I've been using Emacs for over 10 years now. This's my config file :-) it might 
 I'm using:
 
 - `OrgMode` <http://orgmode.org/>
+- `Markdown mode` https://jblevins.org/projects/markdown-mode/ with https://github.com/mooreryan/markdown-dnd-images
 - Python:
   - `python-mode.el` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
   - `pytest` https://github.com/ionrock/pytest-el
