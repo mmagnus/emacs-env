@@ -268,3 +268,7 @@
 
 ;; https://www.emacswiki.org/emacs/NoTabs
 (setq-default indent-tabs-mode nil)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/markdown-dnd-images")
+(require 'markdown-dnd-images)
+
