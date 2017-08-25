@@ -23,7 +23,7 @@ I'm using:
   - `projectile` <https://github.com/bbatsov/projectile>
   - `magit` git in Emacs <https://github.com/magit/magit>
   - `sphinx-doc` Generate Sphinx friendly docstrings for Python functions in Emacs  <https://github.com/naiquevin/sphinx-doc.el>
-  - `sphinx-frontend` provides a simple way to find closest Sphinx configuration file (conf.py) 
+  - `sphinx-frontend` provides a simple way to find closest Sphinx configuration file (conf.py)
 and run the Sphinx. <https://github.com/kostafey/sphinx-frontend>
   - `ido-vertical-mode` <https://github.com/creichert/ido-vertical-mode.el>
   - debugging with `realgud` <https://github.com/realgud/realgud>
@@ -124,6 +124,10 @@ Python mode keep windows intact:
 # If you want to use VI in your Emacs ;-)
 
 Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from Wayfair is back to talk to us about his recent experience using Emacs (what?!?!). That's right, Emacs. Aaron decided it was time to see how things looked on the other side and will share what he found, what he missed from Vim, and maybe even a few things we can bring back to Vim from Emacs. <https://www.youtube.com/watch?v=JWD1Fpdd4Pc>
+
+# Learn more:
+
+- write your own snippets for yasnippet http://longhorizon.org/blog/2013/03/31/improving-python-development-in-emacs-with-yasnippet/
 
 # History
 
