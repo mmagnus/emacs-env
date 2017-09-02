@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: cmd
+# key: cmd
+# --
+import subprocess
+
+def run_cmd(cmd, verbose=False):
+    if verbose:
+        print(cmd)
+    o = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out = o.stdout.read().strip().decode()
+    err = o.stderr.read().strip().decode()
+    return out, err
