@@ -271,4 +271,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/plugins/markdown-dnd-images")
 (require 'markdown-dnd-images)
+(add-to-list 'load-path "~/.emacs.d/plugins/calendar-add-events")
+(require 'calendar-add-events)
 
