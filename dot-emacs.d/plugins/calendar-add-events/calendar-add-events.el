@@ -14,7 +14,7 @@
 	activate
 	tell calendar \"iCloud\"
 		set theCurrentDate to current date
-		make new event at end with properties {summary:\"" event "\", start date:theCurrentDate, end date:theCurrentDate + 30 * minutes}
+		make new event at end with properties {summary:\"" event "\", start date:theCurrentDate, end date:theCurrentDate + 15 * minutes}
 	end tell
 	reload calendars
 end tell"))
