@@ -1,7 +1,8 @@
 ; (setenv "PYTHONPATH" "/home/magnus/work/src/rna-pdb-tools")
 ;; pythonpath add auto
 (setenv "PYTHONPATH" (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'"))
-(getenv "PYTHONPATH")
+;;(getenv "PYTHONPATH")
+
 
 (require 'yasnippet)
 (yas/global-mode 1)
@@ -40,17 +41,21 @@
 
 
 ;; autopep8
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-(setq py-autopep8-options '("--max-line-length=100"))
+; why off?
+;  (1) if you comment ## as python code, it will align it all to the #
+;  (2) if you open pymol file, it will try to clean it; which will break the code
+;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=120 --ignore E265"))
+; E265 - Fix spacing after comment hash for block comments.
 
 ;https://github.com/jorgenschaefer/elpy/issues/870
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
+
 ;;python-mode.el
-;(autoload 'python-mode "python-mode" "Python Mode." t)
-;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-;(add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
-;^^^ does not work --170818 ^^^
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
 
 
 ;; https://github.com/kostafey/sphinx-frontend
@@ -63,13 +68,13 @@
 ;                                 (sphinx-doc-mode t)))
 
 
- ;; jedi melpa @jedi
- ;; this should be after python-model.el load
- (add-hook 'python-mode-hook 'jedi:setup)
- (setq jedi:setup-keys t)                      ; optional
- (setq jedi:complete-on-dot t)                 ; optional
- (setq jedi:tooltip-method '(pos-tip popup))   ; popup window
- (put 'set-goal-column 'disabled nil)
+;; jedi melpa @jedi
+;; this should be after python-model.el load
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)                      ; optional
+(setq jedi:complete-on-dot t)                 ; optional
+(setq jedi:tooltip-method '(pos-tip popup))   ; popup window
+(put 'set-goal-column 'disabled nil)
 
 
 ;;  (old) python-outline
@@ -105,10 +110,17 @@
 '(define-key python-mode-map (kbd "<f8>") 'python-add-breakpoint))
 
 
+
+
 ;; C-u C-c # http://stackoverflow.com/questions/12381692/how-to-uncomment-code-block-in-emacs-python-mode
 (eval-after-load 'python-mode
 '(define-key python-mode-map (kbd "\C-cu") 'uncomment-region))
 
+; https://github.com/flycheck/flycheck-popup-tip/
+;(eval-after-load 'flycheck
+;  (if (display-graphic-p)
+;      (flycheck-pos-tip-mode)
+;    (flycheck-popup-tip-mode)))
 
  ;; pylint
  ;(autoload 'pylint "pylint")
@@ -146,5 +158,15 @@
  ;              auto-mode-alist))
 
 
-(require 'realgud)
+;(require 'realgud)
 
+
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
+
+
+;(elpy-enable)
+(define-key global-map (kbd "C-c i") 'iedit-mode)
+
+
+;;; my-python.el ends here

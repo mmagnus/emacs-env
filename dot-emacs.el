@@ -1,4 +1,7 @@
-;; my binding
+;;; dot-emacs.el --- Magnus Env
+;;; Commentary:
+;;;  https://github.com/mmagnus/emacs-env
+;;; Code:
 (global-set-key "\C-cR" 'rename-buffer)
 (global-set-key "\C-cl" 'locate)
 (global-set-key "\C-cq" 'grep)
@@ -21,8 +24,8 @@
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
 ;; Add the user-contributed repository
-;(add-to-list 'package-archives
-;             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
@@ -94,7 +97,7 @@
 
 ;; projectile
 (require 'projectile)
-(projectile-global-mode)
+(projectile-mode)
 
 
 ;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
@@ -107,15 +110,16 @@
 (require 'flycheck)
 (global-flycheck-mode t)
 ;; flycheck-pos-tip
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+;(with-eval-after-load 'flycheck
+;  (flycheck-pos-tip-mode))
 ;;
 (setq-default flycheck-flake8-maximum-line-length 100)
 ;;
 (require 'flycheck-color-mode-line)
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-;;
+
+
 ;; flymake
 (require 'flymake-cursor)
 
@@ -185,7 +189,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(markdown-code-face ((t (:inherit Green :background "Black")))))
 
 ; '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
 
@@ -219,9 +223,8 @@
 
 (setq org-directory "~/Dropbox/geekbook/notes/")
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-(setq org-mobile-files '("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org"  "~/Dropbox/geekbook/notes/skills-curr.org"))
-(setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/inbox.org")
-;;(setq org-mobile-inbox-for-pull "~/Dropbox/inbox.org")
+(setq org-mobile-files '("~/Dropbox/geekbook/notes/sandbox.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org"  "~/Dropbox/geekbook/notes/skills-curr.org"))
+(setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/sandbox.org")
 (put 'upcase-region 'disabled nil)
 
 (org-mode)
@@ -243,9 +246,6 @@
 
 ;; @writing
 (load "~/.emacs.d/my-web-dev.el")
-
-;; config
-(load "~/.emacs.d/my-config.el")
 
 ;; @writing
 (load "~/.emacs.d/my-python.el")
@@ -269,8 +269,213 @@
 ;; https://www.emacswiki.org/emacs/NoTabs
 (setq-default indent-tabs-mode nil)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-ispell-fuzzy-limit 2)
+ '(ac-ispell-requires 4)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#000000" "#d01A4E" "#7E7D7E" "#b58900" "#268bd2" "#d33682" "#2aa198" "#DCDCCC"])
+ '(bmkp-last-as-first-bookmark-file "/home/magnus/.emacs.d/bookmarks")
+ '(column-number-mode t)
+ '(csv-separators (quote (",")))
+ '(custom-safe-themes
+   (quote
+    ("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default)))
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(fci-rule-color "#383838")
+ '(indicate-empty-lines t)
+ '(jedi:tooltip-method nil t)
+ '(linum-format " %5i ")
+ '(magit-git-executable "git")
+ '(markdown-fontify-code-blocks-natively t)
+ '(markdown-hr-string "****************************************************")
+ '(menu-bar-mode nil)
+ '(nrepl-message-colors
+   (quote
+    ("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896")))
+ '(org-agenda-custom-commands
+   (quote
+    (("o" "Agenda and all TODO's work*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))
+       (alltodo ""
+                ((org-agenda-files
+                  (quote
+                   ("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
+     ("l" "Agenda life*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
+     (";" "Agenda and all TODO's life*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))
+       (alltodo ""
+                ((org-agenda-files
+                  (quote
+                   ("~/Dropbox/geekbook/notes/life-archive.org" "~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/life-today.org")))))))
+     ("x" "Agenda and all TODO's eXtremal science "
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/science.org")))))
+       (alltodo ""
+                ((org-agenda-files
+                  (quote
+                   ("~/Dropbox/geekbook/notes/science.org")))))))
+     ("k" "Agenda and all TODO's s[k]ills"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/skills-curr.org")))))
+       (alltodo ""
+                ((org-agenda-files
+                  (quote
+                   ("~/Dropbox/geekbook/notes/skills-curr.org")))))))
+     ("w" "Agenda work*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/Dropbox/geekbook/notes/work-someday.org" "~/Dropbox/geekbook/notes/work-extra.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-archive.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
+     ("n" "Agenda and all TODO's"
+      ((agenda "" nil)
+       (alltodo "" nil))
+      nil))))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/geekbook/notes/work-someday.org" "~/Dropbox/geekbook/notes/work-extra.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-archive.org" "~/Dropbox/geekbook/notes/sandbox.org")))
+ '(org-agenda-span (quote day))
+ '(org-indent-indentation-per-level 5)
+ '(org-indent-mode-turns-on-hiding-stars f)
+ '(package-selected-packages
+   (quote
+    (paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes realgud python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode web-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal darkroom google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+ '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")))
+ '(py-keep-windows-configuration t)
+ '(show-paren-mode t)
+ '(synonyms-cache-file
+   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
+ '(synonyms-file
+   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt")
+ '(tool-bar-mode nil)
+ '(vc-annotate-background "#2B2B2B")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#dc322f")
+     (40 . "#d01A4E")
+     (60 . "#cb4b16")
+     (80 . "#b58900")
+     (100 . "#b58900")
+     (120 . "#b58900")
+     (140 . "#7E7D7E")
+     (160 . "#7E7D7E")
+     (180 . "#9FAA9B")
+     (200 . "#9FC59F")
+     (220 . "#859900")
+     (240 . "#31be67")
+     (260 . "#2aa198")
+     (280 . "#268bd2")
+     (300 . "#268bd2")
+     (320 . "#268bd2")
+     (340 . "#00a74e")
+     (360 . "#d33682"))))
+ '(vc-annotate-very-old-color "#d33682"))
+
+
+;; https://www.emacswiki.org/emacs/AutoSave
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+    (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+    (setq backup-directory-alist
+        `((".*" . ,emacs-tmp-dir)))
+    (setq auto-save-file-name-transforms
+        `((".*" ,emacs-tmp-dir t)))
+    (setq auto-save-list-file-prefix
+          emacs-tmp-dir)
+
+(message "Emacs temp:")
+(message emacs-tmp-dir)
+
+
+;; org-mode to markdown
+(require 'ox-md)
+
+
+;; OrgMode download
+(require 'org-download)
+(setq-default org-download-image-dir "/Users/magnus/Dropbox/geekbook/notes/imgs/")
+
+
+;; images in emacs
+;(define-key markdown-mode-map (kbd "C-c R") 'markdown-display-inline-images)
+
+(add-to-list 'load-path "~/Dropbox/geekbook/notes-debugger/")
+(require 'markdown-notes-style-checker)
+
+
+(load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
+(global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
+
+;;
+(load-file "~/.emacs.d/plugins/emacs-toggl/emacs-toggl.el")
+
+;; sandbox for drag and drop
+;; markdown: drag and drop
 (add-to-list 'load-path "~/.emacs.d/plugins/markdown-dnd-images")
 (require 'markdown-dnd-images)
-(add-to-list 'load-path "~/.emacs.d/plugins/calendar-add-events")
-(require 'calendar-add-events)
+;(add-hook 'markdown-mode-hook 'flyspell-mode)
 
+
+; i tired to revert back overwrite functon, but I can;t
+;(load-file "/Applications/Emacs.app/Contents/Resources/lisp/term/ns-win.elc")
+
+;; autolist
+(add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
+
+(provide 'dot-emacs)
+;;; dot-emacs.el ends here
+
+
+(defun owb (n)
+  "Select Nth previous windows."
+  (interactive "P\nbFrobnicate buffer: ")
+  (other-window (- n)))
+
+
+
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+
+(global-set-key (kbd "C-c C-g") 'grammarly-ave-region-and-run)
+
+(defun print-to-pdf ()
+ (interactive)
+ (ps-spool-buffer-with-faces)
+ (switch-to-buffer "*PostScript*")
+ (write-file "tmp.ps")
+ (kill-buffer "tmp.ps")
+ (setq cmd (concat "ps2pdf14 tmp.ps " (buffer-name) ".pdf"))
+ (shell-command cmd)
+ (shell-command "rm tmp.ps")
+ (message (concat "File printed in : "(buffer-name) ".pdf"))
+ )
+
+(load-file "~/.emacs.d/plugins/calendar-add-events/calendar-add-events.el")
+
+
+(setq remember-data-file "~/Dropbox/geekbook/notes/sandbox.org")

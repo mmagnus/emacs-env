@@ -131,6 +131,7 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
 
 # History
 
+- 170825 My first YASnippet! :-)
 - 170318 sphinx-doc, sphinx-frontend, sphinx-mode
 - 170308 add emacs & ipython notebook https://github.com/tkf/emacs-ipython-notebook
 - 170308 recover old python-outline! It does exactly what I want.. I can't use py-hide etc.

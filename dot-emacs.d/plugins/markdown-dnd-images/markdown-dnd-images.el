@@ -276,8 +276,9 @@ happened."
 (defun dnd-insert-image-tag (text)
   (insert (format "![%s](%s)" "" (replace-regexp-in-string "/home/magnus/Dropbox/geekbook/notes/" "" text))))
 
-;; slahes and spaces in the path are turned to _
+
 (defun img-dir-path ()
+  "Slahes and spaces in the path are turned to _."
   (if (not buffer-file-name)
       (error (concat "ERROR: Couldn't find buffer-file-name "
                      "for current buffer")))
