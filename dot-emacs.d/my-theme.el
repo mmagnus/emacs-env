@@ -8,31 +8,30 @@
 (require 'powerline)
 (powerline-default-theme)
 (set-face-attribute 'mode-line nil
-                      :foreground "Black"
-                      :background "DarkOrange"
-                      :box nil)
-
+                    :foreground "Black"
+                    :background "DarkOrange"
+                    )
+;                    :box nil)
 
 ;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
 (defun w ()
        (interactive)
          (let ((color-theme-is-global nil))
 	   (iimage-mode)
-	   ;(set-cursor-color "#000")
-	;   (load-theme-buffer-local 'whiteboard (current-buffer))
+           (set-cursor-color "#000")
+           (face-remap-add-relative 'default :family "Helvetica Neue" :height 150)
+           (set-cursor-color "#000")
+           ;(set-frame-font
+            ;"-outline-Helvetica Neue-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
+                                        ;   (load-theme-buffer-local 'whiteboard (current-buffer))
 	   (load-theme-buffer-local 'github (current-buffer))
 	   )
-	 )
-
-(defun b ()
-       (interactive)
-         (let ((color-theme-is-global nil))
-          ;;(load-theme 'wombat t)
-	  ;(set-cursor-color "#fff")
-          (load-theme-buffer-local 'wombat (current-buffer))
-          )
-         )
-
+           (set-cursor-color "#000")         
+           )
+(defun ww()
+  (interactive)
+  (set-cursor-color "#000")
+  )
 
 (scroll-bar-mode -1)
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
