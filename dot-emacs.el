@@ -479,3 +479,4 @@
 
 
 (setq remember-data-file "~/Dropbox/geekbook/notes/sandbox.org")
+(set-cursor-color "#8b8989")
