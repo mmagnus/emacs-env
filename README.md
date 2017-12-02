@@ -84,6 +84,9 @@ Python mode keep windows intact:
 
     '(py-keep-windows-configuration t)
 
+
+The newest markdown-mode introduced `markdown-max-image-size` for resizing large images. It does the job! Emacs has to be compiled with ImageMagick support (`--with-imagemagick`). Read more https://emacs.stackexchange.com/questions/33952/iimage-mode-resize-an-image-in-markdown-mode-to-fit-the-window
+
 # Keybindings
 
 
