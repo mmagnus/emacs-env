@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: why long
+# key: whyl
+# --
+$0${1:[why now?]
+[why not now]
+[if] pos. conseq.
+[if not] neg. conseq.
+[end?] cyclic?
+[deadline] [ETA]
+why?
+why?
+why?
+Siwek would do?
+Paulina would do?
+Pietro would do?}

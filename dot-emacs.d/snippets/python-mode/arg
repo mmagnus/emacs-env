@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: argv
+# key: argv
+# --
+parser.add_argument("", "",
+                    action="store_true", help="")

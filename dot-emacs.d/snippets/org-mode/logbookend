@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logbookend
+# key: :le
+# --
+:LOGBOOK:
+$0${1:
+:END:}
