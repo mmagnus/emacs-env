@@ -477,6 +477,9 @@
   (ispell-change-dictionary "en_US")
 )
 
+
+;; jupyter
+(global-set-key (kbd "C-c C-j") 'ein:notebooklist-open)
 (global-set-key (kbd "C-c C-g") 'grammarly-ave-region-and-run)
 
 (defun print-to-pdf ()
