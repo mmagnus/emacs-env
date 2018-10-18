@@ -467,6 +467,16 @@
 ;(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
 
+(defun pl ()
+  (interactive)
+  (ispell-change-dictionary "pl")
+)
+
+(defun en ()
+  (interactive)
+  (ispell-change-dictionary "en_US")
+)
+
 (global-set-key (kbd "C-c C-g") 'grammarly-ave-region-and-run)
 
 (defun print-to-pdf ()
