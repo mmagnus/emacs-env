@@ -10,6 +10,9 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
+
+(define-key emacs-lisp-mode-map (kbd "C-c D") 'darkroom-mode)
+
 (global-set-key "\C-xt" 'term)
 
 ;; https://github.com/realgud/realgud/wiki/ANSI-Terminal-Escape-appearing-in-Buffers

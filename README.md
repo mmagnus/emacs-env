@@ -14,6 +14,7 @@ I'm using:
 
 - `OrgMode` <http://orgmode.org/>
 - `Markdown mode` https://jblevins.org/projects/markdown-mode/ with https://github.com/mooreryan/markdown-dnd-images
+- `Darkroom mode` https://github.com/joaotavora/darkroom
 - Python:
   - `python-mode.el` <https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl>
   - `pytest` https://github.com/ionrock/pytest-el
@@ -92,6 +93,10 @@ The newest markdown-mode introduced `markdown-max-image-size` for resizing large
 
     shell (term) \C-xt
     emacs-lisp-mode: add C-c C-c (like with Python) and C-c r for eval-buffer and eval-region
+
+    Writing:
+    C-c D  turn on darkroom-mode
+
     python-mode: python-outline Toggle entry is bound to C-c C-e, Toggle all is bound to C-c C-a, Show classes and defs only C-c o
     python-mode:
       C-c u uncomment
