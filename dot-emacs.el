@@ -512,6 +512,8 @@
  )
 (global-set-key (kbd "C-c o") 'geekbook-open-page)
 
+(setq locate-command "mdfind")
+
 
 ;; https://www.masteringemacs.org/article/introduction-to-ido-mode
 ;(setq ido-enable-flex-matching t)
