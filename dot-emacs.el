@@ -74,13 +74,6 @@
  (exec-path-from-shell-initialize))
 
 
-;; Mac stuff
-;; unset alt
-(setq mac-option-key-is-meta t)
-(setq mac-right-option-modifier nil)
-(setq ns-right-alternate-modifier nil)
-
-
 ;; https://www.emacswiki.org/emacs/AlarmBell
 (setq ring-bell-function 'ignore)
 
@@ -502,6 +495,14 @@
 
 (setq remember-data-file "~/Dropbox/geekbook/notes/sandbox.org")
 (set-cursor-color "#8b8989")
+
+;; Mac stuff
+;; unset alt
+(setq mac-option-key-is-meta t)
+(setq mac-right-option-modifier nil)
+(setq ns-right-alternate-modifier nil)
+
+
 (defun geekbook-open-page ()
  (interactive)
  (message (buffer-name))
