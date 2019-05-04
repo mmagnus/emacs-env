@@ -422,12 +422,17 @@
 ;;
 (load-file "~/.emacs.d/plugins/emacs-toggl/emacs-toggl.el")
 
-;; sandbox for drag and drop
-;; markdown: drag and drop
-(add-to-list 'load-path "~/.emacs.d/plugins/markdown-dnd-images")
-(require 'markdown-dnd-images)
-;(add-hook 'markdown-mode-hook 'flyspell-mode)
+;; markdown: drag and drop; but not always this is what I want
+(defun dnd ()
+  "Turn on markdown-dnd-images, and turn on on demand.
 
+  It's not perfect when it's on because
+  I can't move files to the cluster and virtual machines"
+  (interactive)
+  (add-to-list 'load-path "~/.emacs.d/plugins/markdown-dnd-images")
+  (require 'markdown-dnd-images)
+  (add-hook 'markdown-mode-hook 'flyspell-mode)
+)
 
 ; i tired to revert back overwrite functon, but I can;t
 ;(load-file "/Applications/Emacs.app/Contents/Resources/lisp/term/ns-win.elc")
