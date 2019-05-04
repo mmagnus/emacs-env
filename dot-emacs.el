@@ -511,3 +511,10 @@
  )
 (global-set-key (kbd "C-c o") 'geekbook-open-page)
 
+
+;; https://www.masteringemacs.org/article/introduction-to-ido-mode
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+;(ido-mode 1)
+
+
