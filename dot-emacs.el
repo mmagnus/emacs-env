@@ -58,7 +58,28 @@
 
 ;; ispell
 (global-set-key "\C-ci" 'ispell)
+(global-set-key (kbd "<f5>") 'org-capture)
 
+
+(setq org-capture-templates
+      '(
+        ("t" "Todo Life" entry
+         (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+         "* TODO %?\n  %i\n  %a")
+
+        ("x" "Test" entry
+         (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+        "** TODO %^{Description} [why] %^{why} [why not] %^{why not}
+  %?
+  :LOGBOOK:
+  - Added: %U
+  :END:
+  %a
+")
+
+        ("w" "Todo Work" entry (file+headline "~/iCloud/geekbook/notes/work-curr.org" "#inbox")
+         "* TODO %?\n  %i\n  %a")
+        ))
 
 ;; # bookmark+ http://www.emacswiki.org/emacs/bookmark%2B-doc.el http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
 ;'(load "bookmark+.el")
