@@ -346,7 +346,14 @@
       nil))))
  '(org-agenda-files
    (quote
-    ("~/Dropbox/geekbook/notes/work-someday.org" "~/Dropbox/geekbook/notes/work-extra.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-archive.org" "~/Dropbox/geekbook/notes/sandbox.org")))
+    (
+     "~/iCloud/geekbook/notes/sandbox.org"
+     "~/iCloud/geekbook/notes/life-curr.org"
+     "~/iCloud/geekbook/notes/work-curr.org"
+     "~/iCloud/geekbook/notes/work-someday.org"
+     "~/iCloud/geekbook/notes/work-extra.org"
+     "~/iCloud/geekbook/notes/work-archive.org"
+     )))
  '(org-agenda-span (quote day))
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars f)
