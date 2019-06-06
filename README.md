@@ -128,6 +128,9 @@ The newest markdown-mode introduced `markdown-max-image-size` for resizing large
     \C-cpm pytest-pdb-module
     \C-cp. pytest-pdb-one
 
+    dnd() turn on markdown drag and drop
+    C-x n n narrow text
+    C-x n w widen text
 
 # If you want to use VI in your Emacs ;-)
 
