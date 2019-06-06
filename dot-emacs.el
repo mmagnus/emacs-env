@@ -11,7 +11,10 @@
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
 
-(define-key emacs-lisp-mode-map (kbd "C-c D") 'darkroom-mode)
+;; https://stackoverflow.com/questions/13242165/emacs-auto-complete-popup-menu-broken
+(setq popup-use-optimized-column-computation nil)
+(tooltip-mode -1)
+(setq tooltip-use-echo-area t)
 
 (global-set-key "\C-xt" 'term)
 
@@ -116,7 +119,8 @@
 ;; projectile
 (require 'projectile)
 (projectile-mode)
-
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
 ;; magit
@@ -213,17 +217,21 @@
 
 ;; OrgMode ----------------------------------------------------------
 ;; hide @toolbar
-(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" ">>>>" "WAITING" "DONE"))))
+(global-set-key "\C-cmp" 'org-mobile-push)
+(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" ">>>>" "WAITING" "IDEA" "DONE"))))
 (setq org-todo-keyword-faces
-             '(("TODO" . org-warning)
-  	     ("INPROGRESS" . (:foreground "orange"))
-  	     (">>>>" .  "dark orange")
-  	     ("WAITING" . "violet")
-  	     ))
+      '(
+        ("TODO" . org-warning)
+  	("INPROGRESS" . (:foreground "orange"))
+  	(">>>>" .  "dark orange")
+  	("WAITING" . "violet")
+  	("IDEA" . "blue")
+        ("DONE" . org-done)
+  	))
 
   ;(setq org-agenda-custom-commands
   ;      '(("w" "work" ;; (1) (2) (3) (4)
-  ;         ((org-agenda-files '("/home/magnus/Dropbox/lb_v2/md/work-curr.org" "/home/magnus/Dropbox/lb_v2/md/work-extra.org")) ;; (5)
+  ;         ((org-agenda-files '("/home/magnus/iCloud/lb_v2/md/work-curr.org" "/home/magnus/iCloud/lb_v2/md/work-extra.org")) ;; (5)
   ;          (org-agenda-sorting-strategy '(priority-up effort-down))) ;; (5) cont.
   ;         ) ;; (6)
   ;        ;; ...other commands here
@@ -239,10 +247,11 @@
    (interactive)
      (org-agenda-refile nil nil t))
 
-(setq org-directory "~/Dropbox/geekbook/notes/")
+(setq geekbook_path "/home/magnus/iCloud/geekbook/")
+(setq org-directory (concat geekbook_path "notes/"))
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-(setq org-mobile-files '("~/Dropbox/geekbook/notes/sandbox.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/life-curr.org"  "~/Dropbox/geekbook/notes/skills-curr.org"))
-(setq org-mobile-inbox-for-pull "~/Dropbox/geekbook/notes/sandbox.org")
+(setq org-mobile-files '("~/iCloud/geekbook/notes/sandbox.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/life-curr.org"  "~/iCloud/geekbook/notes/skills-curr.org"))
+(setq org-mobile-inbox-for-pull "~/iCloud/geekbook/notes/sandbox.org")
 (put 'upcase-region 'disabled nil)
 
 (org-mode)
@@ -251,7 +260,11 @@
 (add-hook 'after-init-hook 'org-mobile-push)
 (add-hook 'kill-emacs-hook 'org-mobile-push)
 (add-hook 'kill-emacs-hook 'org-mobile-pull)
+;; (define-key global-map "\C-cI" 'org-mobile-pull)
 
+
+;; change format for statistics in orgmode
+(setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
 
 ;; @plugins
 (load "~/.emacs.d/my-plugins.el")
@@ -301,17 +314,17 @@
  '(csv-separators (quote (",")))
  '(custom-safe-themes
    (quote
-    ("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default)))
- '(display-battery-mode t)
- '(display-time-mode t)
+    ("5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default)))
+ '(display-battery-mode nil)
+ '(display-time-mode nil)
  '(exec-path-from-shell-check-startup-files nil)
  '(indicate-empty-lines t)
- '(jedi:tooltip-method nil t)
+ '(jedi:tooltip-method nil)
  '(linum-format " %5i ")
  '(magit-git-executable "git")
  '(markdown-fontify-code-blocks-natively t)
  '(markdown-hr-string "****************************************************")
- '(markdown-max-image-size (quote (600 . 400)))
+ '(markdown-max-image-size (quote (800 . 600)))
  '(menu-bar-mode nil)
  '(org-agenda-custom-commands
    (quote
@@ -319,76 +332,78 @@
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))
-       (alltodo ""
-                ((org-agenda-files
-                  (quote
-                   ("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
-     ("l" "Agenda life*.org"
+                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
+     ("O" "Agenda and all TODO's work*.org"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
-     (";" "Agenda and all TODO's life*.org"
-      ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/sandbox.org")))))
+                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))
        (alltodo ""
                 ((org-agenda-files
                   (quote
-                   ("~/Dropbox/geekbook/notes/life-archive.org" "~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/life-today.org")))))))
-     ("x" "Agenda and all TODO's eXtremal science "
+                   ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
+     ("j" "Agenda curr*.org"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/Dropbox/geekbook/notes/science.org")))))
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/skills-curr.org")))))))
+     (":" "Agenda and all TODO's life*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))
        (alltodo ""
                 ((org-agenda-files
                   (quote
-                   ("~/Dropbox/geekbook/notes/science.org")))))))
+                   ("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/life-today.org")))))))
+     (";" "Agenda only of life*.org"
+      ((agenda ""
+               ((org-agenda-files
+                 (quote
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
      ("k" "Agenda and all TODO's s[k]ills"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/Dropbox/geekbook/notes/skills-curr.org")))))
+                  ("~/iCloud/geekbook/notes/skills-curr.org")))))
        (alltodo ""
                 ((org-agenda-files
                   (quote
-                   ("~/Dropbox/geekbook/notes/skills-curr.org")))))))
+                   ("~/iCloud/geekbook/notes/skills-curr.org")))))))
+     ("z" "aaaaaaaaaaaaa"
+      ((alltodo ""
+                ((org-agenda-files
+                  (quote
+                   ("~/iCloud/geekbook/notes/life-curr.org")))))))
      ("w" "Agenda work*.org"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/Dropbox/geekbook/notes/work-someday.org" "~/Dropbox/geekbook/notes/work-extra.org" "~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-archive.org" "~/Dropbox/geekbook/notes/sandbox.org")))))))
+                  ("~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-extra.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/work-archive.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
      ("n" "Agenda and all TODO's"
       ((agenda "" nil)
        (alltodo "" nil))
       nil))))
  '(org-agenda-files
    (quote
-    (
-     "~/iCloud/geekbook/notes/sandbox.org"
-     "~/iCloud/geekbook/notes/life-curr.org"
-     "~/iCloud/geekbook/notes/work-curr.org"
-     "~/iCloud/geekbook/notes/work-someday.org"
-     "~/iCloud/geekbook/notes/work-extra.org"
-     "~/iCloud/geekbook/notes/work-archive.org"
-     )))
+    ("~/iCloud/geekbook/notes/sandbox.org" "~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-extra.org" "~/iCloud/geekbook/notes/work-archive.org")))
+ '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span (quote day))
+ '(org-clock-mode-line-total (quote current))
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes realgud python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode web-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal darkroom google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode wanderlust tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flyspell-popup flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")) t)
- '(py-keep-windows-configuration t t)
+ '(py-keep-windows-configuration t)
+ '(safe-local-variable-values (quote ((ispell-dictionary . "polish"))))
  '(send-mail-function nil)
  '(show-paren-mode t)
  '(synonyms-cache-file
-   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
+   "/Users/magnus/iCloud/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
  '(synonyms-file
-   "/Users/magnus/Dropbox/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt")
+   "/Users/magnus/iCloud/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt")
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B" t)
  '(vc-annotate-color-map
@@ -434,13 +449,13 @@
 
 ;; OrgMode download
 (require 'org-download)
-(setq-default org-download-image-dir "/Users/magnus/Dropbox/geekbook/notes/imgs/")
+(setq-default org-download-image-dir "/Users/magnus/iCloud/geekbook/notes/imgs/")
 
 
 ;; images in emacs
 ;(define-key markdown-mode-map (kbd "C-c R") 'markdown-display-inline-images)
 
-(add-to-list 'load-path "~/Dropbox/geekbook/notes-debugger/")
+(add-to-list 'load-path "~/iCloud/geekbook/notes-debugger/")
 (require 'markdown-notes-style-checker)
 
 
@@ -478,14 +493,29 @@
   (other-window (- n)))
 
 
-(set-face-attribute 'default nil :font "Monaco 12")
- (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 120 :width normal)))))
+(set-face-attribute 'default nil :font "Monaco 14")
+;; ispell
+(defun f12 ()
+  (interactive)
+  (set-face-attribute 'default nil :font "Monaco 12")
+)
+(defun fbig ()
+  (interactive)
+  (set-face-attribute 'default nil :font "Monaco 18")
+)
+(defun fsmall ()
+  (interactive)
+  (set-face-attribute 'default nil :font "Monaco 12")
+)
 
+(defun fnormal ()
+  (interactive)
+  (set-face-attribute 'default nil :font "Monaco 13")
+)
+
+(global-set-key "\C-c+" 'fbig)
+(global-set-key "\C-c_" 'fnormal)
+(global-set-key "\C-c)" 'fsmall)
 
 ;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 ;(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -496,6 +526,7 @@
 ;(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
 
+;; ispell
 (defun pl ()
   (interactive)
   (ispell-change-dictionary "pl")
@@ -525,9 +556,17 @@
 
 (load-file "~/.emacs.d/plugins/calendar-add-events/calendar-add-events.el")
 
+(load-file "~/.emacs.d/plugins/zen-mode/zen-mode.el")
+(require 'zen-mode)
 
-(setq remember-data-file "~/Dropbox/geekbook/notes/sandbox.org")
+
+(setq remember-data-file "~/iCloud/geekbook/notes/sandbox.org")
 (set-cursor-color "#8b8989")
+
+;;org-mode
+
+(add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 
 ;; Mac stuff
 ;; unset alt
@@ -536,6 +575,10 @@
 (setq ns-right-alternate-modifier nil)
 
 
+;;
+(defun replace-in-string (what with in)
+  (replace-regexp-in-string (regexp-quote what) with in nil 'literal))
+
 (defun geekbook-open-page ()
  (interactive)
  (message (buffer-name))
@@ -543,10 +586,35 @@
  (shell-command cmd)
  (message cmd)
  )
-(global-set-key (kbd "C-c o") 'geekbook-open-page)
+(global-set-key (kbd "C-c [") 'geekbook-open-page)
+
 
 (setq locate-command "mdfind")
 
+;;
+;(require 'smooth-scrolling)
+;(smooth-scrolling-mode 1)
+;(setq smooth-scroll-margin 5)
+
+;(add-to-list 'ispell-local-dictionary-alist
+;     '("pl"
+;        "[a-zA-Z]"
+;        "[^a-zA-Z]"
+;        "[']"
+;        nil
+;        ("-d" "pl,en_US")
+;        nil
+;        utf-8))
+
+
+;(with-eval-after-load "ispell"
+;  (setq ispell-program-name "hunspell")
+;  (setq ispell-dictionary "pl")
+  ;; ispell-set-spellchecker-params has to be called
+  ;; before ispell-hunspell-add-multi-dic will work
+  ;;(ispell-set-spellchecker-params)
+  ;;(ispell-hunspell-add-multi-dic "pl"))
+;; end
 
 ;; https://www.masteringemacs.org/article/introduction-to-ido-mode
 ;(setq ido-enable-flex-matching t)
@@ -554,3 +622,53 @@
 ;(ido-mode 1)
 
 
+
+(setq darkroom-text-scale-increase 0)
+
+;;
+(global-set-key "\C-cD" 'darkroom-mode)
+(global-set-key "\C-cN" 'narrow-to-region)
+
+;; for evoclust mapping in python mode to see comments more clearly
+(add-to-list 'auto-mode-alist '("ref\\.txt\\'" . python-mode))
+
+(setq ns-pop-up-frames nil) ;; open a new file in the same frame
+(setq mac-option-key-is-meta t)
+
+;; my darkmode
+(setq scroll-margin 6)
+(setq frame-border-width 10)
+(setq set-window-margins 10)
+
+;(set-face-attributes 'header nil :background color)
+;(setq header-line-format " ")
+;(set-frame-parameter nil 'internal-border-width 10)
+
+(defun mk-flyspell-correct-previous (&optional words)
+  "Correct word before point, reach distant words.
+
+WORDS words at maximum are traversed backward until misspelled
+word is found.  If it's not found, give up.  If argument WORDS is
+not specified, traverse 12 words by default.
+
+Return T if misspelled word is found and NIL otherwise.  Never
+move point."
+  (interactive "P")
+  (let* ((Δ (- (point-max) (point)))
+         (counter (string-to-number (or words "12")))
+         (result
+          (catch 'result
+            (while (>= counter 0)
+              (when (cl-some #'flyspell-overlay-p
+                             (overlays-at (point)))
+                (flyspell-correct-word-before-point)
+                (throw 'result t))
+              (backward-word 1)
+              (setq counter (1- counter))
+              nil))))
+    (goto-char (- (point-max) Δ))
+    result))
+
+(setq header-line-format " ")
+;(toggle-frame-fullscreen)
+;;
