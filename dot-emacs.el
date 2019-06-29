@@ -178,12 +178,12 @@
 
 
 ;; @google-this-mode
-;(google-this-mode 1)
-;(global-set-key (kbd "C-x g") 'google-this-mode-submap)
-;(global-set-key (kbd "C-c g w") 'google-word)
-;(global-set-key (kbd "C-c g t") 'google-this)
-;(global-set-key (kbd "C-c g l") 'google-line)
-;(global-set-key (kbd "C-c g r") 'google-region)
+(google-this-mode 1)
+(global-set-key (kbd "C-c g") 'google-this-mode-submap)
+(global-set-key (kbd "C-c g w") 'google-word)
+(global-set-key (kbd "C-c g t") 'google-this)
+(global-set-key (kbd "C-c g l") 'google-line)
+(global-set-key (kbd "C-c g r") 'google-region)
 
 ;; google-translate
 (require 'google-translate)
