@@ -589,7 +589,7 @@
 (global-set-key (kbd "C-c [") 'geekbook-open-page)
 
 
-(setq locate-command "mdfind")
+(setq locate-command "mdfindname")
 
 ;;
 ;(require 'smooth-scrolling)
