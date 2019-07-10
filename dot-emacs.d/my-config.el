@@ -24,16 +24,16 @@
       ((agenda ""
 	       ((org-agenda-files
 		 (quote
-		  ("~/Dropbox/geekbook/notes/work-curr.org")))))
+		  ("~/iCloud/geekbook/notes/work-curr.org")))))
        (alltodo ""
 		((org-agenda-files
 		  (quote
-		   ("~/Dropbox/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-inbox.org")))))))
+		   ("~/iCloud/geekbook/notes/work-curr.org" "~/Dropbox/geekbook/notes/work-inbox.org")))))))
      ("l" "Agenda life*.org"
       ((agenda ""
 	       ((org-agenda-files
 		 (quote
-		  ("~/Dropbox/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/life-today.org")))))))
+		  ("~/iCloudx/geekbook/notes/life-curr.org" "~/Dropbox/geekbook/notes/life-today.org")))))))
      (";" "Agenda and all TODO's life*.org"
       ((agenda ""
 	       ((org-agenda-files
