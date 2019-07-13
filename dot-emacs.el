@@ -462,6 +462,16 @@
 (load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
 (global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
 
+
+;; rna-tools-compile
+(defun rna-docs ()
+  "Run rna_docs to compile docs of rna-tools."
+  (interactive)
+  (call-process-shell-command (concat "rna_docs"))
+  )
+(global-set-key (kbd "C-c d r") 'rna-docs)
+
+
 ;;
 (load-file "~/.emacs.d/plugins/emacs-toggl/emacs-toggl.el")
 
