@@ -11,6 +11,11 @@
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
 
+;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
+;(global-auto-complete-mode nil)
+;(auto-complete-mode '(not markdown-mode))
+
+
 ;; https://stackoverflow.com/questions/13242165/emacs-auto-complete-popup-menu-broken
 (setq popup-use-optimized-column-computation nil)
 (tooltip-mode -1)
@@ -108,8 +113,8 @@
 
 
 ;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
-(add-hook 'python-mode-hook
-	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+;(add-hook 'python-mode-hook
+;	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 
 ;; https://www.emacswiki.org/emacs/ShowWhiteSpace
@@ -117,10 +122,10 @@
 
 
 ;; projectile
-(require 'projectile)
-(projectile-mode)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;(require 'projectile)
+;(projectile-mode)
+;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
 ;; magit
@@ -177,13 +182,13 @@
 (put 'downcase-region 'disabled nil)
 
 
-;; @google-this-mode
-(google-this-mode 1)
-(global-set-key (kbd "C-c g") 'google-this-mode-submap)
-(global-set-key (kbd "C-c g w") 'google-word)
-(global-set-key (kbd "C-c g t") 'google-this)
-(global-set-key (kbd "C-c g l") 'google-line)
-(global-set-key (kbd "C-c g r") 'google-region)
+;; @google-this-mode off because there is a problem with OrgMode Tab View
+;(google-this-mode 1)
+;(global-set-key (kbd "C-c g") 'google-this-mode-submap)
+;(global-set-key (kbd "C-c g w") 'google-word)
+;(global-set-key (kbd "C-c g t") 'google-this)
+;(global-set-key (kbd "C-c g l") 'google-line)
+;(global-set-key (kbd "C-c g r") 'google-region)
 
 ;; google-translate
 (require 'google-translate)
@@ -231,7 +236,7 @@
 
   ;(setq org-agenda-custom-commands
   ;      '(("w" "work" ;; (1) (2) (3) (4)
-  ;         ((org-agenda-files '("/home/magnus/iCloud/lb_v2/md/work-curr.org" "/home/magnus/iCloud/lb_v2/md/work-extra.org")) ;; (5)
+  ;         ((org-agenda-files '("/Users/magnus/iCloud/lb_v2/md/work-curr.org" "/Users/magnus/iCloud/lb_v2/md/work-extra.org")) ;; (5)
   ;          (org-agenda-sorting-strategy '(priority-up effort-down))) ;; (5) cont.
   ;         ) ;; (6)
   ;        ;; ...other commands here
@@ -247,11 +252,12 @@
    (interactive)
      (org-agenda-refile nil nil t))
 
-(setq geekbook_path "/home/magnus/iCloud/geekbook/")
-(setq org-directory (concat geekbook_path "notes/"))
+(setq geekbook_path "/Users/magnus/iCloud/geekbook/")
+(setq org-directory (concat geekbook_path "notes"))
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-(setq org-mobile-files '("~/iCloud/geekbook/notes/sandbox.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/life-curr.org"  "~/iCloud/geekbook/notes/skills-curr.org"))
-(setq org-mobile-inbox-for-pull "~/iCloud/geekbook/notes/sandbox.org")
+(setq org-mobile-files '( "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/life-curr.org"  "~/iCloud/geekbook/notes/skills-curr.org"))
+;; "~/iCloud/geekbook/notes/inbox.org"
+(setq org-mobile-inbox-for-pull "~/iCloud/geekbook/notes/life-curr.org")
 (put 'upcase-region 'disabled nil)
 
 (org-mode)
@@ -260,8 +266,7 @@
 (add-hook 'after-init-hook 'org-mobile-push)
 (add-hook 'kill-emacs-hook 'org-mobile-push)
 (add-hook 'kill-emacs-hook 'org-mobile-pull)
-;; (define-key global-map "\C-cI" 'org-mobile-pull)
-
+;(define-key global-map "\C-cI" 'org-mobile-pull)
 
 ;; change format for statistics in orgmode
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
@@ -309,7 +314,7 @@
  '(ac-ispell-requires 4)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(bmkp-last-as-first-bookmark-file "/home/magnus/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/Users/magnus/.emacs.d/bookmarks")
  '(column-number-mode t)
  '(csv-separators (quote (",")))
  '(custom-safe-themes
@@ -319,7 +324,7 @@
  '(display-time-mode nil)
  '(exec-path-from-shell-check-startup-files nil)
  '(indicate-empty-lines t)
- '(jedi:tooltip-method nil)
+ '(jedi:tooltip-method nil t)
  '(linum-format " %5i ")
  '(magit-git-executable "git")
  '(markdown-fontify-code-blocks-natively t)
@@ -328,40 +333,40 @@
  '(menu-bar-mode nil)
  '(org-agenda-custom-commands
    (quote
-    (("o" "Agenda and all TODO's work*.org"
+    (("o" "work*.org Agenda and all TODO's"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
-     ("O" "Agenda and all TODO's work*.org"
+                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+     ("O" "work*.org Agenda and all TODO's "
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))
+                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
        (alltodo ""
                 ((org-agenda-files
                   (quote
-                   ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
-     ("j" "Agenda curr*.org"
+                   ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+     ("j" "curr*.org A"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/skills-curr.org")))))))
-     (":" "Agenda and all TODO's life*.org"
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/orgmode/skills-curr.org")))))))
+     (":" "life*.org A+T"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
        (alltodo ""
                 ((org-agenda-files
                   (quote
-                   ("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/life-today.org")))))))
-     (";" "Agenda only of life*.org"
+                   ("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/orgmode/life-today.org")))))))
+     (";" "life*.org Agenda only"
       ((agenda ""
                ((org-agenda-files
                  (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
-     ("k" "Agenda and all TODO's s[k]ills"
+                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+     ("k" "s[k]ills Agenda and all TODO's "
       ((agenda ""
                ((org-agenda-files
                  (quote
@@ -370,23 +375,13 @@
                 ((org-agenda-files
                   (quote
                    ("~/iCloud/geekbook/notes/skills-curr.org")))))))
-     ("z" "aaaaaaaaaaaaa"
-      ((alltodo ""
-                ((org-agenda-files
-                  (quote
-                   ("~/iCloud/geekbook/notes/life-curr.org")))))))
-     ("w" "Agenda work*.org"
-      ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-extra.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/work-archive.org" "~/iCloud/geekbook/notes/sandbox.org")))))))
-     ("n" "Agenda and all TODO's"
+     ("n" "TODO's Agenda and all"
       ((agenda "" nil)
        (alltodo "" nil))
       nil))))
  '(org-agenda-files
    (quote
-    ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/sandbox.org" "~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/work-archive.org")))
+   ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org" "~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/work-archive.org")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span (quote day))
  '(org-clock-mode-line-total (quote current))
@@ -394,7 +389,7 @@
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile powerline multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")) t)
  '(py-keep-windows-configuration t)
  '(safe-local-variable-values (quote ((ispell-dictionary . "polish"))))
@@ -462,6 +457,20 @@
 (load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
 (global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
 
+;; dna mode https://github.com/jhgorrell/dna-mode-el
+(load-file "~/.emacs.d/plugins/dna-mode-el/dna-mode.el")
+
+(autoload 'dna-mode "dna-mode" "Major mode for dna" t)
+(add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
+(add-to-list
+    'auto-mode-alist
+    '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
+(add-hook 'dna-mode-hook 'turn-on-font-lock)
+(setq dna-color-bases-auto t)
+(global-set-key (kbd "C-c d d") 'dna-color-bases-region)
+
+(load-file "~/.emacs.d/plugins/dna-mode-el/dna-primer.el")
+
 
 ;; rna-tools-compile
 (defun rna-docs ()
@@ -470,6 +479,14 @@
   (call-process-shell-command (concat "rna_docs"))
   )
 (global-set-key (kbd "C-c d r") 'rna-docs)
+
+;; rna-tools-compiled
+(defun compile-dock ()
+  "Run rna_docs to compile docs of rna-tools."
+  (interactive)
+  (call-process-shell-command (concat "cd .. && make clean && sphinx-build -P -b html -d build/doctrees source build/html"))
+  )
+(global-set-key (kbd "C-c d m") 'compile-dock)
 
 
 ;;
@@ -503,7 +520,7 @@
   (other-window (- n)))
 
 
-(set-face-attribute 'default nil :font "Monaco 14")
+(set-face-attribute 'default nil :font "Monaco 13") ;; :foreground "#00FF00")
 ;; ispell
 (defun f12 ()
   (interactive)
@@ -511,16 +528,26 @@
 )
 (defun fbig ()
   (interactive)
+  ;(toggle-frame-fullscreen)
   (set-face-attribute 'default nil :font "Monaco 18")
-)
-(defun fsmall ()
-  (interactive)
-  (set-face-attribute 'default nil :font "Monaco 12")
+  ;(writeroom-mode)
+  ;(olivetti-mode)
+  ;(darkroom-mode)
 )
 
 (defun fnormal ()
   (interactive)
+  ;(writeroom-mode)
+  ;(darkroom-mode)
+  ;(toggle-frame-fullscreen)
   (set-face-attribute 'default nil :font "Monaco 13")
+  ;(olivetti-mode)
+  
+)
+
+(defun fsmall ()
+  (interactive)
+  (set-face-attribute 'default nil :font "Monaco 12")
 )
 
 (global-set-key "\C-c+" 'fbig)
@@ -570,7 +597,7 @@
 (require 'zen-mode)
 
 
-(setq remember-data-file "~/iCloud/geekbook/notes/sandbox.org")
+(setq remember-data-file "~/iCloud/geekbook/notes/inbox.org")
 (set-cursor-color "#8b8989")
 
 ;;org-mode
@@ -641,6 +668,7 @@
 
 ;; for evoclust mapping in python mode to see comments more clearly
 (add-to-list 'auto-mode-alist '("ref\\.txt\\'" . python-mode))
+(add-to-list 'auto-mode-alist '(".recipe" . python-mode))
 
 (setq ns-pop-up-frames nil) ;; open a new file in the same frame
 (setq mac-option-key-is-meta t)
@@ -679,6 +707,34 @@ move point."
     (goto-char (- (point-max) Δ))
     result))
 
-(setq header-line-format " ")
+;(setq header-line-format " ")
 ;(toggle-frame-fullscreen)
-;;
+
+; Set cursor color to white
+(set-cursor-color "#00ccff")
+
+
+;; OrgMode https://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode
+(setq org-image-actual-width nil)
+
+;; Markdown
+;; https://github.com/jrblevin/markdown-mode/issues/147
+(require 'markdown-mode)
+(define-key markdown-mode-map (kbd "s-<up>") 'markdown-move-subtree-up)
+(define-key markdown-mode-map (kbd "s-<down>") 'markdown-move-subtree-down)
+(define-key markdown-mode-map (kbd "s-<left>") 'markdown-promote-subtree)
+(define-key markdown-mode-map (kbd "s-<right>") 'markdown-demote-subtree)
+
+(require 'markdown-mode)
+(define-key markdown-mode-map (kbd "M-<up>") 'markdown-move-up)
+(define-key markdown-mode-map (kbd "M-<down>") 'markdown-move-down)
+(define-key markdown-mode-map (kbd "M-<left>") 'markdown-promote)
+(define-key markdown-mode-map (kbd "M-<right>") 'markdown-demote)
+
+(require 'modeline-posn)
+(size-indication-mode 1)
+
+;; off opening html
+;; https://mmagnus.github.io/feeds/feed.xml
+(setq dnd-protocol-alist nil)
+
