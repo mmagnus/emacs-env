@@ -520,7 +520,7 @@
   (other-window (- n)))
 
 
-(set-face-attribute 'default nil :font "Monaco 13") ;; :foreground "#00FF00")
+(set-face-attribute 'default nil :font "Monaco 15") ;; :foreground "#00FF00")
 ;; ispell
 (defun f12 ()
   (interactive)
@@ -734,10 +734,15 @@ move point."
 (require 'modeline-posn)
 (size-indication-mode 1)
 
-;; off opening html
-;; https://mmagnus.github.io/feeds/feed.xml
-(setq dnd-protocol-alist nil)
+; off opening html
+; (setq dnd-protocol-alist nil)
+; https://emacs.stackexchange.com/questions/54453/dont-open-a-html-link-if-drag-and-dropped-to-emacs
+(setq dnd-protocol-alist '(("^file:///" . dnd-open-local-file)
+ ("^file://" . dnd-open-file)
+ ("^file:" . dnd-open-local-file)))
 
+
+;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
 (setq
  cyphejor-rules
  '(:upcase
