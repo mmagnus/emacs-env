@@ -566,11 +566,13 @@
 ;; ispell
 (defun pl ()
   (interactive)
+  (flyspell-mode)
   (ispell-change-dictionary "pl")
 )
 
 (defun en ()
   (interactive)
+  (flyspell-mode)
   (ispell-change-dictionary "en_US")
 )
 
