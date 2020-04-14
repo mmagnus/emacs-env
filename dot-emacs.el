@@ -174,6 +174,8 @@
   ;; duplicate line C-c C-d
   (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
 
+;; markdown-asymmetric-header - set to a non-nil value to use asymmetric header styling, placing header characters only on the left of headers (default: nil). https://jblevins.org/projects/markdown-mode/
+(setq markdown-asymmetric-header t)
 
 ;; @csv
 (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
