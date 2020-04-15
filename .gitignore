@@ -46,3 +46,4 @@ semanticdb
 synonimous
 /dot-emacs.el-bakup.el
 /dot-emasc.el-170815.el
+dot-emacs.d/plugins/ale
