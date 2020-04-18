@@ -119,10 +119,10 @@
 
 
 ;; projectile
-;(require 'projectile)
-;(projectile-mode)
-;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(require 'projectile)
+(projectile-mode)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
 ;; magit
