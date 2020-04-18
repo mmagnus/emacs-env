@@ -745,6 +745,7 @@ move point."
  ("^file://" . dnd-open-file)
  ("^file:" . dnd-open-local-file)))
 
+(smart-mode-line-enable)
 
 ;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
 (setq
@@ -756,6 +757,7 @@ move point."
    ("dired"       "δ")
    ("emacs"       "ε")
    ("fundamental" "Ⓕ")
+   ("projectile"  "P" :prefix)
    ("inferior"    "i" :prefix)
    ("interaction" "i" :prefix)
    ("interactive" "i" :prefix)
@@ -773,30 +775,57 @@ move point."
 
 (cyphejor-mode 1)
 
+;; hide project name
+;(diminish 'projectile-mode)
 
-;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
-;(global-auto-complete-mode nil)
-;(auto-complete-mode '(not markdown-mode))
-;; remove auto-fill mode
-(remove-hook 'markdown-mode-hook 'auto-complete-mode t)
-;(auto-complete-mode)
-(defadvice auto-complete-mode (around disable-auto-complete-for-python)
-  (unless (eq major-mode 'markdown-mode) ad-do-it))
-(ad-activate 'auto-complete-mode)
-; https://stackoverflow.com/questions/24814988/emacs-disable-auto-complete-in-python-mode
-;;
+;;;;;;; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
+(defvar mode-line-cleaner-alist
+  `((auto-complete-mode . " α")
+    (yas/minor-mode . " υ")
+    (paredit-mode . " π")
+    (eldoc-mode . "")
+    (abbrev-mode . "")
+    ;; Major modes
+    (lisp-interaction-mode . "λ")
+    (hi-lock-mode . "")
+    (Projectile . "P")
+    (emacs-lisp-mode . "EL")
+    (nxhtml-mode . "nx"))
+  "Alist for `clean-mode-line'.
 
-;(add-to-list 'load-path "~/.emacs.d/plugins/org-taskjuggler/elisp/")
-;(require 'org-taskjuggler)
+When you add a new element to the alist, keep in mind that you
+must pass the correct minor/major mode symbol and a string you
+want to use in the modeline *in lieu of* the original.")
 
-;(add-hook 'org-agenda-finalize-hook 'org-timeline-insert-timeline :append)
 
-;;bio-seq
-(add-to-list 'load-path "~/.emacs.d/plugins/bioseq-mode/")
-(autoload 'bioseq-mode "bioseq-mode" "Major mode for biological sequences" t)
-(add-to-list 'auto-mode-alist 
- 	     '("\\.\\(fas\\|fasta\\|embs\\)\\'" . bioseq-mode))
+(defun clean-mode-line ()
+  (interactive)
+  (loop for cleaner in mode-line-cleaner-alist
+        do (let* ((mode (car cleaner))
+                 (mode-str (cdr cleaner))
+                 (old-mode-str (cdr (assq mode minor-mode-alist))))
+             (when old-mode-str
+                 (setcar old-mode-str mode-str))
+               ;; major mode
+             (when (eq mode major-mode)
+               (setq mode-name mode-str)))))
 
-(setq org-clock-mode-line-total 'current)
-(smart-mode-line-enable)
-;(message org-clock-mode-line-total)
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
+
+;;; alias the new `flymake-report-status-slim' to
+;;; `flymake-report-status'
+(defalias 'flymake-report-status 'flymake-report-status-slim)
+(defun flymake-report-status-slim (e-w &optional status)
+  "Show \"slim\" flymake status in mode line."
+  (when e-w
+    (setq flymake-mode-line-e-w e-w))
+  (when status
+    (setq flymake-mode-line-status status))
+  (let* ((mode-line " Φ"))
+    (when (> (length flymake-mode-line-e-w) 0)
+      (setq mode-line (concat mode-line ":" flymake-mode-line-e-w)))
+    (setq mode-line (concat mode-line flymake-mode-line-status))
+    (setq flymake-mode-line mode-line)
+    (force-mode-line-update)))
+;;;;;;;;;;;;;;;;;;;;;;;;;
