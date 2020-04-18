@@ -382,7 +382,7 @@
       nil))))
  '(org-agenda-files
    (quote
-   ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org" "~/iCloud/geekbook/notes/work-someday.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/work-archive.org")))
+    ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org" "~/iCloud/geekbook/notes/work-curr.org")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span (quote day))
  '(org-clock-mode-line-total (quote current))
