@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: note
+# key: note
+# --
+TITLE: $0
+To be able 
+The problem is 
+The expected results is 
+The actually results is 
+The solution would be to 
+Other solution include 
+Lessons
+What's next?

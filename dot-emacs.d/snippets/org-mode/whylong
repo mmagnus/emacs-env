@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: why long
-# key: whyl
+# key: why
 # --
 $0${1:[why now?]
 [why not now]

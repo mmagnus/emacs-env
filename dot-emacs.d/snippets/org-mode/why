@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: why
-# key: why
+# key: whys
 # --
 $0${1:!!! [if] pos. conseq. [if not] neg. conseq. [end?] cyclic? [deadline] [ETA] why? why? why?}

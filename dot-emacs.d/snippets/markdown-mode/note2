@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: note2
+# key: note2
+# --
+_TITLE_ $0
+_MOTIVATION_
+_PROBLEM_
+_EXP.RESULTS_
+_RESULTS_
+_SOLUTION_
+_ALT. SOLUTIONS_
+_CONCLUSION_
+_WHAT'S NEXT_

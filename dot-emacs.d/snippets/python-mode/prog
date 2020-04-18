@@ -15,10 +15,11 @@ def get_parser():
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 
-    parser.add_argument('-', "--", help="", default="")
+    #parser.add_argument('-', "--", help="", default="")
 
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
+    parser.add_argument("file", help="", default="") # nargs='+')
     return parser
 
 

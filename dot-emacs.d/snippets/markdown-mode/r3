@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: r3
+# key: r3
+# --
+![#full](imgs/r3/$0${1:}.png)
