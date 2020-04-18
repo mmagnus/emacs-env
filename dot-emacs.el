@@ -745,6 +745,7 @@ move point."
  ("^file://" . dnd-open-file)
  ("^file:" . dnd-open-local-file)))
 
+(desktop-save-mode 1)
 (smart-mode-line-enable)
 
 ;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
