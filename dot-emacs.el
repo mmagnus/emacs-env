@@ -11,9 +11,6 @@
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
 
-;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
-;(global-auto-complete-mode nil)
-;(auto-complete-mode '(not markdown-mode))
 
 
 ;; https://stackoverflow.com/questions/13242165/emacs-auto-complete-popup-menu-broken
@@ -59,7 +56,7 @@
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'markdown-mode-hook 'flyspell-mode)
+;(add-hook 'markdown-mode-hook 'flyspell-mode) ;; flyspell off for now
 ;(add-hook 'python-mode-hook 'flyspell-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode) ;; https://stackoverflow.com/questions/2455062/how-to-spell-check-python-docstring-with-emacs
 
@@ -174,7 +171,7 @@
   ;; duplicate line C-c C-d
   (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
 
-;; markdown-asymmetric-header - set to a non-nil value to use asymmetric header styling, placing header characters only on the left of headers (default: nil). https://jblevins.org/projects/markdown-mode/
+;; markdown-asymmetric-header - set to a non-nil value to use asymmetric header styling, placing header characters only on the left of headers (default: nil). https://jblevins.org/projects/markdown-mode/!
 (setq markdown-asymmetric-header t)
 
 ;; @csv
@@ -225,12 +222,11 @@
 ;; OrgMode ----------------------------------------------------------
 ;; hide @toolbar
 (global-set-key "\C-cmp" 'org-mobile-push)
-(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" ">>>>" "WAITING" "IDEA" "DONE"))))
+(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" "WAITING" "IDEA" "DONE"))))
 (setq org-todo-keyword-faces
       '(
         ("TODO" . org-warning)
   	("INPROGRESS" . (:foreground "orange"))
-  	(">>>>" .  "dark orange")
   	("WAITING" . "violet")
   	("IDEA" . "blue")
         ("DONE" . org-done)
@@ -263,12 +259,15 @@
 (put 'upcase-region 'disabled nil)
 
 (org-mode)
-(org-mobile-pull)
-(add-hook 'after-init-hook 'org-mobile-pull)
-(add-hook 'after-init-hook 'org-mobile-push)
-(add-hook 'kill-emacs-hook 'org-mobile-push)
-(add-hook 'kill-emacs-hook 'org-mobile-pull)
+;(org-mobile-pull)
+; org-mobile update
+;(add-hook 'after-init-hook 'org-mobile-pull)
+;(add-hook 'after-init-hook 'org-mobile-push)
+;(add-hook 'kill-emacs-hook 'org-mobile-push)
+;(add-hook 'kill-emacs-hook 'org-mobile-pull)
 ;(define-key global-map "\C-cI" 'org-mobile-pull)
+
+;; https://www.reddit.com/r/emacs/comments/5gkf33/show_clocking_time_of_current_task_to_file/
 
 ;; change format for statistics in orgmode
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
@@ -391,7 +390,7 @@
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (cyphejor olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (smart-mode-line-atom-one-dark-theme smart-mark org-timeline tj3-mode cyphejor olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")) t)
  '(py-keep-windows-configuration t)
  '(safe-local-variable-values (quote ((ispell-dictionary . "polish"))))
@@ -522,7 +521,7 @@
   (other-window (- n)))
 
 
-(set-face-attribute 'default nil :font "Monaco 15") ;; :foreground "#00FF00")
+(set-face-attribute 'default nil :font "Monaco 14") ;; :foreground "#00FF00")
 ;; ispell
 (defun f12 ()
   (interactive)
@@ -604,9 +603,10 @@
 (setq remember-data-file "~/iCloud/geekbook/notes/inbox.org")
 (set-cursor-color "#8b8989")
 
-;;org-mode
 
-(add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(add-hook 'org-clock-in-hook (
+                              lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+
 (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 
 ;; Mac stuff
@@ -630,7 +630,7 @@
 (global-set-key (kbd "C-c [") 'geekbook-open-page)
 
 
-(setq locate-command "mdfindname")
+(setq locate-command "fx")
 
 ;;
 ;(require 'smooth-scrolling)
@@ -772,3 +772,31 @@ move point."
    ("wdired"      "↯δ")))
 
 (cyphejor-mode 1)
+
+
+;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
+;(global-auto-complete-mode nil)
+;(auto-complete-mode '(not markdown-mode))
+;; remove auto-fill mode
+(remove-hook 'markdown-mode-hook 'auto-complete-mode t)
+;(auto-complete-mode)
+(defadvice auto-complete-mode (around disable-auto-complete-for-python)
+  (unless (eq major-mode 'markdown-mode) ad-do-it))
+(ad-activate 'auto-complete-mode)
+; https://stackoverflow.com/questions/24814988/emacs-disable-auto-complete-in-python-mode
+;;
+
+;(add-to-list 'load-path "~/.emacs.d/plugins/org-taskjuggler/elisp/")
+;(require 'org-taskjuggler)
+
+;(add-hook 'org-agenda-finalize-hook 'org-timeline-insert-timeline :append)
+
+;;bio-seq
+(add-to-list 'load-path "~/.emacs.d/plugins/bioseq-mode/")
+(autoload 'bioseq-mode "bioseq-mode" "Major mode for biological sequences" t)
+(add-to-list 'auto-mode-alist 
+ 	     '("\\.\\(fas\\|fasta\\|embs\\)\\'" . bioseq-mode))
+
+(setq org-clock-mode-line-total 'current)
+(smart-mode-line-enable)
+;(message org-clock-mode-line-total)
