@@ -1,0 +1,2 @@
+#!/bin/bash
+mdfind -name -onlyin `pwd` $1 | grep -v '~' | grep -v '.pyc'
