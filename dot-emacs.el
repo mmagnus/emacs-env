@@ -830,3 +830,5 @@ want to use in the modeline *in lieu of* the original.")
     (setq flymake-mode-line mode-line)
     (force-mode-line-update)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; my dirty hack to get -i in grep
+(load-file "~/.emacs.d/plugins/grep.el")
