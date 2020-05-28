@@ -4,17 +4,68 @@
 
 
 ;; powerline
-(require 'cl)
-(require 'powerline)
-(powerline-default-theme)
-(set-face-attribute 'mode-line nil
-                    :foreground "Black"
-                    :background "DarkOrange"
-                    )
+;(require 'cl)
+;(require 'powerline)
+;(powerline-default-theme)
+;(set-face-attribute 'mode-line nil
+;                    :foreground "Black"
+;                    :background "DarkOrange"
+;                    )
 ;                    :box nil)
 
 ;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
+
 (defun w ()
+  (interactive)
+  ;(focus-mode)
+  (face-remap-add-relative 'default :family "Monaco" :height 160)
+  ;(set-face-attribute 'default nil :font "Monaco 18")
+  ;(set-face-attribute 'default nil :font "Monaco 12")
+  )
+
+(defun wh ()
+  (interactive)
+  ;(focus-mode)
+  (face-remap-add-relative 'default :family "Helvetica" :height 160)
+  ;(set-face-attribute 'default nil :font "Monaco 18")
+  ;(set-face-attribute 'default nil :font "Monaco 12")
+  )
+
+(defun wh12 ()
+
+  (interactive)
+  ;(focus-mode)
+  (face-remap-add-relative 'default :family "Helvetica" :height 120)
+  ;(set-face-attribute 'default nil :font "Monaco 18")
+  ;(set-face-attribute 'default nil :font "Monaco 12")
+  )
+
+
+(defun w0 ()
+  (interactive)
+  ;(focus-mode)
+  (face-remap-add-relative 'default :family "Monaco" :height 120)
+  ;(set-face-attribute 'default nil :font "Monaco 12")
+  )
+
+(defun w12 ()
+  (interactive)
+  ;(focus-mode)
+  (face-remap-add-relative 'default :family "Monaco" :height 180)
+  ;(set-face-attribute 'default nil :font "Monaco 12")
+  )
+
+(defun ww ()
+       (interactive)
+         (let ((color-theme-is-global nil))
+	   (iimage-mode)
+           (face-remap-add-relative 'default :family "Monaco" :height 160)
+	   (load-theme-buffer-local 'github (current-buffer))
+	   )
+           (set-cursor-color "#000")
+           )
+
+(defun wx ()
        (interactive)
          (let ((color-theme-is-global nil))
 	   (iimage-mode)
@@ -26,9 +77,10 @@
                                         ;   (load-theme-buffer-local 'whiteboard (current-buffer))
 	   (load-theme-buffer-local 'github (current-buffer))
 	   )
-           (set-cursor-color "#000")         
+           (set-cursor-color "#000")
            )
-(defun ww()
+
+(defun wwxxx()
   (interactive)
   (set-cursor-color "#000")
   )

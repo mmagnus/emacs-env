@@ -1,0 +1,76 @@
+(global-set-key (kbd "<f5>") 'org-capture)
+
+
+(setq org-capture-templates
+      '(
+        ("t" "Todo Life" entry
+         (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+         "* TODO %?\n  %i\n  %a")
+
+        ("x" "Test" entry
+         (file+headline "~/iCloud/geekbook/notes/life-cu
+rr.org" "#inbox")
+        "** TODO %^{Description} [why] %^{why} [why not] %^{why not}
+  %?
+  :LOGBOOK:
+  - Added: %U
+  :END:
+  %a
+")
+
+        ("w" "Todo Work" entry (file+headline "~/iCloud/geekbook/notes/work-curr.org" "#inbox")
+         "* TODO %?\n  %i\n  %a")
+        ))
+
+;; OrgMode ----------------------------------------------------------
+;; hide @toolbar
+(global-set-key "\C-cmp" 'org-mobile-push)
+(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" "WAITING" "IDEA" "DONE"))))
+(setq org-todo-keyword-faces
+      '(
+        ("TODO" . org-warning)
+  	("INPROGRESS" . (:foreground "orange"))
+  	("WAITING" . "violet")
+  	("IDEA" . "blue")
+        ("DONE" . org-done)
+  	))
+
+  ;(setq org-agenda-custom-commands
+  ;      '(("w" "work" ;; (1) (2) (3) (4)
+  ;         ((org-agenda-files '("/Users/magnus/iCloud/lb_v2/md/work-curr.org" "/Users/magnus/iCloud/lb_v2/md/work-extra.org")) ;; (5)
+  ;          (org-agenda-sorting-strategy '(priority-up effort-down))) ;; (5) cont.
+  ;         ) ;; (6)
+  ;        ;; ...other commands here
+  ;        )
+  ;)
+
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(lambda ()
+   (interactive)
+     (org-agenda-refile nil nil t))
+
+(setq geekbook_path "/Users/magnus/iCloud/geekbook/")
+(setq org-directory (concat geekbook_path "notes"))
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+(setq org-mobile-files '( "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/life-curr.org"  "~/iCloud/geekbook/notes/skills-curr.org"))
+;; "~/iCloud/geekbook/notes/inbox.org"
+(setq org-mobile-inbox-for-pull "~/iCloud/geekbook/notes/life-curr.org")
+(put 'upcase-region 'disabled nil)
+
+(org-mode)
+;(org-mobile-pull)
+; org-mobile update
+;(add-hook 'after-init-hook 'org-mobile-pull)
+;(add-hook 'after-init-hook 'org-mobile-push)
+;(add-hook 'kill-emacs-hook 'org-mobile-push)
+;(add-hook 'kill-emacs-hook 'org-mobile-pull)
+;(define-key global-map "\C-cI" 'org-mobile-pull)
+
+;; https://www.reddit.com/r/emacs/comments/5gkf33/show_clocking_time_of_current_task_to_file/
+
+;; change format for statistics in orgmode
+(setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
