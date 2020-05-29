@@ -1,15 +1,3 @@
-;;; dot-emacs.el --- Magnus Env
-;;; Commentary:
-;;;  https://github.com/mmagnus/emacs-env
-;;; Code:
-(global-set-key "\C-cR" 'rename-buffer)
-(global-set-key "\C-cl" 'locate)
-(global-set-key "\C-cq" 'grep)
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
-;; Emacs lips mode <http://ergoemacs.org/emacs/reclaim_keybindings.html>
-(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
-(define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
-
 ;; https://stackoverflow.com/questions/13242165/emacs-auto-complete-popup-menu-broken
 (setq popup-use-optimized-column-computation nil)
 (tooltip-mode -1)
@@ -19,7 +7,6 @@
 
 ;; https://github.com/realgud/realgud/wiki/ANSI-Terminal-Escape-appearing-in-Buffers
 (setenv "TERM" "dumb")
-
 
 ;; Ipython Notebook
 ; Emacs Notebook
@@ -58,12 +45,6 @@
  (exec-path-from-shell-initialize))
 
 
-;; https://www.emacswiki.org/emacs/AlarmBell
-(setq ring-bell-function 'ignore)
-
-
-
-
 ;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
 ;(add-hook 'python-mode-hook
 ;	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
@@ -73,10 +54,6 @@
 (require 'blank-mode)
 
 
-;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
-;; magit
-(require 'magit)
-(global-set-key "\C-cg" 'magit-status)
 
 
 ;; flycheck
@@ -96,22 +73,6 @@
 ;; flymake
 (require 'flymake-cursor)
 
-
-;; @rna
-  ;; ralee mode is good for RNA alignment editing # http://personalpages.manchester.ac.uk/staff/sam.griffiths-jones/software/ralee/
-  (add-to-list 'load-path "~/.emacs.d/plugins/ralee/elisp")
-  (autoload 'ralee-mode "ralee-mode" "Yay! RNA things" t)
-  (setq auto-mode-alist (cons '("\\.stk$" . ralee-mode) auto-mode-alist))
-  (setq auto-mode-alist (cons '("\\.sto$" . ralee-mode) auto-mode-alist))
-
-
-  ;; pdb.el
-  (load-file "~/.emacs.d/plugins/pdb-mode/pdb-mode.el")
-  (setq pdb-rasmol-name "/usr/bin/pymol")
-  (setq auto-mode-alist
-       (cons (cons "pdb$" 'pdb-mode)
-             auto-mode-alist ) )
-  (autoload 'pdb-mode "PDB")
 
 
 ;; @csv
@@ -181,40 +142,8 @@
 (load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
 ;;(global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
 
-;; dna mode https://github.com/jhgorrell/dna-mode-el
-(load-file "~/.emacs.d/plugins/dna-mode-el/dna-mode.el")
-
-(autoload 'dna-mode "dna-mode" "Major mode for dna" t)
-(add-to-list 'magic-mode-alist '("^>\\|ID\\|LOCUS\\|DNA" . dna-mode))
-(add-to-list
-    'auto-mode-alist
-    '("\\.\\(fasta\\|fa\\|exp\\|ace\\|gb\\)\\'" . dna-mode))
-(add-hook 'dna-mode-hook 'turn-on-font-lock)
-(setq dna-color-bases-auto t)
-(global-set-key (kbd "C-c d d") 'dna-color-bases-region)
-
-(load-file "~/.emacs.d/plugins/dna-mode-el/dna-primer.el")
-
-
-;; rna-tools-compile
-(defun rna-docs ()
-  "Run rna_docs to compile docs of rna-tools."
-  (interactive)
-  (call-process-shell-command (concat "rna_docs"))
-  )
-(global-set-key (kbd "C-c d r") 'rna-docs)
-
-;; rna-tools-compiled
-(defun compile-dock ()
-  "Run rna_docs to compile docs of rna-tools."
-  (interactive)
-  (call-process-shell-command (concat "cd .. && make clean && sphinx-build -P -b html -d build/doctrees source build/html"))
-  )
-(global-set-key (kbd "C-c d m") 'compile-dock)
-
-
 ;;
-(load-file "~/.emacs.d/plugins/emacs-toggl/emacs-toggl.el")
+;; (load-file "~/.emacs.d/plugins/emacs-toggl/emacs-toggl.el")
 
 ;; markdown: drag and drop; but not always this is what I want
 (defun dnd ()
@@ -235,15 +164,12 @@
 (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
 
 (provide 'dot-emacs)
-;;; dot-emacs.el ends here
-
 
 (defun owb (n)
   "Select Nth previous windows."
   (interactive "P\nbFrobnicate buffer: ")
   (other-window (- n)))
 
-(set-face-attribute 'default nil :font "Monaco 17") ;; :foreground "#00FF00")
 ;; ispell
 (defun f12 ()
   (interactive)
@@ -345,15 +271,6 @@
 ;;
 (defun replace-in-string (what with in)
   (replace-regexp-in-string (regexp-quote what) with in nil 'literal))
-
-(defun geekbook-open-page ()
- (interactive)
- (message (buffer-name))
- (setq cmd  (concat "open http://127.0.0.1:5000/view/" (replace-in-string ".md" ".html" (buffer-name))))
- (shell-command cmd)
- (message cmd)
- )
-(global-set-key (kbd "C-c [") 'geekbook-open-page)
 
 
 (setq locate-command "fx")

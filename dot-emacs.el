@@ -1,5 +1,23 @@
+;;; dot-emacs.el --- Magnus Env
+;;; Commentary:
+;;;  https://github.com/mmagnus/emacs-env
+;;; Code:
+
+;; https://www.emacswiki.org/emacs/AlarmBell
+(setq ring-bell-function 'ignore)
+
+(global-set-key "\C-cR" 'rename-buffer)
+(global-set-key "\C-cl" 'locate)
+(global-set-key "\C-cq" 'grep)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+
+;; Emacs lips mode <http://ergoemacs.org/emacs/reclaim_keybindings.html>
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
+
 ;; Emacs Lisp Package Archive
 (require 'package)
+
 ;; Add the user-contributed repository
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.milkbox.net/packages/"))
@@ -80,6 +98,9 @@
 ;; @writing
 (load "~/.emacs.d/my-web-dev.el")
 
+;; #geekbook
+(load "~/.emacs.d/my-geekbook.el")
+
 ;; @writing
 (load "~/.emacs.d/my-python.el")
 
@@ -127,7 +148,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-fuzzy-limit 2)
+ '(ac-ispell-fuzzy-limit 3)
  '(ac-ispell-requires 4)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
@@ -147,7 +168,7 @@
  '(markdown-fontify-code-blocks-natively t)
  '(markdown-hr-string "****************************************************")
  '(markdown-max-image-size (quote (800 . 600)))
- '(menu-bar-mode nil)
+ '(menu-bar-mode t)
  '(org-agenda-custom-commands
    (quote
     (("o" "work*.org Agenda and all TODO's"
@@ -261,3 +282,9 @@
      (360 . "#d33682"))) t)
  '(vc-annotate-very-old-color "#d33682" t))
 
+;; keybinding for magit status (https://github.com/AndreaCrotti/minimal-emacs-configuration/blob/master/init.el)
+;; magit
+(require 'magit)
+(global-set-key "\C-cg" 'magit-status)
+
+;;; dot-emacs.el ends here

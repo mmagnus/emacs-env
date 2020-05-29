@@ -15,6 +15,9 @@
 
 ;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
 
+(set-face-attribute 'default nil :font "Monaco 14") ;; :foreground "#00FF00")
+;; Monaco ;; Consolas
+
 (defun w ()
   (interactive)
   ;(focus-mode)
