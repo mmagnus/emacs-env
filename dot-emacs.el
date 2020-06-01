@@ -287,4 +287,11 @@
 (require 'magit)
 (global-set-key "\C-cg" 'magit-status)
 
+;; 
+(load "~/.emacs.d/org-mode-clock-bar.el")
+(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
+;                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+
+(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
+;(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 ;;; dot-emacs.el ends here
