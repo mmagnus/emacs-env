@@ -292,6 +292,16 @@
 (add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
 ;                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 
+
+;; https://stackoverflow.com/questions/13397737/ansi-coloring-in-compilation-mode
+(ignore-errors
+  (require 'ansi-color)
+  (defun my-colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
+
+
 (add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
 ;(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 ;;; dot-emacs.el ends here
