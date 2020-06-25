@@ -305,3 +305,22 @@
 (add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
 ;(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 ;;; dot-emacs.el ends here
+;; config for brew install emacs-mac 
+(global-set-key [(hyper a)] 'mark-whole-buffer)
+(global-set-key [(hyper v)] 'yank)
+(global-set-key [(hyper c)] 'kill-ring-save)
+(global-set-key [(hyper s)] 'save-buffer)
+(global-set-key [(hyper l)] 'goto-line)
+(global-set-key [(hyper w)]
+                (lambda () (interactive) (delete-window)))
+(global-set-key [(hyper z)] 'undo)
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'hyper)
+
+;; end
+;; some old config
+;(setq mac-option-key-is-meta t)		
+;(setq mac-right-option-modifier nil)		
+;(setq ns-right-alternate-modifier nil)
+;(Setq Mac-Command-Modifier 'super)
+
