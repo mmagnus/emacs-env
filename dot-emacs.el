@@ -10,9 +10,6 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c r") 'eval-region)
 
-
-
-
 ;; https://stackoverflow.com/questions/13242165/emacs-auto-complete-popup-menu-broken
 (setq popup-use-optimized-column-computation nil)
 (tooltip-mode -1)
@@ -51,7 +48,6 @@
 ;;Or, to enable "superpack" (a little bit hacky improvements):
 (setq ein:use-auto-complete-superpack t)
 ;(global-set-key "\C-cn" 'ein:notebooklist-open)
-
 
 
 ;; flyspell
@@ -320,12 +316,12 @@
  '(csv-separators (quote (",")))
  '(custom-safe-themes
    (quote
-    ("5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default)))
  '(display-battery-mode nil)
  '(display-time-mode nil)
  '(exec-path-from-shell-check-startup-files nil)
  '(indicate-empty-lines t)
- '(jedi:tooltip-method nil t)
+ '(jedi:tooltip-method nil)
  '(linum-format " %5i ")
  '(magit-git-executable "git")
  '(markdown-fontify-code-blocks-natively t)
@@ -385,6 +381,27 @@
     ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org" "~/iCloud/geekbook/notes/work-curr.org")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span (quote day))
+ '(org-capture-templates
+   (quote
+    (("t" "Todo Life" entry
+      (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+      "* %?
+  %i
+  %a")
+     ("x" "Test" entry
+      (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+      "** TODO %^{Description} [why] %^{why} [why not] %^{why not}
+  %?
+  :LOGBOOK:
+  - Added: %U
+  :END:
+  %a
+")
+     ("w" "Todo Work" entry
+      (file+headline "~/iCloud/geekbook/notes/work-curr.org" "#inbox")
+      "* TODO %?
+  %i
+  %a"))) t)
  '(org-clock-mode-line-total (quote current))
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars f)
@@ -456,7 +473,7 @@
 
 
 (load-file "~/.emacs.d/plugins/emacs-grammarly/emacs-grammarly.el")
-(global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
+;;(global-set-key (kbd "C-c C-g") 'grammarly-save-region-and-run)
 
 ;; dna mode https://github.com/jhgorrell/dna-mode-el
 (load-file "~/.emacs.d/plugins/dna-mode-el/dna-mode.el")
@@ -520,8 +537,7 @@
   (interactive "P\nbFrobnicate buffer: ")
   (other-window (- n)))
 
-
-(set-face-attribute 'default nil :font "Monaco 14") ;; :foreground "#00FF00")
+(set-face-attribute 'default nil :font "Monaco 17") ;; :foreground "#00FF00")
 ;; ispell
 (defun f12 ()
   (interactive)
@@ -571,9 +587,12 @@
   (ispell-change-dictionary "pl")
 )
 
+;; en my own flycheck config english
 (defun en ()
   (interactive)
   (flyspell-mode)
+  (require 'flycheck-grammarly)
+  (flycheck-pos-tip-mode)
   (ispell-change-dictionary "en_US")
 )
 
@@ -604,18 +623,30 @@
 (set-cursor-color "#8b8989")
 
 
-(add-hook 'org-clock-in-hook (
-                              lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(load "~/.emacs.d/org-mode-clock-bar.el")
+(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
+;                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 
-(add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
+(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
+;(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 
 ;; Mac stuff
 ;; unset alt
-(setq mac-option-key-is-meta t)
+;(setq mac-option-key-is-meta t)
+
+;(setq ns-right-alternate-modifier nil)
+;; config for brew install emacs-mac 
+ (global-set-key [(hyper a)] 'mark-whole-buffer)
+ (global-set-key [(hyper v)] 'yank)
+ (global-set-key [(hyper c)] 'kill-ring-save)
+ (global-set-key [(hyper s)] 'save-buffer)
+ (global-set-key [(hyper l)] 'goto-line)
+ (global-set-key [(hyper w)]
+                 (lambda () (interactive) (delete-window)))
+(global-set-key [(hyper z)] 'undo)
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'hyper)
 (setq mac-right-option-modifier nil)
-(setq ns-right-alternate-modifier nil)
-
-
 ;;
 (defun replace-in-string (what with in)
   (replace-regexp-in-string (regexp-quote what) with in nil 'literal))
@@ -739,14 +770,50 @@ move point."
 (size-indication-mode 1)
 
 ; off opening html
-; (setq dnd-protocol-alist nil)
+(setq dnd-protocol-alist nil)
 ; https://emacs.stackexchange.com/questions/54453/dont-open-a-html-link-if-drag-and-dropped-to-emacs
-(setq dnd-protocol-alist '(("^file:///" . dnd-open-local-file)
- ("^file://" . dnd-open-file)
- ("^file:" . dnd-open-local-file)))
+;(setq dnd-protocol-alist '(("^file:///" . dnd-open-local-file)
+; ("^file://" . dnd-open-file)
+; ("^file:" . dnd-open-local-file)))
+
+;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
+;(global-auto-complete-mode nil)
+;(auto-complete-mode '(not markdown-mode))
+;; remove auto-fill mode
+(remove-hook 'markdown-mode-hook 'auto-complete-mode t)
+;(auto-complete-mode)
+(defadvice auto-complete-mode (around disable-auto-complete-for-python)
+  (unless (eq major-mode 'markdown-mode) ad-do-it))
+(ad-activate 'auto-complete-mode)
+; https://stackoverflow.com/questions/24814988/emacs-disable-auto-complete-in-python-mode
+;;
+
+;(add-to-list 'load-path "~/.emacs.d/plugins/org-taskjuggler/elisp/")
+;(require 'org-taskjuggler)
+
+;(add-hook 'org-agenda-finalize-hook 'org-timeline-insert-timeline :append)
+
+;;bio-seq
+(add-to-list 'load-path "~/.emacs.d/plugins/bioseq-mode/")
+(autoload 'bioseq-mode "bioseq-mode" "Major mode for biological sequences" t)
+(add-to-list 'auto-mode-alist 
+ 	     '("\\.\\(fas\\|fasta\\|embs\\)\\'" . bioseq-mode))
+
+;; https://stackoverflow.com/questions/15390178/emacs-and-symbolic-links
+(setq vc-follow-symlinks t)
+
+;; auto-load
+(find-file-other-window "~/workspace/emacs-env/dot-emacs.d/org-mode-clock-bar.el")
+(find-file-other-window "~/iCloud/geekbook/notes/life-curr.org")
+;(org-clock-get-clock-string)
+(find-file-other-window "~/.emacs")
 
 (desktop-save-mode 1)
 (smart-mode-line-enable)
+;;(load "~/.emacs.d/org-mode-clock-bar.el")
+
+;(setq org-clock-mode-line-total 'current)
+;(message org-clock-mode-line-total)
 
 ;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
 (setq
@@ -832,3 +899,16 @@ want to use in the modeline *in lieu of* the original.")
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; my dirty hack to get -i in grep
 (load-file "~/.emacs.d/plugins/grep.el")
+
+;; recompile shorthut
+(global-set-key "\C-cc" 'recompile)
+
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
+;;; Shut up compile saves
+(setq compilation-ask-about-save nil)
+
+;(require 'grammarly)
+;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
+;;;;;;;;;
