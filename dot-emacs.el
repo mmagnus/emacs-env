@@ -300,7 +300,7 @@
 
 
 ;; https://www.emacswiki.org/emacs/NoTabs
-(setq-default indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -332,46 +332,46 @@
    (quote
     (("o" "work*.org Agenda and all TODO's"
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
      ("O" "work*.org Agenda and all TODO's "
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
        (alltodo ""
-                ((org-agenda-files
-                  (quote
-                   ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+		((org-agenda-files
+		  (quote
+		   ("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
      ("j" "curr*.org A"
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/orgmode/skills-curr.org")))))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/orgmode/skills-curr.org")))))))
      (":" "life*.org A+T"
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))
        (alltodo ""
-                ((org-agenda-files
-                  (quote
-                   ("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/orgmode/life-today.org")))))))
+		((org-agenda-files
+		  (quote
+		   ("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/orgmode/life-today.org")))))))
      (";" "life*.org Agenda only"
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org")))))))
      ("k" "s[k]ills Agenda and all TODO's "
       ((agenda ""
-               ((org-agenda-files
-                 (quote
-                  ("~/iCloud/geekbook/notes/skills-curr.org")))))
+	       ((org-agenda-files
+		 (quote
+		  ("~/iCloud/geekbook/notes/skills-curr.org")))))
        (alltodo ""
-                ((org-agenda-files
-                  (quote
-                   ("~/iCloud/geekbook/notes/skills-curr.org")))))))
+		((org-agenda-files
+		  (quote
+		   ("~/iCloud/geekbook/notes/skills-curr.org")))))))
      ("n" "TODO's Agenda and all"
       ((agenda "" nil)
        (alltodo "" nil))
@@ -591,7 +591,7 @@
 (defun en ()
   (interactive)
   (flyspell-mode)
-  (require 'flycheck-grammarly)
+;  (require 'flycheck-grammarly)
   (flycheck-pos-tip-mode)
   (ispell-change-dictionary "en_US")
 )
@@ -693,13 +693,15 @@
 ;(setq ido-everywhere t)
 ;(ido-mode 1)
 
-
-
+;; my darkmode
 (setq darkroom-text-scale-increase 0)
-
+(setq scroll-margin 6)
+(setq frame-border-width 10)
+(setq set-window-margins 10)
 ;;
 (global-set-key "\C-cD" 'darkroom-mode)
 (global-set-key "\C-cN" 'narrow-to-region)
+(global-set-key "\C-cW" 'writeroom-mode)
 
 ;; for evoclust mapping in python mode to see comments more clearly
 (add-to-list 'auto-mode-alist '("ref\\.txt\\'" . python-mode))
@@ -707,11 +709,6 @@
 
 (setq ns-pop-up-frames nil) ;; open a new file in the same frame
 (setq mac-option-key-is-meta t)
-
-;; my darkmode
-(setq scroll-margin 6)
-(setq frame-border-width 10)
-(setq set-window-margins 10)
 
 ;(set-face-attributes 'header nil :background color)
 ;(setq header-line-format " ")
@@ -766,15 +763,13 @@ move point."
 (define-key markdown-mode-map (kbd "M-<left>") 'markdown-promote)
 (define-key markdown-mode-map (kbd "M-<right>") 'markdown-demote)
 
-(require 'modeline-posn)
-(size-indication-mode 1)
-
 ; off opening html
 (setq dnd-protocol-alist nil)
 ; https://emacs.stackexchange.com/questions/54453/dont-open-a-html-link-if-drag-and-dropped-to-emacs
-;(setq dnd-protocol-alist '(("^file:///" . dnd-open-local-file)
-; ("^file://" . dnd-open-file)
-; ("^file:" . dnd-open-local-file)))
+(setq dnd-protocol-alist '(
+                           ("^file:///.*.py" . dnd-open-local-file)
+      )
+      )
 
 ;; https://stackoverflow.com/questions/8095715/emacs-auto-complete-mode-at-startup
 ;(global-auto-complete-mode nil)
@@ -922,6 +917,10 @@ corresponding command.
 
 Within CMD, %i denotes the input file(s), and %o denotes the
 output file. %i path(s) are relative, while %o is absolute.")
+
+(require 'modeline-posn)
+(size-indication-mode 1)
+
 
 ;(require 'grammarly)
 ;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
