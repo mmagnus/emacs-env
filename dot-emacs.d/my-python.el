@@ -168,5 +168,5 @@
 ;(elpy-enable)
 (define-key global-map (kbd "C-c i") 'iedit-mode)
 
-
+(setq-default flycheck-flake8-maximum-line-length 160)
 ;;; my-python.el ends here
