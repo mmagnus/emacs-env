@@ -28,12 +28,11 @@
 (require 'package)
 ;; Add the user-contributed repository
 (add-to-list 'package-archives
-       '("melpa" . "http://melpa.milkbox.net/packages/"))
+            '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
-             '("elpa" . "http://tromey.com/elpa/"))
-
+             '("elpa" . "https://tromey.com/elpa/"))
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("marmalade" . "https://marmalade-repo.org/packages/"))
 (package-initialize)
 
 
@@ -407,7 +406,7 @@
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
    (quote
-    (smart-mode-line-atom-one-dark-theme smart-mark org-timeline tj3-mode cyphejor olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-yasnippet auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
+    (git-gutter smart-mode-line-atom-one-dark-theme smart-mark org-timeline tj3-mode cyphejor olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 python-mode projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R)))
  '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")) t)
  '(py-keep-windows-configuration t)
  '(safe-local-variable-values (quote ((ispell-dictionary . "polish"))))
@@ -545,7 +544,7 @@
 )
 (defun fbig ()
   (interactive)
-  ;(toggle-frame-fullscreen)
+                                        ;(toggle-frame-fullscreen)
   (set-face-attribute 'default nil :font "Monaco 18")
   ;(writeroom-mode)
   ;(olivetti-mode)
@@ -570,6 +569,7 @@
 (global-set-key "\C-c+" 'fbig)
 (global-set-key "\C-c_" 'fnormal)
 (global-set-key "\C-c)" 'fsmall)
+(global-set-key "\C-cf" 'font-lock-mode)
 
 ;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 ;(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -623,12 +623,13 @@
 (set-cursor-color "#8b8989")
 
 
-(load "~/.emacs.d/org-mode-clock-bar.el")
-(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
+;(load "~/.emacs.d/org-mode-clock-bar.el")
+;(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
 ;                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 
-(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
+;(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
 ;(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
+;;;;;;;;;;;;;
 
 ;; Mac stuff
 ;; unset alt
@@ -694,12 +695,30 @@
 ;(ido-mode 1)
 
 ;; my darkmode
-(setq darkroom-text-scale-increase 0)
-(setq scroll-margin 6)
+;(setq darkroom-text-scale-increase 0)
+(setq scroll-margin 10)
 (setq frame-border-width 10)
 (setq set-window-margins 10)
-;;
-(global-set-key "\C-cD" 'darkroom-mode)
+
+
+(defun dark()
+  (interactive)
+  (font-lock-mode)
+  (setq-default left-margin-width 60 right-margin-width 60) ; Define new widths.
+  (set-face-attribute 'fringe nil :background "#000" :foreground "#2E2920")
+  (set-window-buffer nil (current-buffer)) ; Use them now.
+  )
+
+(defun undark()
+  (interactive)
+  (font-lock-mode)
+	    (setq-default left-margin-width 1 right-margin-width 1) ; Define new widths.
+	    (set-face-attribute 'fringe nil :background "#000" :foreground "#2E2920")
+	    (set-window-buffer nil (current-buffer)) ; Use them now.
+	    )
+
+(global-set-key "\C-cD" 'dark)
+(global-set-key "\C-cU" 'undark)
 (global-set-key "\C-cN" 'narrow-to-region)
 (global-set-key "\C-cW" 'writeroom-mode)
 
@@ -805,10 +824,13 @@ move point."
 
 (desktop-save-mode 1)
 (smart-mode-line-enable)
-;;(load "~/.emacs.d/org-mode-clock-bar.el")
 
+
+;;(load "~/.emacs.d/org-mode-clock-bar.el")
 ;(setq org-clock-mode-line-total 'current)
 ;(message org-clock-mode-line-total)
+
+
 
 ;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
 (setq
