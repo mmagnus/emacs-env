@@ -1,7 +1,18 @@
 ;;; dot-emacs.el --- Magnus Env
 ;;; Commentary:
 ;;;  https://github.com/mmagnus/emacs-env
-;;; Code:
+
+;; Emacs Lisp Package Archive
+(require 'package)
+;; Add the user-contributed repository
+(add-to-list 'package-archives
+            '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("elpa" . "https://tromey.com/elpa/"))
+(add-to-list 'package-archives
+             '("marmalade" . "https://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (global-set-key "\C-cR" 'rename-buffer)
 (global-set-key "\C-cl" 'locate)
 (global-set-key "\C-cq" 'grep)
@@ -25,30 +36,7 @@
 ;; let make happy all emacs clients
 (server-start)
 (setq inhibit-startup-message t)
-
-;; Emacs Lisp Package Archive
-(require 'package)
-;; Add the user-contributed repository
-(add-to-list 'package-archives
-            '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("elpa" . "https://tromey.com/elpa/"))
-(add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/"))
-(package-initialize)
-
-;; Ipython Notebook
-; Emacs Notebook
-(require 'ein)
-(setq ein:use-auto-complete t)
-;(add-to-hook 'after-init-hook 'ein:notebooklist-load)
-(add-hook 'ein (lambda nil (load-theme-buffer-local 'tango (current-buffer))))
-(add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
-(setq ein:notebook-modes '(ein:notebook-python-mode))
-;;Or, to enable "superpack" (a little bit hacky improvements):
-(setq ein:use-auto-complete-superpack t)
-;(global-set-key "\C-cn" 'ein:notebooklist-open)
-
+(setq inhibit-splash-screen t)
 
 ;; flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
@@ -86,7 +74,6 @@
 ;'(load "bookmark+.el")
 ;(require 'bookmark+)
 (setq bookmark-save-flag 1)   ;; autosave each change)
-(setq inhibit-splash-screen t)
 (bookmark-bmenu-list)
 
 
@@ -153,13 +140,14 @@
 
 
   ;; pdb.el
-  (load-file "~/.emacs.d/plugins/pdb-mode/pdb-mode.el")
-  (setq pdb-rasmol-name "/usr/bin/pymol")
-  (setq auto-mode-alist
+(load-file "~/.emacs.d/plugins/pdb-mode/pdb-mode.el")
+(setq pdb-rasmol-name "/usr/bin/pymol")
+(setq auto-mode-alist
        (cons (cons "pdb$" 'pdb-mode)
-             auto-mode-alist ) )
-  (autoload 'pdb-mode "PDB")
-
+            auto-mode-alist ) )
+(autoload 'pdb-mode "PDB")
+;; Need to add
+(setq pdb-rasmol-name "open -a PyMOL.app ")
 
 ;; @markdown
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -268,22 +256,6 @@
 
 ;; change format for statistics in orgmode
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
-
-;; @plugins
-(load "~/workspace/emacs-env/my-plugins.el")
-
-;; @writing
-(load "~/workspace/emacs-env/my-writing.el")
-
-;; @writing
-(load "~/workspace/emacs-env/my-theme.el")
-
-;; @writing
-(load "~/workspace/emacs-env/my-web-dev.el")
-
-;; @writing
-(load "~/workspace/emacs-env/my-python.el")
-
 
 ;; https://stackoverflow.com/questions/2020941/how-can-i-hide-the-backup-files-that-emacs-creates
 ;; Don't clutter up directories with files~
@@ -963,12 +935,25 @@ output file. %i path(s) are relative, while %o is absolute.")
 (require 'modeline-posn)
 (size-indication-mode 1)
 
-;; Need to add
-(setq pdb-rasmol-name "open -a PyMOL.app ")
-
 (require 'hipster-theme)
 
 (setq-default indent-tabs-mode)
+
+;; @plugins
+(load "~/workspace/emacs-env/my-plugins.el")
+
+;; @writing
+(load "~/workspace/emacs-env/my-writing.el")
+
+;; @writing
+(load "~/workspace/emacs-env/my-theme.el")
+
+;; @writing
+(load "~/workspace/emacs-env/my-web-dev.el")
+
+;; @writing
+(load "~/workspace/emacs-env/my-python.el")
+
 ;(require 'grammarly)
 ;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
 ;;;;;;;;;
