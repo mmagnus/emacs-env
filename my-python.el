@@ -168,5 +168,6 @@
 ;(elpy-enable)
 (define-key global-map (kbd "C-c i") 'iedit-mode)
 
+(add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
 (setq-default flycheck-flake8-maximum-line-length 160)
 ;;; my-python.el ends here

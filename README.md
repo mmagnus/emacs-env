@@ -55,6 +55,8 @@ sphinx-doc <https://github.com/naiquevin/sphinx-doc.el>
 # Install
 
     pip install jedi epc pylint
+    in ~/.emacs
+    (load-file "~/workspace/emacs-env/dot-emacs.el")
 
 # To test
 
