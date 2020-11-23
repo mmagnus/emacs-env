@@ -947,6 +947,7 @@ output file. %i path(s) are relative, while %o is absolute.")
 
 (require 'hipster-theme)
 
+(setq-default indent-tabs-mode)
 ;(require 'grammarly)
 ;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
 ;;;;;;;;;
