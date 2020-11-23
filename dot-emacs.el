@@ -968,6 +968,7 @@ output file. %i path(s) are relative, while %o is absolute.")
 
 (require 'hipster-theme)
 
+;; https://www.reddit.com/r/emacs/comments/2krnx8/i_cant_get_4_space_indentation_to_work_at_all/
 (setq-default indent-tabs-mode)
 ;(require 'grammarly)
 ;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
