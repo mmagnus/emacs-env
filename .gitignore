@@ -14,7 +14,6 @@ session*
 nxhtml
 rinari-master
 django-mode
-archive/
 backup/
 elpa/
 url/

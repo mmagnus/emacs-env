@@ -2,6 +2,9 @@
 
 <p align="center"><b>Emacs is my rifle. There are many editors like it, but this one is mine. </br>Without me, my rifle is useless. Without my rifle, I am useless.</b></p>
 
+<p align="center">
+I've been using Emacs ❤️ for over 13 (since 2007) years now. This's my config file :-) it might be useful for someone. http://mmagnus.github.io/emacs-env/</p>
+
 ![](screenshot.png)
 Fig. Python Mode (python-outline - old)
 

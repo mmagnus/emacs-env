@@ -1,3 +1,7 @@
+;;; dot-emacs.el --- Magnus Env
+;;; Commentary:
+;;;  https://github.com/mmagnus/emacs-env
+;;; Code:
 (global-set-key "\C-cR" 'rename-buffer)
 (global-set-key "\C-cl" 'locate)
 (global-set-key "\C-cq" 'grep)
@@ -389,18 +393,34 @@
 ")
      ("w" "Todo Work" entry
       (file+headline "~/iCloud/geekbook/notes/work-curr.org" "#inbox")
-      "* TODO %?  %i %a")) t)
- '(org-clock-mode-line-total 'current)
- '(org-indent-indentation-per-level 5)
- '(org-indent-mode-turns-on-hiding-stars f)
- '(package-selected-packages
-   '(fuzzy python-mode git-gutter tj3-mode cyphejor olivetti modeline-posn github-notifier company ## visual-regexp zen-mode darkroom guess-language ein yaml-mode docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode markdown-mode paredit org-autolist load-theme-buffer-local flycheck-inline org-download monokai-alt-theme sublime-themes python-docstring flyspell-correct-popup flyspell-lazy dic-lookup-w3m build-status flycheck-color-mode-line flymd flycheck-pyflakes django-mode web-narrow-mode jedi github-theme color-theme-buffer-local uimage csv-mode w3m org-gcal google-this langtool org-random-todo emojify el-pocket blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode sphinx-frontend sphinx-doc auto-complete-rst ac-helm python ipython outline-magic writeroom-mode tidy synonyms stem skype python-pylint python-pep8 projectile multi-term markdown-mode+ magit-tramp jabber hipster-theme helm-ispell helm google-translate git-rebase-mode git-commit-mode focus flymake-python-pyflakes flymake flycheck fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eimp ecb dictionary color-theme cl-generic calfw-gcal calfw auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R))
- '(pdf-view-midnight-colors '("#969896" . "#f8eec7") t)
- '(py-keep-windows-configuration t)
- '(safe-local-variable-values '((ispell-dictionary . "polish")))
- '(send-mail-function nil)
- '(show-paren-mode t)
- '(synonyms-cache-file
+      "* TODO %?  %i %a")) t) '(org-clock-mode-line-total
+  'current) '(org-indent-indentation-per-level 5)
+  '(org-indent-mode-turns-on-hiding-stars f)
+  '(package-selected-packages '(python-mode git-gutter tj3-mode
+  cyphejor olivetti modeline-posn github-notifier company ##
+  visual-regexp zen-mode darkroom guess-language ein yaml-mode
+  docker-tramp dockerfile-mode ac-anaconda markdown-preview-mode
+  markdown-mode paredit org-autolist load-theme-buffer-local
+  flycheck-inline org-download monokai-alt-theme sublime-themes
+  python-docstring flyspell-correct-popup flyspell-lazy
+  dic-lookup-w3m build-status flycheck-color-mode-line flymd
+  flycheck-pyflakes django-mode web-narrow-mode jedi github-theme
+  color-theme-buffer-local uimage csv-mode w3m org-gcal
+  google-this langtool org-random-todo emojify el-pocket
+  blank-mode ido-vertical-mode ox-gfm auto-org-md sphinx-mode
+  sphinx-frontend sphinx-doc auto-complete-rst ac-helm python
+  ipython outline-magic writeroom-mode tidy synonyms stem skype
+  python-pylint python-pep8 projectile multi-term markdown-mode+
+  magit-tramp jabber hipster-theme helm-ispell helm
+  google-translate git-rebase-mode git-commit-mode focus
+  flymake-python-pyflakes flymake flycheck fiplr
+  exec-path-from-shell ess-smart-underscore ess-R-object-popup
+  eimp ecb dictionary color-theme cl-generic calfw-gcal calfw
+  auto-dictionary ac-slime ac-python ac-php-core ac-ispell ac-R))
+  '(pdf-view-midnight-colors '("#969896" . "#f8eec7") t)
+  '(py-keep-windows-configuration t) '(safe-local-variable-values
+  '((ispell-dictionary . "polish"))) '(send-mail-function nil)
+  '(show-paren-mode t) '(synonyms-cache-file
    "/Users/magnus/iCloud/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
  '(synonyms-file
    "/Users/magnus/iCloud/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt")
@@ -440,6 +460,7 @@
 
 (message "Emacs temp:")
 (message emacs-tmp-dir)
+
 
 ;; speed up emacs
 (use-package auto-complete
