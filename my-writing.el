@@ -1,3 +1,6 @@
+(setq ac-auto-show-menu 0.8)
+(setq ac-cadidate-limit 10)
+
 ;; visual mode ;; works! https://www.emacswiki.org/emacs/VisualLineMode
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'org-mode 'turn-on-visual-line-mode)
@@ -49,7 +52,35 @@
   '(progn
      (ac-ispell-setup)))
 
-(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'org-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
+;(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+;(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+;(add-hook 'org-mode-hook 'ac-ispell-ac-setup)
+;(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
+
+;; my darkmode
+;(setq darkroom-text-scale-increase 0)
+(setq scroll-margin 10)
+(setq frame-border-width 10)
+(setq set-window-margins 10)
+
+
+(defun dark()
+  (interactive)
+  (font-lock-mode)
+  (setq-default left-margin-width 60 right-margin-width 60) ; Define new widths.
+  (set-face-attribute 'fringe nil :background "#000" :foreground "#2E2920")
+  (set-window-buffer nil (current-buffer)) ; Use them now.
+  )
+
+(defun undark()
+  (interactive)
+  (font-lock-mode)
+	    (setq-default left-margin-width 1 right-margin-width 1) ; Define new widths.
+	    (set-face-attribute 'fringe nil :background "#000" :foreground "#2E2920")
+	    (set-window-buffer nil (current-buffer)) ; Use them now.
+	    )
+
+(global-set-key "\C-cD" 'dark)
+(global-set-key "\C-cU" 'undark)
+(global-set-key "\C-cN" 'narrow-to-region)
+(global-set-key "\C-cW" 'writeroom-mode)
