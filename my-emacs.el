@@ -185,19 +185,6 @@
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "pl")
 
-
-
-;; SETTINGS -----------------------------------------------------------------
-
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(markdown-code-face ((t (:inherit Green :background "Black")))))
-
 ; '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
 
 ;; OrgMode ----------------------------------------------------------
@@ -764,16 +751,11 @@ output file. %i path(s) are relative, while %o is absolute.")
 
 ;;;;
 (org-mode)
-(find-file-other-window "/Users/magnus/iCloud/geekbook/notes/life-curr.org")
-(load "/Users/magnus/workspace/emacs-env/org-mode-clock-bar.el")
-(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
-                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
-(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
-(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
-;;;;;;;;;;;;;
+(setq org-clock-current-task "dupa")
 
 ;;;;
 (org-mode)
+(find-file-other-window "/Users/magnus/iCloud/geekbook/notes/life-curr.org")
 (load "/Users/magnus/workspace/emacs-env/org-mode-clock-bar.el")
 (add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
                                      (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
