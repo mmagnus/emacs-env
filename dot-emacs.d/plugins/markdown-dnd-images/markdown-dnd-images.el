@@ -78,7 +78,7 @@
 ;;;###autoload
 (defcustom dnd-protocol-alist
   `((,(purecopy "^file:///")  . dnd-open-local-file)	; XDND format.
-    (,(purecopy "^file://")   . dnd-open-file)		; URL with host
+    (,(purecopy "^file://.*jpg")   . dnd-open-file)		; URL with host
     (,(purecopy "^file:")     . dnd-open-local-file)	; Old KDE, Motif, Sun
     (,(purecopy "^\\(https?\\|ftp\\|file\\|nfs\\)://") . dnd-open-file)
    )
