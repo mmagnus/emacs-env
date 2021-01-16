@@ -902,15 +902,6 @@ output file. %i path(s) are relative, while %o is absolute.")
   (define-key gif-screencast-mode-map (kbd "<f9>") 'gif-screencast-stop))
 
 
-(org-mode)
-(find-file-other-window "/Users/magnus/iCloud/geekbook/notes/life-curr.org")
-(load "/Users/magnus/workspace/emacs-env/org-mode-clock-bar.el")
-(add-hook 'org-clock-in-hook (lambda () (orgmode-clocking-in))) ;;))
-                                     (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
-(add-hook 'org-clock-out-hook (lambda () (orgmode-clocking-out)))
-(call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
-
-
 ;(require 'grammarly)
 ;(add-hook 'markdown-mode-hook 'flyspell-grammarly)
 (provide 'dot-emacs)
