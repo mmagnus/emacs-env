@@ -31,10 +31,6 @@
 ;; https://github.com/realgud/realgud/wiki/ANSI-Terminal-Escape-appearing-in-Buffers
 (setenv "TERM" "dumb")
 
-;; let make happy all emacs clients
-(server-start)
-(setq inhibit-startup-message t)
-(setq inhibit-splash-screen t)
 
 ;; # bookmark+ http://www.emacswiki.org/emacs/bookmark%2B-doc.el http://www.cs.cmu.edu/cgi-bin/info2www?%28emacs%29Bookmarks
 ;'(load "bookmark+.el")
@@ -63,24 +59,9 @@
 ; '(default ((t (:family "Monaco" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
 
 ;; https://www.reddit.com/r/emacs/comments/5gkf33/show_clocking_time_of_current_task_to_file/
-;; https://stackoverflow.com/questions/2020941/how-can-i-hide-the-backup-files-that-emacs-creates
-;; Don't clutter up directories with files~
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-;(setq dotfiles-dir (file-name-directory (or load-file-name (buffer-file-name))))
-;(setq backup-directory-alist `(("." . ,(expand-file-name
- ;                                   (concat dotfiles-dir "backups")))))
-
-;; Don't clutter with #files either
-;(setq auto-save-file-name-transforms
-;      `((".*" ,(expand-file-name (concat dotfiles-dir "backups")))))
-
 
 ;; https://www.emacswiki.org/emacs/NoTabs
 ;(setq-default indent-tabs-mode nil)
-
 
 ;; images in emacs
 ;(define-key markdown-mode-map (kbd "C-c R") 'markdown-display-inline-images)

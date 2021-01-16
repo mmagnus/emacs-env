@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;;  https://github.com/mmagnus/emacs-env
 ;;; Code:
+(server-start)
+
 (load-file "/Users/magnus/workspace/emacs-env/mac.el")
 (load-file "/Users/magnus/workspace/emacs-env/shortcuts.el")
 (load-file "/Users/magnus/workspace/emacs-env/emacs.el")
