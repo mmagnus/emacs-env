@@ -6,4 +6,3 @@
  (message cmd)
  )
 (global-set-key (kbd "C-c [") 'geekbook-open-page)
-

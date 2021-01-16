@@ -15,6 +15,9 @@
 
 ;;https://stackoverflow.com/questions/4532024/different-color-themes-per-mode-in-emacs?rq=1
 
+(set-face-attribute 'default nil :font "Monaco 14") ;; :foreground "#00FF00")
+;; Monaco ;; Consolas
+
 (defun w ()
   (interactive)
   ;(focus-mode)
@@ -85,12 +88,7 @@
   (set-cursor-color "#000")
   )
 
-
-;(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(scroll-bar-mode -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(require 'hipster-theme)
-(scroll-bar-mode)
-
-
-(provide 'my-theme.el)

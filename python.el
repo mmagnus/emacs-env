@@ -3,6 +3,13 @@
 (setenv "PYTHONPATH" (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'"))
 ;;(getenv "PYTHONPATH")
 
+;; https://www.reddit.com/r/emacs/comments/2krnx8/i_cant_get_4_space_indentation_to_work_at_all/
+(setq-default indent-tabs-mode)
+
+;; for evoclust mapping in python mode to see comments more clearly
+(add-to-list 'auto-mode-alist '("ref\\.txt\\'" . python-mode))
+(add-to-list 'auto-mode-alist '(".recipe" . python-mode))
+
 
 (require 'yasnippet)
 (yas/global-mode 1)
@@ -170,4 +177,9 @@
 
 (add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
 (setq-default flycheck-flake8-maximum-line-length 160)
+
 ;;; my-python.el ends here
+;;https://www.emacswiki.org/emacs/DeletingWhitespace#toc3
+;(add-hook 'python-mode-hook
+;	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
