@@ -1,10 +1,4 @@
 ;; My plugnins ----------------------------------------------------------
-  ;; Insert curr date use with Geekbook
-  ;; http://www.emacswiki.org/emacs/InsertingTodaysDate
-(defun insert-current-date () (interactive)
-     ;(insert (shell-command-to-string "echo -n '--' && echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d)
-     (insert (shell-command-to-string "echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d-%a)
-(global-set-key (kbd "C-c .") 'insert-current-date)
 
 (defun insert-current-date-orgmode () (interactive)
      ;(insert (shell-command-to-string "echo -n '--' && echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d)

@@ -2,14 +2,15 @@
 ;;; Commentary:
 ;;;  https://github.com/mmagnus/emacs-env
 ;;; Code:
-(server-start)
 
 (load-file "/Users/magnus/workspace/emacs-env/mac.el")
 (load-file "/Users/magnus/workspace/emacs-env/shortcuts.el")
 (load-file "/Users/magnus/workspace/emacs-env/emacs.el")
 (load-file "/Users/magnus/workspace/emacs-env/orgmode.el")
 (load-file "/Users/magnus/workspace/emacs-env/theme.el")
-
+(load-file "/Users/magnus/workspace/emacs-env/dnd.el")
+(load-file "/Users/magnus/workspace/emacs-env/powerline.el")
+	  
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,6 +29,7 @@
  '(exec-path-from-shell-check-startup-files nil)
  '(fci-rule-color "#969896")
  '(indicate-empty-lines t)
+
  '(jedi:tooltip-method nil t)
  '(linum-format " %5i ")
  '(magit-git-executable "git")

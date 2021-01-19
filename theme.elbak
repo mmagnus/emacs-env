@@ -153,38 +153,10 @@ want to use in the modeline *in lieu of* the original.")
 
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
-
           
-;; https://emacs.stackexchange.com/questions/16545/make-names-of-major-modes-shorter-in-the-mode-line
-(setq
- cyphejor-rules
- '(:upcase
-   ("bookmark"    "→")
-   ("buffer"      "β")
-   ("diff"        "Δ")
-   ("dired"       "δ")
-   ("emacs"       "ε")
-   ("fundamental" "Ⓕ")
-   ("projectile"  "P" :prefix)
-   ("inferior"    "i" :prefix)
-   ("interaction" "i" :prefix)
-   ("interactive" "i" :prefix)
-   ("lisp"        "λ" :postfix)
-   ("menu"        "▤" :postfix)
-   ("mode"        "")
-   ("package"     "↓")
-   ("python"      "π")
-   ("shell"       "sh" :postfix)
-   ("text"        "ξ")
-   ("FlyC"        "FC")
-   ("eldoc"        "Doc" :prefix)
-   ("Git:master"        "master")
-   ("wdired"      "↯δ")))
-
-(require 'modeline-posn)
-(size-indication-mode 1)
 
 
-(cyphejor-mode 1)
+
+
 
 (provide 'theme.el)
