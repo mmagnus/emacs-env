@@ -10,6 +10,10 @@
 (load-file "/Users/magnus/workspace/emacs-env/theme.el")
 (load-file "/Users/magnus/workspace/emacs-env/dnd.el")
 (load-file "/Users/magnus/workspace/emacs-env/powerline.el")
+(load-file "/Users/magnus/workspace/emacs-env/geekbook.el")
+(load-file "/Users/magnus/workspace/emacs-env/writing.el")
+(load-file "/Users/magnus/workspace/emacs-env/markdown.el")
+(load-file "/Users/magnus/workspace/emacs-env/compile.el")
 	  
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
