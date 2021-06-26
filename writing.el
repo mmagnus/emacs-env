@@ -11,3 +11,11 @@
   (interactive)
   (darkroom-mode)
   )
+(defun iawriter ()
+  (interactive)
+  (call-process-shell-command (concat "open -a iAwriter ~/iCloud/geekbook/notes/" (buffer-name)))
+  (message (concat "open -a iAwriter ~/iCloud/geekbook/notes/" (buffer-name)))
+  )
+
+(global-set-key "\C-cw" 'iawriter)
+;;
