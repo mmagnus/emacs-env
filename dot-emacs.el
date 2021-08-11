@@ -14,6 +14,8 @@
 (load-file "/Users/magnus/workspace/emacs-env/writing.el")
 (load-file "/Users/magnus/workspace/emacs-env/markdown.el")
 (load-file "/Users/magnus/workspace/emacs-env/compile.el")
+(load-file "/Users/magnus/.emacs.d/plugins/diff-hl/diff-hl.el")
+(global-diff-hl-mode)
 	  
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
