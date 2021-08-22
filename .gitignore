@@ -48,3 +48,5 @@ synonimous
 dot-emacs.d/plugins/ale
 .emacs.desktop*
 bucket*
+.cache
+flycheck*elc
