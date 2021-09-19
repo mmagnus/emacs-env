@@ -49,52 +49,52 @@
    '(("o" "work*.org Agenda and all TODO's"
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org"))))))
+		 '("~//geekbook/notes/work-curr.org" "~//geekbook/notes/inbox.org"))))))
      ("O" "work*.org Agenda and all TODO's "
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org"))))
+		 '("~//geekbook/notes/work-curr.org" "~//geekbook/notes/inbox.org"))))
        (alltodo ""
 		((org-agenda-files
-		  '("~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/inbox.org"))))))
+		  '("~//geekbook/notes/work-curr.org" "~//geekbook/notes/inbox.org"))))))
      ("j" "curr*.org A"
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/work-curr.org" "~/iCloud/geekbook/notes/orgmode/skills-curr.org"))))))
+		 '("~//geekbook/notes/life-curr.org" "~//geekbook/notes/work-curr.org" "~//geekbook/notes/orgmode/skills-curr.org"))))))
      (":" "life*.org A+T"
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org"))))
+		 '("~//geekbook/notes/life-curr.org" "~//geekbook/notes/inbox.org"))))
        (alltodo ""
 		((org-agenda-files
-		  '("~/iCloud/geekbook/notes/life-archive.org" "~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/orgmode/life-today.org"))))))
+		  '("~//geekbook/notes/life-archive.org" "~//geekbook/notes/life-curr.org" "~//geekbook/notes/orgmode/life-today.org"))))))
      (";" "life*.org Agenda only"
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org"))))))
+		 '("~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org"))))))
      ("k" "s[k]ills Agenda and all TODO's "
       ((agenda ""
 	       ((org-agenda-files
-		 '("~/iCloud/geekbook/notes/skills-curr.org"))))
+		 '("~/geekbook/notes/skills-curr.org"))))
        (alltodo ""
 		((org-agenda-files
-		  '("~/iCloud/geekbook/notes/skills-curr.org"))))))
+		  '("~/geekbook/notes/skills-curr.org"))))))
      ("n" "TODO's Agenda and all"
       ((agenda "" nil)
        (alltodo "" nil))
       nil)))
  '(org-agenda-files
-   '("~/iCloud/geekbook/notes/life-curr.org" "~/iCloud/geekbook/notes/inbox.org" "~/iCloud/geekbook/notes/work-curr.org"))
+   '("~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org" "~/geekbook/notes/work-curr.org"))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span 'day)
  '(org-capture-templates
    '(("t" "Todo Life" entry
-      (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+      (file+headline "~/geekbook/notes/life-curr.org" "#inbox")
       "* %?
   %i
   %a")
      ("x" "Test" entry
-      (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+      (file+headline "~/geekbook/notes/life-curr.org" "#inbox")
       "** TODO %^{Description} [why] %^{why} [why not] %^{why not}
   %?
   :LOGBOOK:
@@ -103,9 +103,10 @@
   %a
 ")
      ("w" "Todo Work" entry
-      (file+headline "~/iCloud/geekbook/notes/work-curr.org" "#inbox")
-      "* TODO %?  %i %a")) t)
+      (file+headline "~/geekbook/notes/work-curr.org" "#inbox")
+      "* TODO %?  %i %a")))
  '(org-clock-mode-line-total 'current)
+ '(org-duration-format 'h:mm t)
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars f)
  '(package-selected-packages
