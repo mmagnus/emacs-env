@@ -10,6 +10,7 @@
 (load-file "/Users/magnus/workspace/emacs-env/theme.el")
 (load-file "/Users/magnus/workspace/emacs-env/dnd.el")
 ;(load-file "/Users/magnus/workspace/emacs-env/powerline.el")
+(load-file "/Users/magnus/workspace/emacs-env/projectile.el")
 (load-file "/Users/magnus/workspace/emacs-env/geekbook.el")
 (load-file "/Users/magnus/workspace/emacs-env/defuns.el")
 (load-file "/Users/magnus/workspace/emacs-env/writing.el")
