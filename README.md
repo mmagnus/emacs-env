@@ -100,8 +100,10 @@ The newest markdown-mode introduced `markdown-max-image-size` for resizing large
 
 # Keybindings
 
-
-    shell (term) \C-xt
+	C-ci iawriter
+	C-ct typora
+	
+    shell (term) C-xt
     emacs-lisp-mode: add C-c C-c (like with Python) and C-c r for eval-buffer and eval-region
 
     Writing:
@@ -142,6 +144,8 @@ The newest markdown-mode introduced `markdown-max-image-size` for resizing large
     C-x n n narrow text
     C-x n w widen text
 
+	C-c w iawriter
+	
 # If you want to use VI in your Emacs ;-)
 
 Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from Wayfair is back to talk to us about his recent experience using Emacs (what?!?!). That's right, Emacs. Aaron decided it was time to see how things looked on the other side and will share what he found, what he missed from Vim, and maybe even a few things we can bring back to Vim from Emacs. <https://www.youtube.com/watch?v=JWD1Fpdd4Pc>

@@ -17,9 +17,17 @@
   )
 (defun iawriter ()
   (interactive)
-  (call-process-shell-command (concat "open -a iAwriter ~/iCloud/geekbook/notes/" (buffer-name)))
-  (message (concat "open -a iAwriter ~/iCloud/geekbook/notes/" (buffer-name)))
+  (call-process-shell-command (concat "open -a iAwriter ~/geekbook/notes/" (buffer-name)))
+  (message (concat "open -a iAwriter ~/geekbook/notes/" (buffer-name)))
   )
 
 (global-set-key "\C-cw" 'iawriter)
+
+(defun typora ()
+  (interactive)
+  (call-process-shell-command (concat "open -a Typora ~/geekbook/notes/" (buffer-name)))
+  (message (concat "open -a Typora ~/geekbook/notes/" (buffer-name)))
+  )
+
+(global-set-key "\C-ct" 'typora)
 ;;
