@@ -1,3 +1,7 @@
+;(require 'predictive)
+; https://company-mode.github.io
+(add-hook 'after-init-hook 'global-company-mode)
+
 (global-set-key "\C-c+" 'write)
 (global-set-key "\C-c_" 'darkroom-mode)
 

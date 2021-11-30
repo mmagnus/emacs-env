@@ -31,9 +31,9 @@
 
 
 ;; https://www.youtube.com/watch?v=6BlTGPsjGJk
-(require 'auto-complete-config)
-(ac-config-default)
-
+;(require 'auto-complete-config)
+;(ac-config-default)
+; off, use company
 
 ;; pycoverage
 (require 'pycoverage)
