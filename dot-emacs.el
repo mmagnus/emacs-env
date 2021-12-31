@@ -3,6 +3,8 @@
 ;;;  https://github.com/mmagnus/emacs-env
 ;;; Code:
 ; keep this simple to speed up my system ;-)
+(setq python-python-command "/Users/magnus/miniconda3/bin/python")
+
 (load-file "/Users/magnus/workspace/emacs-env/mac.el")
 (load-file "/Users/magnus/workspace/emacs-env/shortcuts.el")
 (load-file "/Users/magnus/workspace/emacs-env/emacs.el")
