@@ -114,7 +114,7 @@
        (alltodo "" nil))
       nil)))
  '(org-agenda-files
-   '("~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org" "~/geekbook/notes/work-curr.org"))
+   '( "~/geekbook/notes/work-curr.org" "~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org"))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span 'day)
  '(org-capture-templates
