@@ -184,4 +184,4 @@
  '(default ((t (:background nil))))
  '(markdown-url-face ((t (:inherit font-lock-string-face :foreground "gray20")))))
 (put 'downcase-region 'disabled nil)
-
+(setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
