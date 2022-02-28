@@ -1,3 +1,9 @@
+;; https://stackoverflow.com/questions/61684949/time-formatting-for-org-clocktable-report
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-duration-format 'h:mm)
+(setq org-agenda-start-on-weekday 1)
 ;;
 (setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" "WAITING" "IDEA" "DONE"))))
 (setq org-todo-keyword-faces
@@ -26,3 +32,48 @@
 (lambda ()
    (interactive)
      (org-agenda-refile nil nil t))
+
+;;
+(setq geekbook_path "/Users/magnus/geekbook/")
+(setq org-directory (concat geekbook_path "notes"))
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+(setq org-mobile-files '( "~/geekbook/notes/work-curr.org" "~/geekbook/notes/life-curr.org"  "~/geekbook/notes/skills-curr.org"))
+;; "~/iCloud/geekbook/notes/inbox.org"
+(setq org-mobile-inbox-for-pull "~/geekbook/notes/life-curr.org")
+(put 'upcase-region 'disabled nil)
+
+;(org-mobile-pull)
+; org-mobile update
+(add-hook 'after-init-hook 'org-mobile-pull)
+(add-hook 'after-init-hook 'org-mobile-push)
+(add-hook 'kill-emacs-hook 'org-mobile-push)
+(add-hook 'kill-emacs-hook 'org-mobile-pull)
+(define-key global-map "\C-cI" 'org-mobile-pull)
+(define-key global-map "\C-cU" 'org-mobile-push)
+
+
+
+(defun pull-inbox () (interactive)
+       (find-file-other-window "/Users/magnus/iCloud/geekbook/notes/inbox.org")
+       (end-of-buffer)
+       (org-mobile-pull)
+       (org-mobile-push)
+       )
+
+;(define-key global-map "\C-cI" 'pull-inbox)
+(global-set-key (kbd "C-c o i") 'pull-inbox)
+
+(defun work-open () (interactive)
+       (find-file-other-window "/Users/magnus/geekbook/notes/work-curr.org")
+       )
+(global-set-key (kbd "C-c o w") 'work-open)
+
+(defun today-open () (interactive)
+       (find-file-other-window "/Users/magnus/geekbook/notes/week.md")
+       )
+(global-set-key (kbd "C-c o t") 'today-open)
+
+(defun life-open () (interactive)
+       (find-file-other-window "/Users/magnus/geekbook/notes/life-curr.org")
+       )
+(global-set-key (kbd "C-c o l") 'life-open)
