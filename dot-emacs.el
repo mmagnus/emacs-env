@@ -17,7 +17,7 @@
 (load-file "/Users/magnus/workspace/emacs-env/defuns.el")
 (load-file "/Users/magnus/workspace/emacs-env/writing.el")
 (load-file "/Users/magnus/workspace/emacs-env/markdown.el")
-(load-file "/Users/magnus/workspace/emacs-env/compile.el")
+(load-file "/Users/magnus/workspace/emacs-env/compilex.el")
 (load-file "/Users/magnus/workspace/emacs-env/programming.el")
 (load-file "/Users/magnus/workspace/emacs-env/python.el")
 (load-file "/Users/magnus/workspace/emacs-env/temp.el")
