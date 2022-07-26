@@ -13,6 +13,6 @@
 2 ; LINE
 )))
 (add-to-list 'compilation-error-regexp-alist 'tasking)
-(setq compilation-scroll-output 'first-error)
+;(setq compilation-scroll-output 'first-error)
 (setq compilation-always-kill t)
 (print compilation-error-regexp-alist)
