@@ -14,8 +14,6 @@ Fig. Python Mode (python-outline - old)
 
 Fig. Geekbook (Markdown) + Jupyter (IPython notebook)
 
-I've been using Emacs for over 10 years now. This's my config file :-) it might be useful for someone.
-
 I'm using:
 
 - `OrgMode` <http://orgmode.org/>
