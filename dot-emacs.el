@@ -56,6 +56,7 @@
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(bmkp-last-as-first-bookmark-file "/Users/magnus/.emacs.d/bookmarks")
+ '(bookmark-save-flag t)
  '(column-number-mode t)
  '(compilation-scroll-output t)
  '(csv-separators '(","))
