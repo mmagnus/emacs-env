@@ -184,6 +184,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(markdown-pre-face ((t (:inherit font-lock-string-face :foreground "gray50"))))
  '(markdown-url-face ((t (:inherit font-lock-string-face :foreground "gray20")))))
 (put 'downcase-region 'disabled nil)
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
