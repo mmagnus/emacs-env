@@ -190,6 +190,12 @@
  '(markdown-url-face ((t (:inherit font-lock-string-face :foreground "gray20")))))
 (put 'downcase-region 'disabled nil)
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
+
+; https://emacs.stackexchange.com/questions/17543/tramp-mode-is-much-slower-than-using-terminal-to-ssh
+;(setq remote-file-name-inhibit-cache nil)
+;(load-file "/Users/magnus/workspace/emacs-env/powerline.el")
+(setq magit-remote-git-executables "/usr/bin/git")
+
 ;https://stackoverflow.com/questions/13397737/ansi-coloring-in-compilation-mode
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
