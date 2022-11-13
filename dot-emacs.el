@@ -197,3 +197,16 @@
   (ansi-color-apply-on-region compilation-filter-start (point))
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+
+; https://emacs.stackexchange.com/questions/42239/how-to-disable-all-the-minor-modes-when-a-specific-major-mode-is-enabled-with
+(defun disable-all-minor-modes ()
+  (interactive)
+  (mapc
+   (lambda (mode-symbol)
+     (when (functionp mode-symbol)
+       ;; some symbols are functions which aren't normal mode functions
+       (ignore-errors 
+         (funcall mode-symbol -1))))
+   minor-mode-list))
+
