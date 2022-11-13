@@ -11,7 +11,6 @@
 (load-file "/Users/magnus/workspace/emacs-env/orgmode.el")
 (load-file "/Users/magnus/workspace/emacs-env/theme.el")
 (load-file "/Users/magnus/workspace/emacs-env/dnd.el")
-;(load-file "/Users/magnus/workspace/emacs-env/powerline.el")
 (load-file "/Users/magnus/workspace/emacs-env/projectile.el")
 (load-file "/Users/magnus/workspace/emacs-env/geekbook.el")
 (load-file "/Users/magnus/workspace/emacs-env/defuns.el")
@@ -25,6 +24,7 @@
 (load-file "/Users/magnus/workspace/emacs-env/rna.el")
 
 (load-file "/Users/magnus/workspace/OrgModeClockingXBar/OrgModeClockingXBar.el")
+
 ;(with-eval-after-load 'flycheck
 ;  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
@@ -68,7 +68,7 @@
  '(fci-rule-color "#969896")
  '(flycheck-pos-tip-mode t)
  '(indicate-empty-lines t)
- '(jedi:tooltip-method nil)
+ '(jedi:tooltip-method nil t)
  '(linum-format " %5i ")
  '(magit-git-executable "git")
  '(markdown-fontify-code-blocks-natively t)
@@ -150,6 +150,7 @@
  '(safe-local-variable-values '((ispell-dictionary . "polish")))
  '(send-mail-function nil)
  '(show-paren-mode t)
+ '(org-startup-truncated t)
  '(size-indication-mode t)
  '(synonyms-cache-file
    "/Users/magnus/iCloud/workspace/emacs-env/dot-emacs.d/synonimous/mthesaur.txt.cache")
@@ -195,6 +196,8 @@
 ;(setq remote-file-name-inhibit-cache nil)
 ;(load-file "/Users/magnus/workspace/emacs-env/powerline.el")
 (setq magit-remote-git-executables "/usr/bin/git")
+
+;(write-normal)
 
 ;https://stackoverflow.com/questions/13397737/ansi-coloring-in-compilation-mode
 (require 'ansi-color)
