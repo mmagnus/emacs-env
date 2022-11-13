@@ -21,10 +21,10 @@
 (load-file "/Users/magnus/workspace/emacs-env/programming.el")
 (load-file "/Users/magnus/workspace/emacs-env/python.el")
 (load-file "/Users/magnus/workspace/emacs-env/temp.el")
-(load-file "/Users/magnus/workspace/emacs-env/org-mode-clock-bar.el")
 (load-file "/Users/magnus/workspace/emacs-env/dot-emacs.d/plugins/calendar-add-events/calendar-add-events.el")
 (load-file "/Users/magnus/workspace/emacs-env/rna.el")
 
+(load-file "/Users/magnus/workspace/OrgModeClockingXBar/OrgModeClockingXBar.el")
 ;(with-eval-after-load 'flycheck
 ;  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
