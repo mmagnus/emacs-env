@@ -162,5 +162,24 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
 - 07XXXX I started using Emacs, in the 3rd year of my studies, "forced" by Dr. Murzyn (thank you!)(http://bioinfo.mol.uj.edu.pl/modmol/People/KrzysztofMurzyn)
 # The latest
 
-	C-c C-s r # random()
+	C-c o r # random()
+	C-c o R # randomf()
 	toggle-truncate-lines
+	C-c o s insert-safari
+	
+# Quickref
+
+```elisp
+(defun random ()
+  (interactive)
+  (insert (shell-command-to-string "/Users/magnus/bin/random")))
+
+(global-set-key (kbd "C-c o r") 'random)
+
+(defun randomf ()
+  (interactive)
+  (insert (shell-command-to-string "/Users/magnus/bin/randomf")))
+
+(global-set-key (kbd "C-c o R") 'randomf)
+
+```
