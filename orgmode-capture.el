@@ -1,11 +1,15 @@
 (setq org-capture-templates
       '(
+        ("i" "inbox" entry
+         (file "~/geekbook/notes/inbox.org")
+         "* TODO %?\n  %i\n  %a")
+
         ("t" "Todo Life" entry
-         (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+         (file+headline "~/geekbook/notes/life-curr.org" "#inbox")
          "* TODO %?\n  %i\n  %a")
 
         ("x" "Test" entry
-         (file+headline "~/iCloud/geekbook/notes/life-curr.org" "#inbox")
+         (file+headline "~/geekbook/notes/life-curr.org" "#inbox")
         "** TODO %^{Description} [why] %^{why} [why not] %^{why not}
   %?
   :LOGBOOK:
