@@ -1,7 +1,7 @@
 ;;(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
-(defvar tempfile "tmp.csv")
+(defvar tempfile "tmp_shortcuts.el.csv")
 (defun save-region-and-run ()
    "Save region to a tempfile and run Grammarly on it."
    (interactive)
@@ -12,4 +12,4 @@
    ;(insert "<<here>>\n")
    ;(insert-file-contents tempfile)
    )
-(global-set-key (kbd "C-c C-g") 'save-region-and-run)
+;(global-set-key (kbd "C-c C-g") 'save-region-and-run)
