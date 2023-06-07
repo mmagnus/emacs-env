@@ -21,5 +21,7 @@
 (define-key markdown-mode-map (kbd "M-<left>") 'markdown-promote)
 (define-key markdown-mode-map (kbd "M-<right>") 'markdown-demote)
 
+(define-key markdown-mode-map (kbd "C-c C-s t") 'markdown-toc-refresh-toc)
+
 ;; markdown-asymmetric-header - set to a non-nil value to use asymmetric header styling, placing header characters only on the left of headers (default: nil). https://jblevins.org/projects/markdown-mode/!
 (setq markdown-asymmetric-header t)
