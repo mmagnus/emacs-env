@@ -19,6 +19,7 @@
 (load-file "/Users/magnus/workspace/emacs-env/writing.el")
 (load-file "/Users/magnus/workspace/emacs-env/markdown.el")
 (load-file "/Users/magnus/workspace/emacs-env/emacs.el")
+(load-file "/Users/magnus/workspace/emacs-env/dnd.el")
 (load-file "/Users/magnus/workspace/OrgModeClockingXBar/OrgModeClockingXBar.el")
 (load-file "/Users/magnus/workspace/emacs-env/dot-emacs.d/plugins/calendar-add-events/calendar-add-events.el")
 
