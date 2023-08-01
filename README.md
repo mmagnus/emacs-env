@@ -167,7 +167,8 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
 	C-c o R # randomf() # with emacs-orgmode-issue::XXXXXXXXXX
 	toggle-truncate-lines 
 	C-c o s insert-safari
-	
+	M-, # lsp jump back
+ 
 # Quickref
 
 ```elisp
