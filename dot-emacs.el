@@ -11,20 +11,20 @@
 
 (setq python-python-command "/Users/magnus/miniconda3/bin/python")
 
-(load-file "/Users/magnus/workspace/emacs-env/shortcuts.el")
-(load-file "/Users/magnus/workspace/emacs-env/mac.el")
-(load-file "/Users/magnus/workspace/emacs-env/theme.el")
-(load-file "/Users/magnus/workspace/emacs-env/writing.el")
-(load-file "/Users/magnus/workspace/emacs-env/markdown.el")
-(load-file "/Users/magnus/workspace/emacs-env/emacs.el")
-(load-file "/Users/magnus/workspace/emacs-env/pdb.el")
-(load-file "/Users/magnus/workspace/emacs-env/random.el")
-(load-file "/Users/magnus/workspace/emacs-env/projectile.el")
-(load-file "/Users/magnus/workspace/emacs-env/dnd.el")
-(load-file "/Users/magnus/workspace/emacs-env/temp.el")
-	  (load-file "/Users/magnus/workspace/emacs-env/git.el")
-	  (load-file "/Users/magnus/workspace/OrgModeClockingXBar/OrgModeClockingXBar.el")
-(load-file "/Users/magnus/workspace/emacs-env/dot-emacs.d/plugins/calendar-add-events/calendar-add-events.el")
+(load-file "~/.emacs.d/elisp/shortcuts.el")
+(load-file "~/.emacs.d/elisp/mac.el")
+;(load-file "~/.emacs.d/theme.el")
+;(load-file "~/.emacs.d/writing.el")
+(load-file "~/.emacs.d/elisp/markdown.el")
+(load-file "~/.emacs.d/elisp/emacs.el")
+;(load-file "~/.emacs.d/pdb.el")
+;(load-file "~/.emacs.d/random.el")
+;(load-file "~/.emacs.d/projectile.el")
+(load-file "~/.emacs.d/elisp/dnd.el")
+(load-file "~/.emacs.d/elisp/temp.el")
+(load-file "~/.emacs.d/elisp/git.el")
+(load-file "~/.emacs.d/plugins/calendar-add-events/calendar-add-events.el")
+(load-file "/Users/magnus/workspace/OrgModeClockingXBar/OrgModeClockingXBar.el")
 
 ;(with-eval-after-load 'flycheck
 ;  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
@@ -35,7 +35,7 @@
 ;(global-visual-line-mode t) this fucks bookmarks etc
 (setq visible-bell 1)
 (global-auto-revert-mode 1)
-(load-file "/Users/magnus/.emacs.d/plugins/diff-hl/diff-hl.el")
+(load-file "~/.emacs.d/plugins/diff-hl/diff-hl.el")
 (require 'modeline-posn)
 (size-indication-mode 1)
 (global-diff-hl-mode)
@@ -147,7 +147,7 @@
       (file+headline "~/geekbook/notes/work-curr.org" "#inbox")
       "* TODO %?  %i %a")))
  '(org-clock-mode-line-total 'current)
- '(org-duration-format 'h:mm)
+ '(org-duration-format 'h:mm t)
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(org-indent-indentation-per-level 5)
@@ -187,9 +187,9 @@
 (customize-set-variable 'tramp-use-ssh-controlmaster-options nil)
 ;;#(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 	  
-(load-file "/Users/magnus/workspace/emacs-env/insert-safari.el")
-(load-file "/Users/magnus/workspace/emacs-env/dot-emacs.d/elisp/compilex.el")
-(load-file "/Users/magnus/workspace/emacs-env/orgmode.el")
+(load-file "~/.emacs.d/elisp/insert-safari.el")
+(load-file "~/.emacs.d/elisp/compile.el")
+(load-file "~/.emacs.d/elisp/orgmode.el")
 
 
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
@@ -200,7 +200,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Cascadia Code" :foundry "nil" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:background nil :family "Cascadia Code" :foundry "nil" :slant normal :weight light :height 141 :width normal)))))
 
 ;(require 'sr-speedbar)
 
@@ -213,6 +213,6 @@
 ;(require 'zen-mode)
 
 ; 2023 new python toys
-(load-file "/Users/magnus/workspace/emacs-env/python.el")
-(load-file "/Users/magnus/workspace/emacs-env/theme.el")
-(load-file "/Users/magnus/workspace/emacs-env/theme2.el")
+;(load-file "~/.emacs.d/python.el")
+;(load-file "~/.emacs.d/theme.el")
+;(load-file "~/.emacs.d/theme2.el")

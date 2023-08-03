@@ -1,0 +1,12 @@
+(defvar tempfile "tmp_shortcuts.el.csv")
+(defun save-region-and-run ()
+   "Save region to a tempfile and run Grammarly on it."
+   (interactive)
+   (write-region (region-beginning) (region-end) tempfile)
+   (recompile)
+   ;(call-process-shell-command (concat grammarly-cmd grammarly-tempfile))
+   ;(kill-region (region-beginning) (region-end))
+   ;(insert "<<here>>\n")
+   ;(insert-file-contents tempfile)
+   )
+;(global-set-key (kbd "C-c C-g") 'save-region-and-run)
