@@ -1,8 +1,20 @@
 (use-package python-mode
   :ensure t
+  :hook (python-mode . lsp-deferred)
   :custom
-  (python-shell-interpreter "python3")
-  :hook (python-mode . lsp-deferred))
+  ;; NOTE: Set these if Python 3 is called "python3" on your system!
+  ;; (python-shell-interpreter "python3")
+  ;; (dap-python-executable "python3")
+  (dap-python-debugger 'debugpy)
+  :config
+  (require 'dap-python))
+
+(use-package lsp-mode
+  :hook
+  ((python-mode . lsp)))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
 
 (use-package tramp
  :ensure nil
@@ -24,12 +36,3 @@
                     :major-modes '(python-mode)
                     :remote? t
                     :server-id 'pyls-remote))
-
-(use-package lsp-ui
-    :after lsp
-    :hook (lsp-mode . lsp-ui-mode)
-    :config
-    (setq lsp-ui-sideline-enable t)
-    (setq lsp-ui-sideline-show-hover nil)
-    (setq lsp-ui-doc-position 'bottom)
-    (lsp-ui-doc-show))

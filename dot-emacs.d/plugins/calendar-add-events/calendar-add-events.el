@@ -3,13 +3,25 @@
 ;; change iCloud to a name of your calendar
 (require 'f)
 
-(defvar calendar-tempfile "/home/magnus/Desktop/calendar.scpt")
-(defvar calendar-cmd "osascript /home/magnus/Desktop/calendar.scpt")
+(defvar calendar-tempfile "/tmp/calendar.scpt")
+(defvar calendar-cmd "osascript /tmp/calendar.scpt")
 
 (defun calendar-add-event()
   "Save region as an event to a calendar."
   (interactive)
-  (setq event (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+  (setq event 
+     (string-trim-left
+      (s-replace "INPROGRESS" ""
+            (s-replace "TODO" ""
+                       (s-replace "*" ""
+                                  (s-replace "[#C]" ""
+                                             (s-replace "[#B]" ""
+                                                        (s-replace "[#A]" ""
+                                                                   (buffer-substring-no-properties
+                                                                    (line-beginning-position)
+                                                                    (line-end-position))))))))))
+
+  ;; (setq event (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
   (setq contents (concat "tell application \"Calendar\"
 	activate
 	tell calendar \"iCloud\"
