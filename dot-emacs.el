@@ -8,7 +8,10 @@
 ;(set-face-attribute 'default nil :font "Cascadia Code 14" :weight light)
 ;(set-face-attribute 'default nil :font "Monospace" :height 140 :weight light)
 (set-frame-font "Cascadia Code Light 14" nil t)
-	  
+
+;; https://stackoverflow.com/questions/24196020/how-to-stop-emacs-from-contaminating-the-clipboard
+(setq x-select-enable-clipboard nil)
+
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
