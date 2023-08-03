@@ -60,13 +60,32 @@
  '(csv-separators '(";"))
  '(custom-enabled-themes '(hipster))
  '(custom-safe-themes
-   '("3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "5aa819909f6ae87b5425cc94c325aa9fd55e3deb55edb25136bedc6d3eaab6a1" "855eb24c0ea67e3b64d5d07730b96908bac6f4cd1e5a5986493cbac45e9d9636" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default))
+   '("58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "d1ede12c09296a84d007ef121cd72061c2c6722fcb02cb50a77d9eae4138a3ff" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "5aa819909f6ae87b5425cc94c325aa9fd55e3deb55edb25136bedc6d3eaab6a1" "855eb24c0ea67e3b64d5d07730b96908bac6f4cd1e5a5986493cbac45e9d9636" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "ed5af4af1d148dc4e0e79e4215c85e7ed21488d63303ddde27880ea91112b07e" "9a2dcb3d7c42d508d5bb78eef98c8e9a71ec4ef8bd88a6677e3c237c73fa20eb" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" default))
  '(desktop-save-mode 1)
+ '(hl-todo-keyword-faces
+   '(("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2d9574")
+     ("PROG" . "#3a81c3")
+     ("OKAY" . "#3a81c3")
+     ("DONT" . "#f2241f")
+     ("FAIL" . "#f2241f")
+     ("DONE" . "#42ae2c")
+     ("NOTE" . "#b1951d")
+     ("KLUDGE" . "#b1951d")
+     ("HACK" . "#b1951d")
+     ("TEMP" . "#b1951d")
+     ("FIXME" . "#dc752f")
+     ("XXX+" . "#dc752f")
+     ("\\?\\?\\?+" . "#dc752f")))
+ '(linum-format " %7i ")
  '(magit-git-executable "git")
  '(markdown-fontify-code-blocks-natively t)
  '(markdown-hr-string "------------------------")
  '(markdown-max-image-size '(800 . 600))
  '(menu-bar-mode nil)
+ '(nrepl-message-colors
+   '("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896"))
  '(org-agenda-custom-commands
    '(("o" "work*.org Agenda and all TODO's"
       ((agenda ""
@@ -89,7 +108,7 @@
 		 '("~//geekbook/notes/life-curr.org" "~//geekbook/notes/inbox.org"))))
        (alltodo ""
 		((org-agenda-files
-		  '("~//geekbook/notes/life-archive.org" "~//geekbook/notes/life-curr.org" "~//geekbook/notes/orgmode/life-today.org"))))))
+		  '("~//geekbook/notes/life-archive.org" "~/geekbook/notes/work-curr.org" "~//geekbook/notes/life-curr.org" "~//geekbook/notes/orgmode/life-today.org"))))))
      (";" "life*.org Agenda only"
       ((agenda ""
 	       ((org-agenda-files
@@ -106,7 +125,7 @@
        (alltodo "" nil))
       nil)))
  '(org-agenda-files
-   '("~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org"))
+   '("~/geekbook/notes/work-curr.org" "~/geekbook/notes/life-curr.org" "~/geekbook/notes/inbox.org"))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-span 'day)
  '(org-capture-templates
@@ -129,6 +148,8 @@
       "* TODO %?  %i %a")))
  '(org-clock-mode-line-total 'current)
  '(org-duration-format 'h:mm)
+ '(org-fontify-done-headline nil)
+ '(org-fontify-todo-headline nil)
  '(org-indent-indentation-per-level 5)
  '(org-indent-mode-turns-on-hiding-stars f)
  '(org-remove-property-drawers-from-render-output t)
@@ -136,7 +157,8 @@
  '(org-todo-repeat-to-state "")
  '(org-use-property-inheritance '("Effort"))
  '(package-selected-packages
-   '(sr-speedbar zen-mode web-narrow-mode visual-regexp uuidgen uimage tramp-auto-auth tj3-mode tidy test-simple synonyms sublime-themes spotlight sphinx-mode sphinx-frontend sphinx-doc spacemacs-theme skype skewer-mode semi request-deferred rainbow-mode quelpa-use-package python-pylint python-pep8 python-mode python-docstring pytest pyenv-mode pycoverage paredit ox-gfm outline-magic org-random-todo org-ql org-download org-bullets org-autolist multi-term monokai-alt-theme modeline-posn markdown-toc markdown-preview-mode markdown-mode+ lsp-ui lsp-pyright lsp-grammarly load-theme-buffer-local langtool keytar keycast jabber ipython ido-vertical-mode hipster-theme helm-projectile helm-ispell guess-language gptel google-translate google-this github-theme github-notifier gif-screencast general forge focus flyspell-lazy flyspell-correct-popup flymd flymake-python-pyflakes flymake-aspell flymake flycheck-pyflakes flycheck-pos-tip flycheck-popup-tip flycheck-inline flycheck-grammarly flycheck-grammalecte flycheck-color-mode-line flycheck-aspell fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eshell-git-prompt emojify el-pocket ein eimp ecb dockerfile-mode docker-tramp django-mode disk-usage dictionary dic-lookup-w3m demo-it dashboard darkroom dap-mode cyphejor csv-mode company-jedi color-theme-buffer-local cl-generic chatgpt camcorder calfw-gcal calfw build-status blank-mode auto-yasnippet auto-org-md auto-dictionary auto-correct auto-complete-rst ac-slime ac-python ac-php-core ac-ispell ac-helm ac-anaconda ac-R))
+   '(powerline sr-speedbar zen-mode web-narrow-mode visual-regexp uuidgen uimage tramp-auto-auth tj3-mode tidy test-simple synonyms sublime-themes spotlight sphinx-mode sphinx-frontend sphinx-doc spacemacs-theme skype skewer-mode semi request-deferred rainbow-mode quelpa-use-package python-pylint python-pep8 python-mode python-docstring pytest pyenv-mode pycoverage paredit ox-gfm outline-magic org-random-todo org-ql org-download org-bullets org-autolist multi-term monokai-alt-theme modeline-posn markdown-toc markdown-preview-mode markdown-mode+ lsp-ui lsp-pyright lsp-grammarly load-theme-buffer-local langtool keytar keycast jabber ipython ido-vertical-mode hipster-theme helm-projectile helm-ispell guess-language gptel google-translate google-this github-theme github-notifier gif-screencast general forge focus flyspell-lazy flyspell-correct-popup flymd flymake-python-pyflakes flymake-aspell flymake flycheck-pyflakes flycheck-pos-tip flycheck-popup-tip flycheck-inline flycheck-grammarly flycheck-grammalecte flycheck-color-mode-line flycheck-aspell fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eshell-git-prompt emojify el-pocket ein eimp ecb dockerfile-mode docker-tramp django-mode disk-usage dictionary dic-lookup-w3m demo-it dashboard darkroom dap-mode cyphejor csv-mode company-jedi color-theme-buffer-local cl-generic chatgpt camcorder calfw-gcal calfw build-status blank-mode auto-yasnippet auto-org-md auto-dictionary auto-correct auto-complete-rst ac-slime ac-python ac-php-core ac-ispell ac-helm ac-anaconda ac-R))
+ '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(size-indication-mode t)
  '(sr-speedbar-right-side nil)
  '(tool-bar-mode nil)
@@ -152,9 +174,9 @@
  '(markdown-url-face ((t (:inherit font-lock-string-face :foreground "gray20"))))
 	  
 ;https://stackoverflow.com/questions/445873/how-can-i-make-emacs-mouse-scrolling-slower-and-smoother
-;(setq mouse-wheel-progressive-speed nil) ; could be too fast
-;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-;(setq scroll-step 2)
+(setq mouse-wheel-progressive-speed nil) ; could be too fast
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq scroll-step 2)
 
 (set-cursor-color "#00ccff")
 
@@ -164,15 +186,11 @@
 (require 'tramp)
 (customize-set-variable 'tramp-use-ssh-controlmaster-options nil)
 ;;#(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-(add-to-list 'tramp-remote-path "/n/eddy_lab/users/mmagnus/miniconda3/bin/")
-
 	  
 (load-file "/Users/magnus/workspace/emacs-env/insert-safari.el")
 (load-file "/Users/magnus/workspace/emacs-env/dot-emacs.d/elisp/compilex.el")
 (load-file "/Users/magnus/workspace/emacs-env/orgmode.el")
 
-; 2023 new python toys
-(load-file "/Users/magnus/workspace/emacs-env/python.el")
 
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 ;;(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
@@ -182,10 +200,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil :family "Cascadia Code" :foundry "nil" :slant normal :weight normal :height 120 :width normal)))))
 
 ;(require 'sr-speedbar)
 
 ;; (setq helm-projectile-fuzzy-match nil)
-(require 'helm-projectile)
-(helm-projectile-on)
+;(require 'helm-projectile)
+;(helm-projectile-on)
+
+
+;(load-file "~/.emacs.d/plugins/zen-mode/zen-mode.el")
+;(require 'zen-mode)
+
+; 2023 new python toys
+(load-file "/Users/magnus/workspace/emacs-env/python.el")
+(load-file "/Users/magnus/workspace/emacs-env/theme.el")
+(load-file "/Users/magnus/workspace/emacs-env/theme2.el")

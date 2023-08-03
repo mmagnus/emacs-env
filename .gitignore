@@ -51,3 +51,6 @@ dot-emacs.d/plugins/ale
 bucket*
 .cache
 flycheck*elc
+bucket/
+archive/
+.DS_Store
