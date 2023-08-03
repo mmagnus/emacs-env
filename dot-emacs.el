@@ -3,6 +3,11 @@
 ;;;  https://github.com/mmagnus/emacs-env
 ;;; Code:
 ; keep this simple to speed up my system ;-)
+
+;(set-face-attribute 'default nil :family "Cascadia Code" :foundry "nil" :slant normal :weight light :height 150 :width normal)
+;(set-face-attribute 'default nil :font "Cascadia Code 14" :weight light)
+;(set-face-attribute 'default nil :font "Monospace" :height 140 :weight light)
+(set-frame-font "Cascadia Code Light 14" nil t)
 	  
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
@@ -195,13 +200,6 @@
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 ;;(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Cascadia Code" :foundry "nil" :slant normal :weight light :height 169 :width normal)))))
-
 ;(require 'sr-speedbar)
 
 ;; (setq helm-projectile-fuzzy-match nil)
