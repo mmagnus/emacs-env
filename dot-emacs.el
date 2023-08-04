@@ -8,9 +8,11 @@
 ;(set-face-attribute 'default nil :font "Cascadia Code 14" :weight light)
 ;(set-face-attribute 'default nil :font "Monospace" :height 140 :weight light)
 (set-frame-font "Cascadia Code Light 14" nil t)
+;(set-frame-font "Menlo 14" nil t)
+(set-mouse-color "")
 
 ;; https://stackoverflow.com/questions/24196020/how-to-stop-emacs-from-contaminating-the-clipboard
-(setq x-select-enable-clipboard nil)
+;(setq x-select-enable-clipboard nil)
 
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
@@ -217,3 +219,6 @@
 (load-file "~/.emacs.d/elisp/python.el")
 ;(load-file "~/.emacs.d/theme.el")
 ;(load-file "~/.emacs.d/theme2.el")
+; https://emacs-lsp.github.io/lsp-mode/page/performance/
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-log-io nil) ; if set to true can cause a performance hit
