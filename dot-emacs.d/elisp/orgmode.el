@@ -6,13 +6,14 @@
 (setq org-duration-format 'h:mm)
 (setq org-agenda-start-on-weekday 1)
 ;;
-(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" "WAITING" "HIGHLIGHT" "DONE"))))
+(setq org-todo-keywords (quote ((sequence "TODO" "INPROGRESS" "WAITING" "HIGHLIGHT" "CANCELLED" "DONE"))))
 (setq org-todo-keyword-faces
       '(
         ("TODO" . org-warning)
   	("INPROGRESS" . (:foreground "orange"))
   	("WAITING" . "violet")
   	("HIGHLIGHT" . (:foreground "black" :background "yellow"))
+  	("CANCELLED" . (:foreground "gray" :background "black"))
         ("DONE" . org-done)
   	))
 
