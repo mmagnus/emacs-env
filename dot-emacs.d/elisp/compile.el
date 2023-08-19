@@ -21,3 +21,18 @@
 
 (fancy-compilation-mode) ; Activate for future compilation.
 
+;;https://endlessparentheses.com/provide-input-to-the-compilation-buffer.html
+(require 'cl-lib)
+(defun endless/toggle-comint-compilation ()
+  "Restart compilation with (or without) `comint-mode'."
+  (interactive)
+  (cl-callf (lambda (mode) (if (eq mode t) nil t))
+      (elt compilation-arguments 1))
+  (recompile))
+
+(define-key compilation-mode-map (kbd "C-c i")
+  #'endless/toggle-comint-compilation)
+(define-key compilation-minor-mode-map (kbd "C-c i")
+  #'endless/toggle-comint-compilation)
+(define-key compilation-shell-minor-mode-map (kbd "C-c i")
+  #'endless/toggle-comint-compilation)
