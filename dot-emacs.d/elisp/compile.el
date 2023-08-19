@@ -18,6 +18,8 @@
 (print compilation-error-regexp-alist)
 
 (provide 'compilex)
+;(require 'compilation-mode)
+(add-to-list 'auto-mode-alist '("\\.compile\\'" . compilation-mode))
 
 (fancy-compilation-mode) ; Activate for future compilation.
 
