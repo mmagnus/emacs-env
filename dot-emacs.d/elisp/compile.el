@@ -18,3 +18,6 @@
 (print compilation-error-regexp-alist)
 
 (provide 'compilex)
+
+(fancy-compilation-mode) ; Activate for future compilation.
+
