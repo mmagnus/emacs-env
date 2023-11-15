@@ -9,7 +9,7 @@
 ;(set-face-attribute 'default nil :font "Monospace" :height 140 :weight light)
 (set-frame-font "Cascadia Code Light 14" nil t)
 ;(set-frame-font "Menlo 14" nil t)
-(set-mouse-color "")
+;(set-mouse-color "")
 
 ;; https://stackoverflow.com/questions/24196020/how-to-stop-emacs-from-contaminating-the-clipboard
 ;(setq x-select-enable-clipboard nil)
@@ -24,12 +24,12 @@
 (load-file "~/.emacs.d/elisp/shortcuts.el")
 (load-file "~/.emacs.d/elisp/mac.el")
 ;(load-file "~/.emacs.d/theme.el")
-;(load-file "~/.emacs.d/writing.el")
+(load-file "~/.emacs.d/elisp/writing.el")
 (load-file "~/.emacs.d/elisp/markdown.el")
 (load-file "~/.emacs.d/elisp/emacs.el")
-;(load-file "~/.emacs.d/pdb.el")
-;(load-file "~/.emacs.d/random.el")
-;(load-file "~/.emacs.d/projectile.el")
+(load-file "~/.emacs.d/elisp/bucket/pdb.el")
+(load-file "~/.emacs.d/elisp/bucket/random.el") 
+(load-file "~/.emacs.d/elisp/bucket/projectile.el")
 (load-file "~/.emacs.d/elisp/dnd.el")
 (load-file "~/.emacs.d/elisp/temp.el")
 (load-file "~/.emacs.d/elisp/git.el")
@@ -38,6 +38,7 @@
 
 ;(with-eval-after-load 'flycheck
 ;  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+
 
 (add-to-list 'load-path "~/.emacs.d/plugins/Highlight-Indentation-for-Emacs")
 (require 'highlight-indentation)
@@ -118,7 +119,7 @@
 		 '("~//geekbook/notes/life-curr.org" "~//geekbook/notes/inbox.org"))))
        (alltodo ""
 		((org-agenda-files
-		  '("~//geekbook/notes/life-archive.org" "~/geekbook/notes/work-curr.org" "~//geekbook/notes/life-curr.org" "~//geekbook/notes/orgmode/life-today.org"))))))
+		  '("~//geekbook/notes/life-archive.org" "~//geekbook/notes/life-curr.org" "~//geekbook/notes/orgmode/life-today.org"))))))
      (";" "life*.org Agenda only"
       ((agenda ""
 	       ((org-agenda-files
@@ -157,7 +158,7 @@
       (file+headline "~/geekbook/notes/work-curr.org" "#inbox")
       "* TODO %?  %i %a")))
  '(org-clock-mode-line-total 'current)
- '(org-duration-format 'h:mm t)
+ '(org-duration-format 'h:mm)
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(org-indent-indentation-per-level 5)
@@ -167,8 +168,9 @@
  '(org-todo-repeat-to-state "")
  '(org-use-property-inheritance '("Effort"))
  '(package-selected-packages
-   '(powerline sr-speedbar zen-mode web-narrow-mode visual-regexp uuidgen uimage tramp-auto-auth tj3-mode tidy test-simple synonyms sublime-themes spotlight sphinx-mode sphinx-frontend sphinx-doc spacemacs-theme skype skewer-mode semi request-deferred rainbow-mode quelpa-use-package python-pylint python-pep8 python-mode python-docstring pytest pyenv-mode pycoverage paredit ox-gfm outline-magic org-random-todo org-ql org-download org-bullets org-autolist multi-term monokai-alt-theme modeline-posn markdown-toc markdown-preview-mode markdown-mode+ lsp-ui lsp-pyright lsp-grammarly load-theme-buffer-local langtool keytar keycast jabber ipython ido-vertical-mode hipster-theme helm-projectile helm-ispell guess-language gptel google-translate google-this github-theme github-notifier gif-screencast general forge focus flyspell-lazy flyspell-correct-popup flymd flymake-python-pyflakes flymake-aspell flymake flycheck-pyflakes flycheck-pos-tip flycheck-popup-tip flycheck-inline flycheck-grammarly flycheck-grammalecte flycheck-color-mode-line flycheck-aspell fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eshell-git-prompt emojify el-pocket ein eimp ecb dockerfile-mode docker-tramp django-mode disk-usage dictionary dic-lookup-w3m demo-it dashboard darkroom dap-mode cyphejor csv-mode company-jedi color-theme-buffer-local cl-generic chatgpt camcorder calfw-gcal calfw build-status blank-mode auto-yasnippet auto-org-md auto-dictionary auto-correct auto-complete-rst ac-slime ac-python ac-php-core ac-ispell ac-helm ac-anaconda ac-R))
+   '(fancy-compilation powerline sr-speedbar zen-mode web-narrow-mode visual-regexp uuidgen uimage tramp-auto-auth tj3-mode tidy test-simple synonyms sublime-themes spotlight sphinx-mode sphinx-frontend sphinx-doc spacemacs-theme skype skewer-mode semi request-deferred rainbow-mode quelpa-use-package python-pylint python-pep8 python-mode python-docstring pytest pyenv-mode pycoverage paredit ox-gfm outline-magic org-random-todo org-ql org-download org-bullets org-autolist multi-term monokai-alt-theme modeline-posn markdown-toc markdown-preview-mode markdown-mode+ lsp-ui lsp-pyright lsp-grammarly load-theme-buffer-local langtool keytar keycast jabber ipython ido-vertical-mode hipster-theme helm-projectile helm-ispell guess-language gptel google-translate google-this github-theme github-notifier gif-screencast general forge focus flyspell-lazy flyspell-correct-popup flymd flymake-python-pyflakes flymake-aspell flymake flycheck-pyflakes flycheck-pos-tip flycheck-popup-tip flycheck-inline flycheck-grammarly flycheck-grammalecte flycheck-color-mode-line flycheck-aspell fiplr exec-path-from-shell ess-smart-underscore ess-R-object-popup eshell-git-prompt emojify el-pocket ein eimp ecb dockerfile-mode docker-tramp django-mode disk-usage dictionary dic-lookup-w3m demo-it dashboard darkroom dap-mode cyphejor csv-mode company-jedi color-theme-buffer-local cl-generic chatgpt camcorder calfw-gcal calfw build-status blank-mode auto-yasnippet auto-org-md auto-dictionary auto-correct auto-complete-rst ac-slime ac-python ac-php-core ac-ispell ac-helm ac-anaconda ac-R))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
+ '(projectile-mode t nil (projectile))
  '(size-indication-mode t)
  '(sr-speedbar-right-side nil)
  '(tool-bar-mode nil)
@@ -202,6 +204,7 @@
 (load-file "~/.emacs.d/elisp/orgmode.el")
 
 
+(global-set-key (kbd "C-c s") 'shell)
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 ;;(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
@@ -222,3 +225,54 @@
 ; https://emacs-lsp.github.io/lsp-mode/page/performance/
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-log-io nil) ; if set to true can cause a performance hit
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil)))))
+
+;; # python-add-breakpoint http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
+(defun python-add-breakpoint ()
+    (interactive)
+    ;;(py-newline-and-indent)
+    (insert "import ipdb; ipdb.set_trace()")
+    (highlight-lines-matching-regexp "^[  ]*import ipdb; ipdb.set_trace()")
+    )
+
+(require 'ein)
+(require 'ein-notebook)
+;(require 'ein-subpackages)
+;;
+
+
+(global-set-key (kbd "C-c b") 'python-add-breakpoint)
+(global-set-key (kbd "<backspace>") 'python-add-breakpoint)
+
+
+;(add-to-list 'load-path (concat user-emacs-directory "elisp/elgantt/")) ;; Or wherever it is located
+;(require 'elgantt)
+;(setq elgantt-header-column-offset 10)
+;	  (setq elgantt-timestamps-to-display '(deadline timestamp scheduled timestamp-range))
+;	  (setq elgantt-agenda-files (concat user-emacs-directory "elisp/elgantt/test.org"))
+;(setq elgantt-insert-blank-line-between-top-level-header nil)
+;(setq elgantt-agenda-files "/Users/magnus/workspace/emacs-env/dot-emacs.d/elisp/elgantt/test.org");/Users/magnus/geekbook/notes/life-curr.org")
+	  ;(setq elgantt-insert-header-even-if-no-timestamp 1)
+
+
+; lsp-mode
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\rna_tools/opt\\'")
+  ;; or
+  (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\rna_tools/opt\\'"))
+
+
+;;(global-set-key
+;(eval-after-load 'outline
+;  '(progn
+;    (require 'outline-magic)
+;    (define-key outline-minor-mode-map (kbd "<backtab>") 'outline-cycle)))
+;;
+
+
+;;
