@@ -77,12 +77,45 @@
 	(hide-body))))
 )
 
+(setq outline-show-only-headings 1)
 (defun python-outline () (interactive)
   "Python outline mode"
   (python-mode)
-  (outline-setup "^class \\|[ 	]*def \\|^#\\|^[ 	]*\"\"\""))
+					;(outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\\|^ *#") ;; works for full comments
+  ;(outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\\|^[ 	]*#")
+  (outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\n")
+
+  ;(outline-setup "^class")
+  ;(outline-regexp " *\\(def \\|clas\\|#hea\\)")
+  ;(outline-regexp "\"\"\".*\"\"\"") ; ###\\*+\\|\\`")
+;  (outline-regexp "^.+#")
+  )
+  ;(outline-setup "^class |^[ ]*#\\|^[ 	]*\"\"\"$"))
 
 (defun texi-outline () (interactive)
   "Texinfo outline mode"
   (texinfo-mode)
+
+;;   The expression "^@chap\\|@\\(sub\\)*section" is a regular expression, often used in text processing and pattern matching to search for specific patterns within a larger text. Let's break down this regular expression step by step:
+
+;; 1. "^": This symbol at the beginning of the expression signifies the start of a line. It matches the position at the start of a line.
+
+;; 2. "@chap": This part of the expression matches the exact string "@chap." It's looking for occurrences of "@chap" in the text.
+
+;; 3. "\\|": This is an OR operator in the regular expression. It allows you to search for multiple patterns. In this case, it separates two patterns.
+
+;; 4. "@": This matches the character "@".
+
+;; 5. "\\(sub\\)*": This part of the expression is using parentheses to group "sub" and the asterisk "*" after it indicates that the "sub" can appear zero or more times consecutively. So, it's looking for "sub," "subsub," "subsubsub," etc.
+
+;; 6. "section": This part matches the exact string "section."
+
+;; Putting it all together:
+;; - "^@chap" matches lines that start with "@chap."
+;; - "@\\(sub\\)*section" matches lines that contain "@section," "@subsection," "@subsubsection," and so on.
+
+;; In summary, the regular expression "^@chap\\|@\\(sub\\)*section" is used to find lines in text that start with "@chap" or contain any level of section headings that start with "@section," "@subsection," "@subsubsection," and so forth. It's a versatile pattern for matching chapter and section headers in a document or code.
+
   (outline-setup "^@chap\\|@\\(sub\\)*section"))
+
+(message "outline-ext.el loaded...")

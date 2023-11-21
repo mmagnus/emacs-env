@@ -37,5 +37,9 @@
                     :remote? t
                     :server-id 'pyls-remote))
 
+
 (load-file "~/.emacs.d/elisp/outline-ext.el")
 (define-key lsp-mode-map (kbd "C-c C-o") 'python-outline)
+;;;; 
+;(outline-minor-mode)
+;(load-file "~/.emacs.d/elisp/python-mode-outline-mode.el")
