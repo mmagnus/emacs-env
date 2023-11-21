@@ -80,7 +80,7 @@
 (defun python-outline () (interactive)
   "Python outline mode"
   (python-mode)
-  (outline-setup "^class \\|[ 	]*def \\|^#"))
+  (outline-setup "^class \\|[ 	]*def \\|^#\\|^[ 	]*\"\"\""))
 
 (defun texi-outline () (interactive)
   "Texinfo outline mode"
