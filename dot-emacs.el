@@ -247,7 +247,7 @@
 
 
 (global-set-key (kbd "C-c b") 'python-add-breakpoint)
-(global-set-key (kbd "<backspace>") 'python-add-breakpoint)
+;(global-set-key (kbd "<backspace>") 'python-add-breakpoint)
 
 
 ;(add-to-list 'load-path (concat user-emacs-directory "elisp/elgantt/")) ;; Or wherever it is located
