@@ -170,6 +170,7 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
     M-q  toggle-truncate-lines
 	meta is cmd on mac
 	M-, # lsp jump back
+        C-c o i org-capture
 
 # Quickref
 
