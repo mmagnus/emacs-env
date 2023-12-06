@@ -83,7 +83,7 @@
   (python-mode)
 					;(outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\\|^ *#") ;; works for full comments
   ;(outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\\|^[ 	]*#")
-  (outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\".*\"\"\"\n")
+  (outline-setup "^class \\|[ 	]*def \\|[ 	]*\"\"\"");.*\"\"\"\n") ;; with the second part is only lines with """xxx"""
 
   ;(outline-setup "^class")
   ;(outline-regexp " *\\(def \\|clas\\|#hea\\)")
