@@ -276,3 +276,6 @@
 
 
 ;;
+;; you really only need one of these
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
