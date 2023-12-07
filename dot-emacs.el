@@ -275,7 +275,15 @@
 ;;
 
 
-;;
+;; from chatgpt
+(defun open-file-at-point ()
+  "Open the file path under the cursor."
+  (interactive)
+  (let ((file (thing-at-point 'filename)))
+    (when file
+      (find-file file))))
+(global-set-key (kbd "C-c O") 'open-file-at-point)
+
 ;; you really only need one of these
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
