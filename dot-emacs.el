@@ -287,3 +287,7 @@
 ;; you really only need one of these
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
+
+;; also for .el231207
+(add-to-list 'auto-mode-alist '("\\.el" . emacs-lisp-mode))
+
