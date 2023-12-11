@@ -307,3 +307,6 @@
 (load-file "~/.emacs.d/tokens.el")
 
 (load-file "~/workspace/emacs-send-to-chatgpt/emacs-send-to-chatgpt.el")
+(add-to-list 'load-path "/Users/magnus/.emacs.d/plugins/copilot.el")
+(require 'copilot)
+(add-hook 'prog-mode-hook 'copilot-mode)

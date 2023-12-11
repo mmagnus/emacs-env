@@ -172,6 +172,7 @@ Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs. Aaron Bieber from 
 	M-, # lsp jump back
         C-c o i org-capture
 
+Installed manually into plugins. https://github.com/zerolfx/copilot.el 
 # Quickref
 
 ```elisp
