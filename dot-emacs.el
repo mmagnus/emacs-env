@@ -1,3 +1,4 @@
+;;; Intro
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -169,3 +170,5 @@
   (add-hook 'prog-mode-hook 'outline-minor-mode)
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
+;;; git
+(load-file "~/.emacs.d/elisp/git.el")
