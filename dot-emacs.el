@@ -4,8 +4,40 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
+
+(require 'tramp)
+;; this config works with eddy ;;
+(customize-set-variable 'tramp-use-ssh-controlmaster-options nil)
+(setq tramp-connection-timeout 60)
+(setq tramp-debug-buffer t)
+
+
+;; run as a server
+;; let make happy all emacs clients
+(setq inhibit-startup-message t)
+(setq inhibit-splash-screen t)
+
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
+(add-to-list 'auto-mode-alist '("\\.el\\'" . emacs-lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.elbak\\'" . emacs-lisp-mode))
+
+(server-start)
+; so you will not have bl\<a new line> 
+(visual-line-mode)
+
+;; Insert curr date use with Geekbook <http://www.emacswiki.org/emacs/InsertingTodaysDate>
+(defun insert-current-date () (interactive)
+     ;(insert (shell-command-to-string "echo -n '--' && echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d)
+     (insert (shell-command-to-string "echo -n $(date +%y%m%d)"))) ;; echo -n $(date +%y%m%d-%a)
+(global-set-key (kbd "C-c .") 'insert-current-date)
+
+
+(require 'yasnippet)
+(yas/global-mode 1)
+
 ;(set-frame-font "Monaco 14" nil t)
 
+;(set-face-attribute 'default nil :family "Cascadia Code Light 14" :height 140)
 (set-face-attribute 'default nil :family "Menlo" :height 140)
 
 (load-file "~/.emacs.d/elisp/shortcuts.el")
@@ -149,6 +181,9 @@
 ;; END
 ;(set-frame-font "Cascadia Code 20" nil t)
 
+(load-file "~/.emacs.d/elisp/outline-ext.el")
+(global-set-key (kbd "C-c C-o") 'python-outline)
+
 ;;; elips
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 
@@ -157,7 +192,7 @@
 (load-file "~/.emacs.d/elisp/orgmode.el")
 
 ;;; writing
-;(load-file "~/.emacs.d/elisp/writing.el")
+(load-file "~/.emacs.d/elisp/writing.el")
 
 (use-package bicycle
   :after outline
@@ -172,3 +207,12 @@
 
 ;;; git
 (load-file "~/.emacs.d/elisp/git.el")
+;;; Insert Safari
+(load-file "~/.emacs.d/elisp/insert-safari.el")
+
+;;; Shell
+(global-set-key (kbd "C-c s") 'eshell)
+
+;;; geekbook
+(load-file "~/.emacs.d/elisp/dnd.el")
+;(load-file "~/.emacs.d/elisp/geekbook.el")
