@@ -216,3 +216,5 @@
 ;;; geekbook
 (load-file "~/.emacs.d/elisp/dnd.el")
 ;(load-file "~/.emacs.d/elisp/geekbook.el")
+;;; Random
+(load-file "~/.emacs.d/elisp/bucket/random.el") 
